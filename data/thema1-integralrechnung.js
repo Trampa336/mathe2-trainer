@@ -10,200 +10,582 @@ window.MATHE2_DATA.themen.push({
   untertitel: "Integrationsmethoden, bestimmte & uneigentliche Integrale, numerische Integration, Anwendungen",
   einfuehrung: `**Worum geht es?** Zu einer Funktion $f$ eine Stammfunktion $F$ finden (unbestimmtes Integral) und damit Flächen, Längen und Volumina berechnen (bestimmtes Integral, Hauptsatz). Die Klausur-Kernfähigkeit ist das **Erkennen der richtigen Methode**: Vereinfachen? Substitution? Partiell? PBZ? Danach kommen Sonderfälle (unendliche Grenzen, Polstellen) und die geometrischen Anwendungen.`,
   bloecke: [
-    { titel: "Integrationsmethoden", intro: `Der Werkzeugkasten, aufeinander aufbauend: erst die **Grundintegrale** und Potenzregeln (alles andere wird darauf zurückgeführt), dann **lineare** und **allgemeine Substitution** (innere Funktion erkennen!), dann **partielle Integration** (für Produkte). Der Methoden-Mix am Ende trainiert das Entscheiden ohne Vorgabe – genau das passiert in der Klausur.`, aufgaben: ["t1-a01","t1-a02","t1-a03","t1-a04","t1-a05"] },
-    { titel: "Partialbruchzerlegung (PBZ)", intro: `Spezialmethode für **gebrochenrationale** Integranden $\\frac{p(x)}{q(x)}$. Immer dasselbe Schema: echt gebrochen? (sonst Polynomdivision) → Nenner faktorisieren → Ansatz → Koeffizienten bestimmen → Partialbrüche einzeln integrieren ($\\ln$, $\\frac{1}{(x-a)^k}$, $\\arctan$).`, aufgaben: ["t1-a06","t1-a07","t1-a08"] },
-    { titel: "Bestimmte, numerische & uneigentliche Integrale", intro: `Mit dem **Hauptsatz** werden aus Stammfunktionen Zahlen: $\\int_a^b f\\,dx=F(b)-F(a)$. Existiert keine elementare Stammfunktion (z.B. $e^{x^2}$), nähert man **numerisch** (Trapez-/Simpson-Regel). Bei unendlichen Grenzen oder Polstellen wird das Integral als **Grenzwert** definiert – die zentrale Frage ist dann: konvergent oder divergent?`, aufgaben: ["t1-a09","t1-a10","t1-a11","t1-a12","t1-a13","t1-a14"] },
-    { titel: "Geometrische Anwendungen", intro: `Hier zahlt sich alles aus: **Bogenlänge** $\\int\\sqrt{1+(f')^2}\\,dx$ (Trick: die Wurzel wird fast immer ein vollständiges Quadrat) und **Rotationskörper** ($V_x=\\pi\\int f^2dx$, $M_x=2\\pi\\int f\\sqrt{1+(f')^2}\\,dx$). Typische anwendungsnahe Klausuraufgaben mit Technik-Kontext.`, aufgaben: ["t1-a15","t1-a16","t1-a17","t1-a18"] },
+    { titel: "Integrationsmethoden", intro: `Der Werkzeugkasten, aufeinander aufbauend: erst die **Grundintegrale** und Potenzregeln (alles andere wird darauf zurückgeführt), dann **lineare** und **allgemeine Substitution** (innere Funktion erkennen!), dann **partielle Integration** (für Produkte). Der Methoden-Mix am Ende trainiert das Entscheiden ohne Vorgabe – genau das passiert in der Klausur.`, aufgaben: ["t1-a01a","t1-a01b","t1-a01c","t1-a01d","t1-a01e","t1-a01f","t1-a02a","t1-a02b","t1-a02c","t1-a02d","t1-a02e","t1-a02f","t1-a03a","t1-a03b","t1-a03c","t1-a03d","t1-a03e","t1-a03f","t1-a04a","t1-a04b","t1-a04c","t1-a04d","t1-a04e","t1-a04f","t1-a05b","t1-a05f","t1-a05g","t1-a05i","t1-a05k","t1-a05l"] },
+    { titel: "Partialbruchzerlegung (PBZ)", intro: `Spezialmethode für **gebrochenrationale** Integranden $\\frac{p(x)}{q(x)}$. Immer dasselbe Schema: echt gebrochen? (sonst Polynomdivision) → Nenner faktorisieren → Ansatz → Koeffizienten bestimmen → Partialbrüche einzeln integrieren ($\\ln$, $\\frac{1}{(x-a)^k}$, $\\arctan$).`, aufgaben: ["t1-a06a","t1-a06b","t1-a06c","t1-a07d","t1-a07e","t1-a07f","t1-a08"] },
+    { titel: "Bestimmte, numerische & uneigentliche Integrale", intro: `Mit dem **Hauptsatz** werden aus Stammfunktionen Zahlen: $\\int_a^b f\\,dx=F(b)-F(a)$. Existiert keine elementare Stammfunktion (z.B. $e^{x^2}$), nähert man **numerisch** (Trapez-/Simpson-Regel). Bei unendlichen Grenzen oder Polstellen wird das Integral als **Grenzwert** definiert – die zentrale Frage ist dann: konvergent oder divergent?`, aufgaben: ["t1-a09a","t1-a09b","t1-a09c","t1-a09d","t1-a09e","t1-a09f","t1-a10a","t1-a10b","t1-a10c","t1-a10f","t1-a11a","t1-a11b","t1-a11c","t1-a12a","t1-a12b","t1-a13a","t1-a13b","t1-a13c","t1-a14a","t1-a14b","t1-a14c","t1-a14d","t1-a14e","t1-a14f"] },
+    { titel: "Geometrische Anwendungen", intro: `Hier zahlt sich alles aus: **Bogenlänge** $\\int\\sqrt{1+(f')^2}\\,dx$ (Trick: die Wurzel wird fast immer ein vollständiges Quadrat) und **Rotationskörper** ($V_x=\\pi\\int f^2dx$, $M_x=2\\pi\\int f\\sqrt{1+(f')^2}\\,dx$). Typische anwendungsnahe Klausuraufgaben mit Technik-Kontext.`, aufgaben: ["t1-a15a","t1-a15b","t1-a15c","t1-a16","t1-a17a","t1-a17b","t1-a18a","t1-a18b"] },
   ],
   aufgaben: [
     {
-      id: "t1-a01",
+      id: "t1-a01a",
       typ: "Rechentechnik",
-      titel: "Grundintegrale & Potenzregeln",
-      quelle: "Übungsblatt 1, Aufgabe 1",
+      titel: "Grundintegrale & Potenzregeln (a)",
+      quelle: "Übungsblatt 1, Aufgabe 1a",
       schwierigkeit: 1,
-      aufgabe: `Lösen Sie die folgenden unbestimmten Integrale:
-$$\\text{(a)}\\ \\int\\Big(x^2+2x+\\tfrac1x\\Big)\\,dx \\qquad \\text{(b)}\\ \\int\\frac{10x^5-1}{x^2}\\,dx \\qquad \\text{(c)}\\ \\int\\Big(\\tfrac{1}{\\sqrt{x}}-\\tfrac{1}{\\sqrt[3]{x^2}}\\Big)\\,dx$$
-$$\\text{(d)}\\ \\int\\frac{x-4}{\\sqrt[3]{x^4}}\\,dx \\qquad \\text{(e)}\\ \\int\\frac{2e^{2x}+e^{x+2}+3e^x}{e^x}\\,dx \\qquad \\text{(f)}\\ \\int\\big(-4\\cos(x)+3\\sin(x)\\big)\\,dx$$`,
+      aufgabe: `Lösen Sie das folgende unbestimmte Integral:
+$$\\int\\Big(x^2+2x+\\tfrac1x\\Big)\\,dx$$`,
       hinweis: `Brüche zuerst aufteilen ($\\frac{a\\pm b}{c}=\\frac ac\\pm\\frac bc$) und Wurzeln als Potenzen schreiben ($\\sqrt[n]{x^m}=x^{m/n}$). Dann gilt immer $\\int x^\\alpha dx=\\frac{1}{\\alpha+1}x^{\\alpha+1}+c$ (für $\\alpha\\neq -1$).`,
       schritte: [
-        { titel: "Teil (a)", text: `Summandenweise integrieren:
+        { titel: "Lösung", text: `Summandenweise integrieren:
 $$\\int x^2dx+\\int 2x\\,dx+\\int\\tfrac1x dx=\\frac{x^3}{3}+x^2+\\ln|x|+c$$` },
-        { titel: "Teil (b)", text: `Bruch aufteilen: $\\frac{10x^5-1}{x^2}=10x^3-x^{-2}$.
+      ],
+      ergebnis: `$\\frac{x^3}{3}+x^2+\\ln|x|+c$`,
+    },
+    {
+      id: "t1-a01b",
+      typ: "Rechentechnik",
+      titel: "Grundintegrale & Potenzregeln (b)",
+      quelle: "Übungsblatt 1, Aufgabe 1b",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie das folgende unbestimmte Integral:
+$$\\int\\frac{10x^5-1}{x^2}\\,dx$$`,
+      hinweis: `Brüche zuerst aufteilen ($\\frac{a\\pm b}{c}=\\frac ac\\pm\\frac bc$) und Wurzeln als Potenzen schreiben ($\\sqrt[n]{x^m}=x^{m/n}$). Dann gilt immer $\\int x^\\alpha dx=\\frac{1}{\\alpha+1}x^{\\alpha+1}+c$ (für $\\alpha\\neq -1$).`,
+      schritte: [
+        { titel: "Lösung", text: `Bruch aufteilen: $\\frac{10x^5-1}{x^2}=10x^3-x^{-2}$.
 $$\\int(10x^3-x^{-2})dx=\\frac{10}{4}x^4+x^{-1}+c=\\frac52 x^4+\\frac1x+c$$` },
-        { titel: "Teil (c)", text: `Als Potenzen: $x^{-1/2}-x^{-2/3}$.
+      ],
+      ergebnis: `$\\frac52x^4+\\frac1x+c$`,
+    },
+    {
+      id: "t1-a01c",
+      typ: "Rechentechnik",
+      titel: "Grundintegrale & Potenzregeln (c)",
+      quelle: "Übungsblatt 1, Aufgabe 1c",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie das folgende unbestimmte Integral:
+$$\\int\\Big(\\tfrac{1}{\\sqrt{x}}-\\tfrac{1}{\\sqrt[3]{x^2}}\\Big)\\,dx$$`,
+      hinweis: `Brüche zuerst aufteilen ($\\frac{a\\pm b}{c}=\\frac ac\\pm\\frac bc$) und Wurzeln als Potenzen schreiben ($\\sqrt[n]{x^m}=x^{m/n}$). Dann gilt immer $\\int x^\\alpha dx=\\frac{1}{\\alpha+1}x^{\\alpha+1}+c$ (für $\\alpha\\neq -1$).`,
+      schritte: [
+        { titel: "Lösung", text: `Als Potenzen: $x^{-1/2}-x^{-2/3}$.
 $$\\int x^{-1/2}dx-\\int x^{-2/3}dx=2x^{1/2}-3x^{1/3}+c=2\\sqrt{x}-3\\sqrt[3]{x}+c$$` },
-        { titel: "Teil (d)", text: `$\\frac{x-4}{x^{4/3}}=x^{-1/3}-4x^{-4/3}$.
+      ],
+      ergebnis: `$2\\sqrt x-3\\sqrt[3]x+c$`,
+    },
+    {
+      id: "t1-a01d",
+      typ: "Rechentechnik",
+      titel: "Grundintegrale & Potenzregeln (d)",
+      quelle: "Übungsblatt 1, Aufgabe 1d",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie das folgende unbestimmte Integral:
+$$\\int\\frac{x-4}{\\sqrt[3]{x^4}}\\,dx$$`,
+      hinweis: `Brüche zuerst aufteilen ($\\frac{a\\pm b}{c}=\\frac ac\\pm\\frac bc$) und Wurzeln als Potenzen schreiben ($\\sqrt[n]{x^m}=x^{m/n}$). Dann gilt immer $\\int x^\\alpha dx=\\frac{1}{\\alpha+1}x^{\\alpha+1}+c$ (für $\\alpha\\neq -1$).`,
+      schritte: [
+        { titel: "Lösung", text: `$\\frac{x-4}{x^{4/3}}=x^{-1/3}-4x^{-4/3}$.
 $$\\int\\big(x^{-1/3}-4x^{-4/3}\\big)dx=\\frac32 x^{2/3}+12\\,x^{-1/3}+c=\\frac32\\sqrt[3]{x^2}+\\frac{12}{\\sqrt[3]{x}}+c$$` },
-        { titel: "Teil (e)", text: `Durch $e^x$ kürzen: $\\frac{2e^{2x}+e^{x+2}+3e^x}{e^x}=2e^x+e^2+3$ (beachte $e^{x+2}=e^x\\cdot e^2$).
+      ],
+      ergebnis: `$\\frac32x^{2/3}+12x^{-1/3}+c$`,
+    },
+    {
+      id: "t1-a01e",
+      typ: "Rechentechnik",
+      titel: "Grundintegrale & Potenzregeln (e)",
+      quelle: "Übungsblatt 1, Aufgabe 1e",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie das folgende unbestimmte Integral:
+$$\\int\\frac{2e^{2x}+e^{x+2}+3e^x}{e^x}\\,dx$$`,
+      hinweis: `Brüche zuerst aufteilen ($\\frac{a\\pm b}{c}=\\frac ac\\pm\\frac bc$) und Wurzeln als Potenzen schreiben ($\\sqrt[n]{x^m}=x^{m/n}$). Dann gilt immer $\\int x^\\alpha dx=\\frac{1}{\\alpha+1}x^{\\alpha+1}+c$ (für $\\alpha\\neq -1$).`,
+      schritte: [
+        { titel: "Lösung", text: `Durch $e^x$ kürzen: $\\frac{2e^{2x}+e^{x+2}+3e^x}{e^x}=2e^x+e^2+3$ (beachte $e^{x+2}=e^x\\cdot e^2$).
 $$\\int(2e^x+e^2+3)dx=2e^x+(e^2+3)\\,x+c$$` },
-        { titel: "Teil (f)", text: `$$\\int(-4\\cos x+3\\sin x)dx=-4\\sin(x)-3\\cos(x)+c$$
+      ],
+      ergebnis: `$2e^x+(e^2+3)x+c$`,
+    },
+    {
+      id: "t1-a01f",
+      typ: "Rechentechnik",
+      titel: "Grundintegrale & Potenzregeln (f)",
+      quelle: "Übungsblatt 1, Aufgabe 1f",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie das folgende unbestimmte Integral:
+$$\\int\\big(-4\\cos(x)+3\\sin(x)\\big)\\,dx$$`,
+      hinweis: `Brüche zuerst aufteilen ($\\frac{a\\pm b}{c}=\\frac ac\\pm\\frac bc$) und Wurzeln als Potenzen schreiben ($\\sqrt[n]{x^m}=x^{m/n}$). Dann gilt immer $\\int x^\\alpha dx=\\frac{1}{\\alpha+1}x^{\\alpha+1}+c$ (für $\\alpha\\neq -1$).`,
+      schritte: [
+        { titel: "Lösung", text: `$$\\int(-4\\cos x+3\\sin x)dx=-4\\sin(x)-3\\cos(x)+c$$
 (denn $\\int\\cos=\\sin$, $\\int\\sin=-\\cos$)` },
       ],
-      ergebnis: `(a) $\\frac{x^3}{3}+x^2+\\ln|x|+c$ · (b) $\\frac52x^4+\\frac1x+c$ · (c) $2\\sqrt x-3\\sqrt[3]x+c$ · (d) $\\frac32x^{2/3}+12x^{-1/3}+c$ · (e) $2e^x+(e^2+3)x+c$ · (f) $-4\\sin x-3\\cos x+c$`,
+      ergebnis: `$-4\\sin x-3\\cos x+c$`,
     },
     {
-      id: "t1-a02",
+      id: "t1-a02a",
       typ: "Rechentechnik",
-      titel: "Lineare Substitution",
-      quelle: "Übungsblatt 1, Aufgabe 2",
+      titel: "Lineare Substitution (a)",
+      quelle: "Übungsblatt 1, Aufgabe 2a",
       schwierigkeit: 1,
       aufgabe: `Lösen Sie mittels linearer Substitution ($\\int f(ax+b)\\,dx=\\tfrac1a F(ax+b)+c$):
-$$\\text{(a)}\\ \\int e^{-x}dx \\qquad \\text{(b)}\\ \\int\\sin(2x+7)\\,dx \\qquad \\text{(c)}\\ \\int\\frac{1}{3x-9}\\,dx$$
-$$\\text{(d)}\\ \\int(-4x+10)^9dx \\qquad \\text{(e)}\\ \\int\\frac{1}{\\sqrt{-x+6}}\\,dx \\qquad \\text{(f)}\\ \\int\\cos\\Big(\\frac x3\\Big)dx$$`,
+$$\\int e^{-x}dx$$`,
       hinweis: `Stammfunktion der äußeren Funktion bilden, inneres Argument unverändert lassen, durch die innere Ableitung $a$ teilen.`,
       schritte: [
-        { titel: "Teil (a)", text: `$a=-1$: $\\int e^{-x}dx=\\frac{1}{-1}e^{-x}+c=-e^{-x}+c$` },
-        { titel: "Teil (b)", text: `$a=2$, $\\int\\sin=-\\cos$: $\\int\\sin(2x+7)dx=-\\frac12\\cos(2x+7)+c$` },
-        { titel: "Teil (c)", text: `$a=3$, $\\int\\frac1x=\\ln|x|$: $\\int\\frac{dx}{3x-9}=\\frac13\\ln|3x-9|+c$` },
-        { titel: "Teil (d)", text: `$a=-4$, Potenzregel: $\\int(-4x+10)^9dx=\\frac{1}{-4}\\cdot\\frac{(-4x+10)^{10}}{10}+c=-\\frac{1}{40}(-4x+10)^{10}+c$` },
-        { titel: "Teil (e)", text: `$(-x+6)^{-1/2}$, $a=-1$: $\\int(-x+6)^{-1/2}dx=\\frac{1}{-1}\\cdot 2(-x+6)^{1/2}+c=-2\\sqrt{6-x}+c$` },
-        { titel: "Teil (f)", text: `$a=\\frac13$: $\\int\\cos(\\tfrac x3)dx=3\\sin\\Big(\\frac x3\\Big)+c$` },
+        { titel: "Lösung", text: `$a=-1$: $\\int e^{-x}dx=\\frac{1}{-1}e^{-x}+c=-e^{-x}+c$` },
       ],
-      ergebnis: `(a) $-e^{-x}+c$ · (b) $-\\frac12\\cos(2x+7)+c$ · (c) $\\frac13\\ln|3x-9|+c$ · (d) $-\\frac1{40}(-4x+10)^{10}+c$ · (e) $-2\\sqrt{6-x}+c$ · (f) $3\\sin(\\frac x3)+c$`,
+      ergebnis: `$-e^{-x}+c$`,
     },
     {
-      id: "t1-a03",
+      id: "t1-a02b",
       typ: "Rechentechnik",
-      titel: "Substitution",
-      quelle: "Übungsblatt 1, Aufgabe 3",
+      titel: "Lineare Substitution (b)",
+      quelle: "Übungsblatt 1, Aufgabe 2b",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie mittels linearer Substitution ($\\int f(ax+b)\\,dx=\\tfrac1a F(ax+b)+c$):
+$$\\int\\sin(2x+7)\\,dx$$`,
+      hinweis: `Stammfunktion der äußeren Funktion bilden, inneres Argument unverändert lassen, durch die innere Ableitung $a$ teilen.`,
+      schritte: [
+        { titel: "Lösung", text: `$a=2$, $\\int\\sin=-\\cos$: $\\int\\sin(2x+7)dx=-\\frac12\\cos(2x+7)+c$` },
+      ],
+      ergebnis: `$-\\frac12\\cos(2x+7)+c$`,
+    },
+    {
+      id: "t1-a02c",
+      typ: "Rechentechnik",
+      titel: "Lineare Substitution (c)",
+      quelle: "Übungsblatt 1, Aufgabe 2c",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie mittels linearer Substitution ($\\int f(ax+b)\\,dx=\\tfrac1a F(ax+b)+c$):
+$$\\int\\frac{1}{3x-9}\\,dx$$`,
+      hinweis: `Stammfunktion der äußeren Funktion bilden, inneres Argument unverändert lassen, durch die innere Ableitung $a$ teilen.`,
+      schritte: [
+        { titel: "Lösung", text: `$a=3$, $\\int\\frac1x=\\ln|x|$: $\\int\\frac{dx}{3x-9}=\\frac13\\ln|3x-9|+c$` },
+      ],
+      ergebnis: `$\\frac13\\ln|3x-9|+c$`,
+    },
+    {
+      id: "t1-a02d",
+      typ: "Rechentechnik",
+      titel: "Lineare Substitution (d)",
+      quelle: "Übungsblatt 1, Aufgabe 2d",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie mittels linearer Substitution ($\\int f(ax+b)\\,dx=\\tfrac1a F(ax+b)+c$):
+$$\\int(-4x+10)^9dx$$`,
+      hinweis: `Stammfunktion der äußeren Funktion bilden, inneres Argument unverändert lassen, durch die innere Ableitung $a$ teilen.`,
+      schritte: [
+        { titel: "Lösung", text: `$a=-4$, Potenzregel: $\\int(-4x+10)^9dx=\\frac{1}{-4}\\cdot\\frac{(-4x+10)^{10}}{10}+c=-\\frac{1}{40}(-4x+10)^{10}+c$` },
+      ],
+      ergebnis: `$-\\frac1{40}(-4x+10)^{10}+c$`,
+    },
+    {
+      id: "t1-a02e",
+      typ: "Rechentechnik",
+      titel: "Lineare Substitution (e)",
+      quelle: "Übungsblatt 1, Aufgabe 2e",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie mittels linearer Substitution ($\\int f(ax+b)\\,dx=\\tfrac1a F(ax+b)+c$):
+$$\\int\\frac{1}{\\sqrt{-x+6}}\\,dx$$`,
+      hinweis: `Stammfunktion der äußeren Funktion bilden, inneres Argument unverändert lassen, durch die innere Ableitung $a$ teilen.`,
+      schritte: [
+        { titel: "Lösung", text: `$(-x+6)^{-1/2}$, $a=-1$: $\\int(-x+6)^{-1/2}dx=\\frac{1}{-1}\\cdot 2(-x+6)^{1/2}+c=-2\\sqrt{6-x}+c$` },
+      ],
+      ergebnis: `$-2\\sqrt{6-x}+c$`,
+    },
+    {
+      id: "t1-a02f",
+      typ: "Rechentechnik",
+      titel: "Lineare Substitution (f)",
+      quelle: "Übungsblatt 1, Aufgabe 2f",
+      schwierigkeit: 1,
+      aufgabe: `Lösen Sie mittels linearer Substitution ($\\int f(ax+b)\\,dx=\\tfrac1a F(ax+b)+c$):
+$$\\int\\cos\\Big(\\frac x3\\Big)dx$$`,
+      hinweis: `Stammfunktion der äußeren Funktion bilden, inneres Argument unverändert lassen, durch die innere Ableitung $a$ teilen.`,
+      schritte: [
+        { titel: "Lösung", text: `$a=\\frac13$: $\\int\\cos(\\tfrac x3)dx=3\\sin\\Big(\\frac x3\\Big)+c$` },
+      ],
+      ergebnis: `$3\\sin(\\frac x3)+c$`,
+    },
+    {
+      id: "t1-a03a",
+      typ: "Rechentechnik",
+      titel: "Substitution (a)",
+      quelle: "Übungsblatt 1, Aufgabe 3a",
       schwierigkeit: 2,
       video: "Bsp04–Bsp06 (Substitution)",
       aufgabe: `Lösen Sie mittels geeigneter Substitution:
-$$\\text{(a)}\\ \\int x^2e^{x^3+5}dx \\qquad \\text{(b)}\\ \\int\\frac{3e^x}{(e^x+10)^4}dx \\qquad \\text{(c)}\\ \\int\\frac{\\cos x}{1+2\\sin x}dx$$
-$$\\text{(d)}\\ \\int x\\sqrt{1-x^2}\\,dx \\qquad \\text{(e)}\\ \\int\\frac{\\ln^5(x)}{3x}dx \\qquad \\text{(f)}\\ \\int\\sin(x)\\cos(x)\\,dx$$`,
-      hinweis: `Substituiere immer den "inneren" Term, dessen Ableitung (bis auf einen Faktor) als Faktor im Integranden steht: (a) $t=x^3+5$, (b) $t=e^x+10$, (c) $t=1+2\\sin x$, (d) $t=1-x^2$, (e) $t=\\ln x$, (f) $t=\\sin x$.`,
+$$\\int x^2e^{x^3+5}dx$$`,
+      hinweis: `Substituiere $t=x^3+5$ – die Ableitung $3x^2$ steht (bis auf den Faktor 3) als Faktor im Integranden da.`,
       schritte: [
-        { titel: "Teil (a)", text: `$t=x^3+5$, $dt=3x^2dx \\Rightarrow x^2dx=\\frac{dt}{3}$:
+        { titel: "Lösung", text: `$t=x^3+5$, $dt=3x^2dx \\Rightarrow x^2dx=\\frac{dt}{3}$:
 $$\\int x^2e^{x^3+5}dx=\\frac13\\int e^t dt=\\frac13 e^{x^3+5}+c$$` },
-        { titel: "Teil (b)", text: `$t=e^x+10$, $dt=e^x dx$:
-$$3\\int t^{-4}dt=3\\cdot\\frac{t^{-3}}{-3}+c=-\\frac{1}{(e^x+10)^3}+c$$` },
-        { titel: "Teil (c)", text: `$t=1+2\\sin x$, $dt=2\\cos x\\,dx$:
-$$\\frac12\\int\\frac{dt}{t}=\\frac12\\ln|1+2\\sin x|+c$$` },
-        { titel: "Teil (d)", text: `$t=1-x^2$, $dt=-2x\\,dx \\Rightarrow x\\,dx=-\\frac{dt}{2}$:
-$$-\\frac12\\int\\sqrt t\\,dt=-\\frac12\\cdot\\frac23 t^{3/2}+c=-\\frac13(1-x^2)^{3/2}+c$$` },
-        { titel: "Teil (e)", text: `$t=\\ln x$, $dt=\\frac{dx}{x}$:
-$$\\frac13\\int t^5dt=\\frac13\\cdot\\frac{t^6}{6}+c=\\frac{1}{18}\\ln^6(x)+c$$` },
-        { titel: "Teil (f)", text: `$t=\\sin x$, $dt=\\cos x\\,dx$:
-$$\\int t\\,dt=\\frac{t^2}{2}+c=\\frac12\\sin^2(x)+c$$` },
       ],
-      ergebnis: `(a) $\\frac13e^{x^3+5}+c$ · (b) $-\\frac{1}{(e^x+10)^3}+c$ · (c) $\\frac12\\ln|1+2\\sin x|+c$ · (d) $-\\frac13(1-x^2)^{3/2}+c$ · (e) $\\frac1{18}\\ln^6 x+c$ · (f) $\\frac12\\sin^2 x+c$`,
+      ergebnis: `$\\frac13e^{x^3+5}+c$`,
     },
     {
-      id: "t1-a04",
+      id: "t1-a03b",
       typ: "Rechentechnik",
-      titel: "Partielle Integration",
-      quelle: "Übungsblatt 1, Aufgabe 4",
+      titel: "Substitution (b)",
+      quelle: "Übungsblatt 1, Aufgabe 3b",
+      schwierigkeit: 2,
+      video: "Bsp04–Bsp06 (Substitution)",
+      aufgabe: `Lösen Sie mittels geeigneter Substitution:
+$$\\int\\frac{3e^x}{(e^x+10)^4}dx$$`,
+      hinweis: `Substituiere $t=e^x+10$ – die Ableitung $e^x$ steht als Faktor im Integranden da.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=e^x+10$, $dt=e^x dx$:
+$$3\\int t^{-4}dt=3\\cdot\\frac{t^{-3}}{-3}+c=-\\frac{1}{(e^x+10)^3}+c$$` },
+      ],
+      ergebnis: `$-\\frac{1}{(e^x+10)^3}+c$`,
+    },
+    {
+      id: "t1-a03c",
+      typ: "Rechentechnik",
+      titel: "Substitution (c)",
+      quelle: "Übungsblatt 1, Aufgabe 3c",
+      schwierigkeit: 2,
+      video: "Bsp04–Bsp06 (Substitution)",
+      aufgabe: `Lösen Sie mittels geeigneter Substitution:
+$$\\int\\frac{\\cos x}{1+2\\sin x}dx$$`,
+      hinweis: `Substituiere $t=1+2\\sin x$ – die Ableitung $2\\cos x$ steht als Faktor im Integranden da.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=1+2\\sin x$, $dt=2\\cos x\\,dx$:
+$$\\frac12\\int\\frac{dt}{t}=\\frac12\\ln|1+2\\sin x|+c$$` },
+      ],
+      ergebnis: `$\\frac12\\ln|1+2\\sin x|+c$`,
+    },
+    {
+      id: "t1-a03d",
+      typ: "Rechentechnik",
+      titel: "Substitution (d)",
+      quelle: "Übungsblatt 1, Aufgabe 3d",
+      schwierigkeit: 2,
+      video: "Bsp04–Bsp06 (Substitution)",
+      aufgabe: `Lösen Sie mittels geeigneter Substitution:
+$$\\int x\\sqrt{1-x^2}\\,dx$$`,
+      hinweis: `Substituiere $t=1-x^2$ – die Ableitung $-2x$ steht (bis auf den Faktor) als Faktor im Integranden da.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=1-x^2$, $dt=-2x\\,dx \\Rightarrow x\\,dx=-\\frac{dt}{2}$:
+$$-\\frac12\\int\\sqrt t\\,dt=-\\frac12\\cdot\\frac23 t^{3/2}+c=-\\frac13(1-x^2)^{3/2}+c$$` },
+      ],
+      ergebnis: `$-\\frac13(1-x^2)^{3/2}+c$`,
+    },
+    {
+      id: "t1-a03e",
+      typ: "Rechentechnik",
+      titel: "Substitution (e)",
+      quelle: "Übungsblatt 1, Aufgabe 3e",
+      schwierigkeit: 2,
+      video: "Bsp04–Bsp06 (Substitution)",
+      aufgabe: `Lösen Sie mittels geeigneter Substitution:
+$$\\int\\frac{\\ln^5(x)}{3x}dx$$`,
+      hinweis: `Substituiere $t=\\ln x$ – die Ableitung $\\frac1x$ steht als Faktor im Integranden da.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=\\ln x$, $dt=\\frac{dx}{x}$:
+$$\\frac13\\int t^5dt=\\frac13\\cdot\\frac{t^6}{6}+c=\\frac{1}{18}\\ln^6(x)+c$$` },
+      ],
+      ergebnis: `$\\frac1{18}\\ln^6 x+c$`,
+    },
+    {
+      id: "t1-a03f",
+      typ: "Rechentechnik",
+      titel: "Substitution (f)",
+      quelle: "Übungsblatt 1, Aufgabe 3f",
+      schwierigkeit: 2,
+      video: "Bsp04–Bsp06 (Substitution)",
+      aufgabe: `Lösen Sie mittels geeigneter Substitution:
+$$\\int\\sin(x)\\cos(x)\\,dx$$`,
+      hinweis: `Substituiere $t=\\sin x$ – die Ableitung $\\cos x$ steht als Faktor im Integranden da.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=\\sin x$, $dt=\\cos x\\,dx$:
+$$\\int t\\,dt=\\frac{t^2}{2}+c=\\frac12\\sin^2(x)+c$$` },
+      ],
+      ergebnis: `$\\frac12\\sin^2 x+c$`,
+    },
+    {
+      id: "t1-a04a",
+      typ: "Rechentechnik",
+      titel: "Partielle Integration (a)",
+      quelle: "Übungsblatt 1, Aufgabe 4a",
       schwierigkeit: 2,
       video: "Bsp01–Bsp03 (Partielle Integration)",
       aufgabe: `Lösen Sie mittels partieller Integration ($\\int uv'\\,dx=uv-\\int u'v\\,dx$):
-$$\\text{(a)}\\ \\int x\\cos(x)\\,dx \\qquad \\text{(b)}\\ \\int(x^2-1)e^x dx \\qquad \\text{(c)}\\ \\int\\sqrt x\\,\\ln(x)\\,dx$$
-$$\\text{(d)}\\ \\int\\ln(x)\\,dx \\qquad \\text{(e)}\\ \\int\\sin(x)\\cos(x)\\,dx \\qquad \\text{(f)}\\ \\int e^x\\sin(x)\\,dx$$`,
-      hinweis: `Wahl von $u$: was beim Ableiten einfacher wird (Polynome, $\\ln$). Bei (d): $\\ln(x)=1\\cdot\\ln(x)$ mit $v'=1$. Bei (f): zweimal partiell integrieren, dann nach dem Integral auflösen.`,
+$$\\int x\\cos(x)\\,dx$$`,
+      hinweis: `Wahl von $u=x$ (wird beim Ableiten zu $1$), $v'=\\cos x$ (leicht integrierbar).`,
       schritte: [
-        { titel: "Teil (a)", text: `$u=x$, $v'=\\cos x$ ⟹ $u'=1$, $v=\\sin x$:
+        { titel: "Lösung", text: `$u=x$, $v'=\\cos x$ ⟹ $u'=1$, $v=\\sin x$:
 $$\\int x\\cos x\\,dx=x\\sin x-\\int\\sin x\\,dx=x\\sin x+\\cos x+c$$` },
-        { titel: "Teil (b)", text: `$u=x^2-1$, $v'=e^x$: $(x^2-1)e^x-\\int 2x e^x dx$.
+      ],
+      ergebnis: `$x\\sin x+\\cos x+c$`,
+    },
+    {
+      id: "t1-a04b",
+      typ: "Rechentechnik",
+      titel: "Partielle Integration (b)",
+      quelle: "Übungsblatt 1, Aufgabe 4b",
+      schwierigkeit: 2,
+      video: "Bsp01–Bsp03 (Partielle Integration)",
+      aufgabe: `Lösen Sie mittels partieller Integration ($\\int uv'\\,dx=uv-\\int u'v\\,dx$):
+$$\\int(x^2-1)e^x dx$$`,
+      hinweis: `Wahl von $u=x^2-1$ (Polynom wird beim Ableiten einfacher), $v'=e^x$. Hier ist die partielle Integration zweimal nötig.`,
+      schritte: [
+        { titel: "Lösung", text: `$u=x^2-1$, $v'=e^x$: $(x^2-1)e^x-\\int 2x e^x dx$.
 Nochmal partiell ($u=2x$): $\\int 2xe^xdx=2xe^x-2e^x$.
 $$\\Rightarrow (x^2-1)e^x-2xe^x+2e^x+c=(x^2-2x+1)e^x+c=(x-1)^2e^x+c$$` },
-        { titel: "Teil (c)", text: `$u=\\ln x$, $v'=x^{1/2}$ ⟹ $v=\\frac23x^{3/2}$:
+      ],
+      ergebnis: `$(x-1)^2e^x+c$`,
+    },
+    {
+      id: "t1-a04c",
+      typ: "Rechentechnik",
+      titel: "Partielle Integration (c)",
+      quelle: "Übungsblatt 1, Aufgabe 4c",
+      schwierigkeit: 2,
+      video: "Bsp01–Bsp03 (Partielle Integration)",
+      aufgabe: `Lösen Sie mittels partieller Integration ($\\int uv'\\,dx=uv-\\int u'v\\,dx$):
+$$\\int\\sqrt x\\,\\ln(x)\\,dx$$`,
+      hinweis: `Wahl von $u=\\ln x$ (wird beim Ableiten zu $\\frac1x$), $v'=\\sqrt x=x^{1/2}$.`,
+      schritte: [
+        { titel: "Lösung", text: `$u=\\ln x$, $v'=x^{1/2}$ ⟹ $v=\\frac23x^{3/2}$:
 $$\\frac23x^{3/2}\\ln x-\\int\\frac23x^{3/2}\\cdot\\frac1x dx=\\frac23x^{3/2}\\ln x-\\frac23\\int x^{1/2}dx=\\frac23x^{3/2}\\ln(x)-\\frac49x^{3/2}+c$$` },
-        { titel: "Teil (d)", text: `Trick: $u=\\ln x$, $v'=1$ ⟹ $v=x$:
+      ],
+      ergebnis: `$\\frac23x^{3/2}\\ln x-\\frac49x^{3/2}+c$`,
+    },
+    {
+      id: "t1-a04d",
+      typ: "Rechentechnik",
+      titel: "Partielle Integration (d)",
+      quelle: "Übungsblatt 1, Aufgabe 4d",
+      schwierigkeit: 2,
+      video: "Bsp01–Bsp03 (Partielle Integration)",
+      aufgabe: `Lösen Sie mittels partieller Integration ($\\int uv'\\,dx=uv-\\int u'v\\,dx$):
+$$\\int\\ln(x)\\,dx$$`,
+      hinweis: `Trick: $\\ln(x)=1\\cdot\\ln(x)$, also $u=\\ln x$, $v'=1$ ⟹ $v=x$.`,
+      schritte: [
+        { titel: "Lösung", text: `Trick: $u=\\ln x$, $v'=1$ ⟹ $v=x$:
 $$\\int\\ln x\\,dx=x\\ln x-\\int x\\cdot\\frac1x dx=x\\ln(x)-x+c$$` },
-        { titel: "Teil (e)", text: `$u=\\sin x$, $v'=\\cos x$: $\\int\\sin x\\cos x\\,dx=\\sin^2x-\\int\\sin x\\cos x\\,dx$.
+      ],
+      ergebnis: `$x\\ln x-x+c$`,
+    },
+    {
+      id: "t1-a04e",
+      typ: "Rechentechnik",
+      titel: "Partielle Integration (e)",
+      quelle: "Übungsblatt 1, Aufgabe 4e",
+      schwierigkeit: 2,
+      video: "Bsp01–Bsp03 (Partielle Integration)",
+      aufgabe: `Lösen Sie mittels partieller Integration ($\\int uv'\\,dx=uv-\\int u'v\\,dx$):
+$$\\int\\sin(x)\\cos(x)\\,dx$$`,
+      hinweis: `Wahl von $u=\\sin x$, $v'=\\cos x$. Nach der partiellen Integration erscheint das Ausgangsintegral wieder – nach diesem auflösen!`,
+      schritte: [
+        { titel: "Lösung", text: `$u=\\sin x$, $v'=\\cos x$: $\\int\\sin x\\cos x\\,dx=\\sin^2x-\\int\\sin x\\cos x\\,dx$.
 Auflösen: $2\\int\\sin x\\cos x\\,dx=\\sin^2 x$ ⟹ $\\int\\sin x\\cos x\\,dx=\\frac12\\sin^2(x)+c$
 (gleiches Ergebnis wie per Substitution!)` },
-        { titel: "Teil (f)", text: `Zweimal partiell mit $u=e^x$:
+      ],
+      ergebnis: `$\\frac12\\sin^2x+c$`,
+    },
+    {
+      id: "t1-a04f",
+      typ: "Rechentechnik",
+      titel: "Partielle Integration (f)",
+      quelle: "Übungsblatt 1, Aufgabe 4f",
+      schwierigkeit: 2,
+      video: "Bsp01–Bsp03 (Partielle Integration)",
+      aufgabe: `Lösen Sie mittels partieller Integration ($\\int uv'\\,dx=uv-\\int u'v\\,dx$):
+$$\\int e^x\\sin(x)\\,dx$$`,
+      hinweis: `Zweimal partiell integrieren mit $u=e^x$, dann nach dem gesuchten Integral $I$ auflösen (es kommt im Kreis zurück).`,
+      schritte: [
+        { titel: "Lösung", text: `Zweimal partiell mit $u=e^x$:
 $I=\\int e^x\\sin x\\,dx=-e^x\\cos x+\\int e^x\\cos x\\,dx=-e^x\\cos x+e^x\\sin x-I$
 $$\\Rightarrow 2I=e^x(\\sin x-\\cos x) \\Rightarrow I=\\frac12e^x(\\sin x-\\cos x)+c$$` },
       ],
-      ergebnis: `(a) $x\\sin x+\\cos x+c$ · (b) $(x-1)^2e^x+c$ · (c) $\\frac23x^{3/2}\\ln x-\\frac49x^{3/2}+c$ · (d) $x\\ln x-x+c$ · (e) $\\frac12\\sin^2x+c$ · (f) $\\frac12e^x(\\sin x-\\cos x)+c$`,
+      ergebnis: `$\\frac12e^x(\\sin x-\\cos x)+c$`,
     },
     {
-      id: "t1-a05",
+      id: "t1-a05b",
       typ: "Rechentechnik",
-      titel: "Methoden-Mix (selbständig)",
-      quelle: "Übungsblatt 1, Aufgabe 5 (Auswahl)",
+      titel: "Methoden-Mix (selbständig) (b)",
+      quelle: "Übungsblatt 1, Aufgabe 5b",
       schwierigkeit: 2,
       aufgabe: `Berechnen Sie mit geeigneter Methode:
-$$\\text{(b)}\\ \\int\\frac{x^2-x-2}{4x}dx \\qquad \\text{(f)}\\ \\int x\\cos(x^2-1)\\,dx \\qquad \\text{(g)}\\ \\int\\cos^5(x)\\sin(x)\\,dx$$
-$$\\text{(i)}\\ \\int\\frac{1}{x\\ln(x)}dx \\qquad \\text{(k)}\\ \\int\\sin(x)\\,e^{\\cos(x)}dx \\qquad \\text{(l)}\\ \\int e^{\\sqrt x}\\,dx$$`,
-      hinweis: `Erst entscheiden: Vereinfachen? Substitution (steht die innere Ableitung als Faktor da)? Partielle Integration? Bei (l): $t=\\sqrt x$ substituieren, danach partiell integrieren.`,
+$$\\int\\frac{x^2-x-2}{4x}dx$$`,
+      hinweis: `Erst vereinfachen: Bruch aufteilen, dann gliedweise integrieren.`,
       schritte: [
-        { titel: "Teil (b) – Vereinfachen", text: `$\\frac{x^2-x-2}{4x}=\\frac x4-\\frac14-\\frac{1}{2x}$
+        { titel: "Lösung", text: `$\\frac{x^2-x-2}{4x}=\\frac x4-\\frac14-\\frac{1}{2x}$
 $$\\int\\Big(\\frac x4-\\frac14-\\frac1{2x}\\Big)dx=\\frac{x^2}{8}-\\frac x4-\\frac12\\ln|x|+c$$` },
-        { titel: "Teil (f) – Substitution", text: `$t=x^2-1$, $dt=2x\\,dx$:
+      ],
+      ergebnis: `$\\frac{x^2}8-\\frac x4-\\frac12\\ln|x|+c$`,
+    },
+    {
+      id: "t1-a05f",
+      typ: "Rechentechnik",
+      titel: "Methoden-Mix (selbständig) (f)",
+      quelle: "Übungsblatt 1, Aufgabe 5f",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie mit geeigneter Methode:
+$$\\int x\\cos(x^2-1)\\,dx$$`,
+      hinweis: `Substitution: die innere Ableitung steht (bis auf einen Faktor) als Faktor da. $t=x^2-1$.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=x^2-1$, $dt=2x\\,dx$:
 $$\\frac12\\int\\cos t\\,dt=\\frac12\\sin(x^2-1)+c$$` },
-        { titel: "Teil (g) – Regel ∫fⁿf′", text: `$f=\\cos x$, $f'=-\\sin x$: $\\int\\cos^5x\\sin x\\,dx=-\\int f^5f'dx$
+      ],
+      ergebnis: `$\\frac12\\sin(x^2-1)+c$`,
+    },
+    {
+      id: "t1-a05g",
+      typ: "Rechentechnik",
+      titel: "Methoden-Mix (selbständig) (g)",
+      quelle: "Übungsblatt 1, Aufgabe 5g",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie mit geeigneter Methode:
+$$\\int\\cos^5(x)\\sin(x)\\,dx$$`,
+      hinweis: `Regel $\\int f^nf'\\,dx=\\frac{f^{n+1}}{n+1}+c$ mit $f=\\cos x$, $f'=-\\sin x$.`,
+      schritte: [
+        { titel: "Lösung", text: `$f=\\cos x$, $f'=-\\sin x$: $\\int\\cos^5x\\sin x\\,dx=-\\int f^5f'dx$
 $$=-\\frac{f^6}{6}+c=-\\frac{\\cos^6(x)}{6}+c$$` },
-        { titel: "Teil (i) – Substitution", text: `$t=\\ln x$, $dt=\\frac{dx}x$:
+      ],
+      ergebnis: `$-\\frac{\\cos^6x}{6}+c$`,
+    },
+    {
+      id: "t1-a05i",
+      typ: "Rechentechnik",
+      titel: "Methoden-Mix (selbständig) (i)",
+      quelle: "Übungsblatt 1, Aufgabe 5i",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie mit geeigneter Methode:
+$$\\int\\frac{1}{x\\ln(x)}dx$$`,
+      hinweis: `Substitution $t=\\ln x$, $dt=\\frac{dx}{x}$.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=\\ln x$, $dt=\\frac{dx}x$:
 $$\\int\\frac{dt}{t}=\\ln|t|+c=\\ln|\\ln(x)|+c$$` },
-        { titel: "Teil (k) – Substitution", text: `$t=\\cos x$, $dt=-\\sin x\\,dx$:
+      ],
+      ergebnis: `$\\ln|\\ln x|+c$`,
+    },
+    {
+      id: "t1-a05k",
+      typ: "Rechentechnik",
+      titel: "Methoden-Mix (selbständig) (k)",
+      quelle: "Übungsblatt 1, Aufgabe 5k",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie mit geeigneter Methode:
+$$\\int\\sin(x)\\,e^{\\cos(x)}dx$$`,
+      hinweis: `Substitution $t=\\cos x$, $dt=-\\sin x\\,dx$.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=\\cos x$, $dt=-\\sin x\\,dx$:
 $$-\\int e^tdt=-e^{\\cos(x)}+c$$` },
-        { titel: "Teil (l) – Substitution + partiell", text: `$t=\\sqrt x$, $x=t^2$, $dx=2t\\,dt$:
+      ],
+      ergebnis: `$-e^{\\cos x}+c$`,
+    },
+    {
+      id: "t1-a05l",
+      typ: "Rechentechnik",
+      titel: "Methoden-Mix (selbständig) (l)",
+      quelle: "Übungsblatt 1, Aufgabe 5l",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie mit geeigneter Methode:
+$$\\int e^{\\sqrt x}\\,dx$$`,
+      hinweis: `$t=\\sqrt x$ substituieren, danach partiell integrieren.`,
+      schritte: [
+        { titel: "Lösung", text: `$t=\\sqrt x$, $x=t^2$, $dx=2t\\,dt$:
 $$\\int e^{\\sqrt x}dx=2\\int t\\,e^t dt=2e^t(t-1)+c=2e^{\\sqrt x}(\\sqrt x-1)+c$$
 (dabei $\\int te^tdt=te^t-e^t$ partiell)` },
       ],
-      ergebnis: `(b) $\\frac{x^2}8-\\frac x4-\\frac12\\ln|x|+c$ · (f) $\\frac12\\sin(x^2-1)+c$ · (g) $-\\frac{\\cos^6x}{6}+c$ · (i) $\\ln|\\ln x|+c$ · (k) $-e^{\\cos x}+c$ · (l) $2e^{\\sqrt x}(\\sqrt x-1)+c$`,
+      ergebnis: `$2e^{\\sqrt x}(\\sqrt x-1)+c$`,
     },
     {
-      id: "t1-a06",
+      id: "t1-a06a",
       typ: "Rechentechnik",
-      titel: "Partialbruchzerlegung – Grundtypen",
-      quelle: "Übungsblatt 2, Aufgabe 1 (a)–(c)",
+      titel: "Partialbruchzerlegung – Grundtypen (a)",
+      quelle: "Übungsblatt 2, Aufgabe 1a",
       schwierigkeit: 2,
       video: "Bsp07–Bsp08 (PBZ)",
       aufgabe: `Lösen Sie mittels Partialbruchzerlegung bzw. passender Grundintegrale:
-$$\\text{(a)}\\ \\int\\frac{2x}{x^2+4}dx \\qquad \\text{(b)}\\ \\int\\frac{2}{x^2+4}dx \\qquad \\text{(c)}\\ \\int\\frac{2}{x^2+3x-4}dx$$`,
-      hinweis: `(a) Zähler = Ableitung des Nenners ⟹ $\\ln$-Regel. (b) arctan-Grundintegral. (c) Nenner faktorisieren: $x^2+3x-4=(x+4)(x-1)$, dann PBZ.`,
+$$\\int\\frac{2x}{x^2+4}dx$$`,
+      hinweis: `Zähler = Ableitung des Nenners ⟹ $\\ln$-Regel: $\\int\\frac{f'}{f}dx=\\ln|f|+c$.`,
       schritte: [
-        { titel: "Teil (a) – ln-Regel", text: `Es gilt $(x^2+4)'=2x$, also $\\int\\frac{f'}{f}dx=\\ln|f|+c$:
+        { titel: "Lösung", text: `Es gilt $(x^2+4)'=2x$, also $\\int\\frac{f'}{f}dx=\\ln|f|+c$:
 $$\\int\\frac{2x}{x^2+4}dx=\\ln(x^2+4)+c$$
 (Betrag unnötig, da $x^2+4>0$)` },
-        { titel: "Teil (b) – arctan", text: `Grundintegral $\\int\\frac{dx}{x^2+a^2}=\\frac1a\\arctan\\frac xa+c$ mit $a=2$:
+      ],
+      ergebnis: `$\\ln(x^2+4)+c$`,
+    },
+    {
+      id: "t1-a06b",
+      typ: "Rechentechnik",
+      titel: "Partialbruchzerlegung – Grundtypen (b)",
+      quelle: "Übungsblatt 2, Aufgabe 1b",
+      schwierigkeit: 2,
+      video: "Bsp07–Bsp08 (PBZ)",
+      aufgabe: `Lösen Sie mittels Partialbruchzerlegung bzw. passender Grundintegrale:
+$$\\int\\frac{2}{x^2+4}dx$$`,
+      hinweis: `arctan-Grundintegral $\\int\\frac{dx}{x^2+a^2}=\\frac1a\\arctan\\frac xa+c$.`,
+      schritte: [
+        { titel: "Lösung", text: `Grundintegral $\\int\\frac{dx}{x^2+a^2}=\\frac1a\\arctan\\frac xa+c$ mit $a=2$:
 $$\\int\\frac{2}{x^2+4}dx=2\\cdot\\frac12\\arctan\\Big(\\frac x2\\Big)+c=\\arctan\\Big(\\frac x2\\Big)+c$$` },
-        { titel: "Teil (c) – PBZ-Ansatz", text: `Nullstellen des Nenners: $x^2+3x-4=(x+4)(x-1)$.
+      ],
+      ergebnis: `$\\arctan(\\frac x2)+c$`,
+    },
+    {
+      id: "t1-a06c",
+      typ: "Rechentechnik",
+      titel: "Partialbruchzerlegung – Grundtypen (c)",
+      quelle: "Übungsblatt 2, Aufgabe 1c",
+      schwierigkeit: 2,
+      video: "Bsp07–Bsp08 (PBZ)",
+      aufgabe: `Lösen Sie mittels Partialbruchzerlegung bzw. passender Grundintegrale:
+$$\\int\\frac{2}{x^2+3x-4}dx$$`,
+      hinweis: `Nenner faktorisieren: $x^2+3x-4=(x+4)(x-1)$, dann Partialbruchzerlegung ansetzen.`,
+      schritte: [
+        { titel: "PBZ-Ansatz", text: `Nullstellen des Nenners: $x^2+3x-4=(x+4)(x-1)$.
 Ansatz: $\\frac{2}{(x+4)(x-1)}=\\frac{A}{x+4}+\\frac{B}{x-1}$
 Multiplizieren mit dem Nenner: $2=A(x-1)+B(x+4)$.
 $x=1$: $2=5B\\Rightarrow B=\\frac25$. $\\quad x=-4$: $2=-5A\\Rightarrow A=-\\frac25$.` },
-        { titel: "Teil (c) – Integrieren", text: `$$\\int\\frac{2\\,dx}{x^2+3x-4}=-\\frac25\\ln|x+4|+\\frac25\\ln|x-1|+c$$` },
+        { titel: "Integrieren", text: `$$\\int\\frac{2\\,dx}{x^2+3x-4}=-\\frac25\\ln|x+4|+\\frac25\\ln|x-1|+c$$` },
       ],
-      ergebnis: `(a) $\\ln(x^2+4)+c$ · (b) $\\arctan(\\frac x2)+c$ · (c) $\\frac25\\ln|x-1|-\\frac25\\ln|x+4|+c$`,
+      ergebnis: `$\\frac25\\ln|x-1|-\\frac25\\ln|x+4|+c$`,
     },
     {
-      id: "t1-a07",
+      id: "t1-a07d",
       typ: "Rechentechnik",
-      titel: "PBZ mit Polynomdivision & mehrfachen Faktoren",
-      quelle: "Übungsblatt 2, Aufgabe 1 (d)–(f)",
+      titel: "PBZ mit Polynomdivision & mehrfachen Faktoren (d)",
+      quelle: "Übungsblatt 2, Aufgabe 1d",
       schwierigkeit: 3,
       aufgabe: `Lösen Sie mittels Partialbruchzerlegung:
-$$\\text{(d)}\\ \\int\\frac{x^4}{x^2-4x+4}dx \\qquad \\text{(e)}\\ \\int\\frac{9x-27}{(x+2)^2(x-1)}dx \\qquad \\text{(f)}\\ \\int\\frac{x^3+6x+20}{x^4+2x^2}dx$$`,
-      hinweis: `(d) Zählergrad ≥ Nennergrad ⟹ erst Polynomdivision! Nenner $=(x-2)^2$. (e) Doppelte Nullstelle: Ansatz $\\frac{A}{x+2}+\\frac{B}{(x+2)^2}+\\frac{C}{x-1}$. (f) $x^4+2x^2=x^2(x^2+2)$ ⟹ Ansatz $\\frac Ax+\\frac B{x^2}+\\frac{Cx+D}{x^2+2}$.`,
+$$\\int\\frac{x^4}{x^2-4x+4}dx$$`,
+      hinweis: `Zählergrad ≥ Nennergrad ⟹ erst Polynomdivision! Der Nenner ist $(x-2)^2$.`,
       schritte: [
-        { titel: "Teil (d) – Polynomdivision", text: `$x^4:(x^2-4x+4)=x^2+4x+12+\\dfrac{32x-48}{(x-2)^2}$
+        { titel: "Polynomdivision & Ansatz", text: `$x^4:(x^2-4x+4)=x^2+4x+12+\\dfrac{32x-48}{(x-2)^2}$
 PBZ: $\\frac{32x-48}{(x-2)^2}=\\frac{A}{x-2}+\\frac{B}{(x-2)^2}$ ⟹ $32x-48=A(x-2)+B$
 ⟹ $A=32$, $B=64-48=16$.` },
-        { titel: "Teil (d) – Integrieren", text: `$$\\int=\\frac{x^3}{3}+2x^2+12x+32\\ln|x-2|-\\frac{16}{x-2}+c$$
+        { titel: "Integrieren", text: `$$\\int=\\frac{x^3}{3}+2x^2+12x+32\\ln|x-2|-\\frac{16}{x-2}+c$$
 (beachte $\\int\\frac{16}{(x-2)^2}dx=-\\frac{16}{x-2}$)` },
-        { titel: "Teil (e) – Ansatz & Koeffizienten", text: `$\\frac{9x-27}{(x+2)^2(x-1)}=\\frac{A}{x+2}+\\frac{B}{(x+2)^2}+\\frac{C}{x-1}$
+      ],
+      ergebnis: `$\\frac{x^3}3+2x^2+12x+32\\ln|x-2|-\\frac{16}{x-2}+c$`,
+    },
+    {
+      id: "t1-a07e",
+      typ: "Rechentechnik",
+      titel: "PBZ mit Polynomdivision & mehrfachen Faktoren (e)",
+      quelle: "Übungsblatt 2, Aufgabe 1e",
+      schwierigkeit: 3,
+      aufgabe: `Lösen Sie mittels Partialbruchzerlegung:
+$$\\int\\frac{9x-27}{(x+2)^2(x-1)}dx$$`,
+      hinweis: `Doppelte Nullstelle: Ansatz $\\frac{A}{x+2}+\\frac{B}{(x+2)^2}+\\frac{C}{x-1}$.`,
+      schritte: [
+        { titel: "Ansatz & Koeffizienten", text: `$\\frac{9x-27}{(x+2)^2(x-1)}=\\frac{A}{x+2}+\\frac{B}{(x+2)^2}+\\frac{C}{x-1}$
 $9x-27=A(x+2)(x-1)+B(x-1)+C(x+2)^2$
 $x=1$: $-18=9C\\Rightarrow C=-2$. $\\quad x=-2$: $-45=-3B\\Rightarrow B=15$.
 Koeffizient von $x^2$: $0=A+C\\Rightarrow A=2$.` },
-        { titel: "Teil (e) – Integrieren", text: `Mit $\\int\\frac{15}{(x+2)^2}dx=-\\frac{15}{x+2}$:
+        { titel: "Integrieren", text: `Mit $\\int\\frac{15}{(x+2)^2}dx=-\\frac{15}{x+2}$:
 $$\\int=2\\ln|x+2|-\\frac{15}{x+2}-2\\ln|x-1|+c$$` },
-        { titel: "Teil (f) – Ansatz & Koeffizienten", text: `$x^4+2x^2=x^2(x^2+2)$:
+      ],
+      ergebnis: `$2\\ln|x+2|-2\\ln|x-1|-\\frac{15}{x+2}+c$`,
+    },
+    {
+      id: "t1-a07f",
+      typ: "Rechentechnik",
+      titel: "PBZ mit Polynomdivision & mehrfachen Faktoren (f)",
+      quelle: "Übungsblatt 2, Aufgabe 1f",
+      schwierigkeit: 3,
+      aufgabe: `Lösen Sie mittels Partialbruchzerlegung:
+$$\\int\\frac{x^3+6x+20}{x^4+2x^2}dx$$`,
+      hinweis: `$x^4+2x^2=x^2(x^2+2)$ ⟹ Ansatz $\\frac Ax+\\frac B{x^2}+\\frac{Cx+D}{x^2+2}$.`,
+      schritte: [
+        { titel: "Ansatz & Koeffizienten", text: `$x^4+2x^2=x^2(x^2+2)$:
 $\\frac{x^3+6x+20}{x^2(x^2+2)}=\\frac Ax+\\frac{B}{x^2}+\\frac{Cx+D}{x^2+2}$
 $x^3+6x+20=Ax(x^2+2)+B(x^2+2)+(Cx+D)x^2$
 Konstante: $20=2B\\Rightarrow B=10$. $x$: $6=2A\\Rightarrow A=3$.
 $x^3$: $1=A+C\\Rightarrow C=-2$. $x^2$: $0=B+D\\Rightarrow D=-10$.` },
-        { titel: "Teil (f) – Integrieren", text: `$$\\int\\frac3x dx=3\\ln|x|,\\quad \\int\\frac{10}{x^2}dx=-\\frac{10}x$$
+        { titel: "Integrieren", text: `$$\\int\\frac3x dx=3\\ln|x|,\\quad \\int\\frac{10}{x^2}dx=-\\frac{10}x$$
 $$\\int\\frac{-2x}{x^2+2}dx=-\\ln(x^2+2),\\quad \\int\\frac{-10}{x^2+2}dx=-\\frac{10}{\\sqrt2}\\arctan\\frac{x}{\\sqrt2}=-5\\sqrt2\\arctan\\frac{x}{\\sqrt2}$$
 Gesamt: $3\\ln|x|-\\frac{10}x-\\ln(x^2+2)-5\\sqrt2\\arctan\\big(\\frac{x}{\\sqrt2}\\big)+c$
 (Kontrolle durch Ableiten bestätigt dieses Ergebnis.)` },
       ],
-      ergebnis: `(d) $\\frac{x^3}3+2x^2+12x+32\\ln|x-2|-\\frac{16}{x-2}+c$
-(e) $2\\ln|x+2|-2\\ln|x-1|-\\frac{15}{x+2}+c$
-(f) $3\\ln|x|-\\frac{10}x-\\ln(x^2+2)-5\\sqrt2\\arctan(\\frac x{\\sqrt2})+c$`,
+      ergebnis: `$3\\ln|x|-\\frac{10}x-\\ln(x^2+2)-5\\sqrt2\\arctan(\\frac x{\\sqrt2})+c$`,
     },
     {
       id: "t1-a08",
@@ -224,172 +606,426 @@ $2x-2=A(x-3)+B$ ⟹ $A=2$, $-2=-3A+B\\Rightarrow B=4$.` },
       ergebnis: `$I=x^2+2\\ln|x-3|-\\dfrac{4}{x-3}+c$`,
     },
     {
-      id: "t1-a09",
+      id: "t1-a09a",
       typ: "Rechentechnik",
-      titel: "Bestimmte Integrale",
-      quelle: "Übungsblatt 2, Aufgabe 2",
+      titel: "Bestimmte Integrale (a)",
+      quelle: "Übungsblatt 2, Aufgabe 2a",
       schwierigkeit: 2,
       aufgabe: `Berechnen Sie:
-$$\\text{(a)}\\ \\int_0^1\\frac{dx}{1+x^2} \\qquad \\text{(b)}\\ \\int_0^{\\pi/3}\\tan(x)\\,dx \\qquad \\text{(c)}\\ \\int_9^{16}e^{\\sqrt x}\\,dx$$
-$$\\text{(d)}\\ \\int_0^{\\ln 2}xe^{-x}dx \\qquad \\text{(e)}\\ \\int_0^1\\frac{4x^2}{\\sqrt[3]{5x^3+7}}dx \\qquad \\text{(f)}\\ \\int_1^e\\frac{8\\ln(x^2)}{x}dx$$`,
-      hinweis: `Stammfunktion bestimmen, dann Hauptsatz: $\\int_a^b f\\,dx=F(b)-F(a)$. Bei Substitution: Grenzen mitsubstituieren!`,
+$$\\int_0^1\\frac{dx}{1+x^2}$$`,
+      hinweis: `Stammfunktion bestimmen, dann Hauptsatz: $\\int_a^b f\\,dx=F(b)-F(a)$.`,
       schritte: [
-        { titel: "Teil (a)", text: `$$\\int_0^1\\frac{dx}{1+x^2}=\\big[\\arctan x\\big]_0^1=\\frac{\\pi}{4}-0=\\frac{\\pi}{4}$$` },
-        { titel: "Teil (b)", text: `$\\int\\tan x\\,dx=-\\ln|\\cos x|$:
+        { titel: "Lösung", text: `$$\\int_0^1\\frac{dx}{1+x^2}=\\big[\\arctan x\\big]_0^1=\\frac{\\pi}{4}-0=\\frac{\\pi}{4}$$` },
+      ],
+      ergebnis: `$\\frac\\pi4$`,
+    },
+    {
+      id: "t1-a09b",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (b)",
+      quelle: "Übungsblatt 2, Aufgabe 2b",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^{\\pi/3}\\tan(x)\\,dx$$`,
+      hinweis: `Stammfunktion bestimmen, dann Hauptsatz: $\\int_a^b f\\,dx=F(b)-F(a)$.`,
+      schritte: [
+        { titel: "Lösung", text: `$\\int\\tan x\\,dx=-\\ln|\\cos x|$:
 $$\\big[-\\ln|\\cos x|\\big]_0^{\\pi/3}=-\\ln\\tfrac12+\\ln 1=\\ln(2)$$` },
-        { titel: "Teil (c)", text: `Aus Aufgabe "Methoden-Mix": $\\int e^{\\sqrt x}dx=2e^{\\sqrt x}(\\sqrt x-1)$.
+      ],
+      ergebnis: `$\\ln 2$`,
+    },
+    {
+      id: "t1-a09c",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (c)",
+      quelle: "Übungsblatt 2, Aufgabe 2c",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_9^{16}e^{\\sqrt x}\\,dx$$`,
+      hinweis: `Stammfunktion bestimmen, dann Hauptsatz: $\\int_a^b f\\,dx=F(b)-F(a)$.`,
+      schritte: [
+        { titel: "Lösung", text: `Stammfunktion (Substitution + partiell): $\\int e^{\\sqrt x}dx=2e^{\\sqrt x}(\\sqrt x-1)$.
 $$\\big[2e^{\\sqrt x}(\\sqrt x-1)\\big]_9^{16}=2e^4\\cdot3-2e^3\\cdot2=6e^4-4e^3$$` },
-        { titel: "Teil (d)", text: `Partiell: $\\int xe^{-x}dx=-xe^{-x}+\\int e^{-x}dx=-(x+1)e^{-x}$.
+      ],
+      ergebnis: `$6e^4-4e^3$`,
+    },
+    {
+      id: "t1-a09d",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (d)",
+      quelle: "Übungsblatt 2, Aufgabe 2d",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^{\\ln 2}xe^{-x}dx$$`,
+      hinweis: `Stammfunktion bestimmen (partielle Integration), dann Hauptsatz: $\\int_a^b f\\,dx=F(b)-F(a)$.`,
+      schritte: [
+        { titel: "Lösung", text: `Partiell: $\\int xe^{-x}dx=-xe^{-x}+\\int e^{-x}dx=-(x+1)e^{-x}$.
 $$\\big[-(x+1)e^{-x}\\big]_0^{\\ln2}=-(\\ln2+1)\\cdot\\tfrac12+1=\\frac12-\\frac12\\ln(2)\\approx 0{,}1534$$` },
-        { titel: "Teil (e)", text: `$t=5x^3+7$, $dt=15x^2dx$; Grenzen: $x{=}0\\to t{=}7$, $x{=}1\\to t{=}12$:
+      ],
+      ergebnis: `$\\frac12-\\frac12\\ln2$`,
+    },
+    {
+      id: "t1-a09e",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (e)",
+      quelle: "Übungsblatt 2, Aufgabe 2e",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^1\\frac{4x^2}{\\sqrt[3]{5x^3+7}}dx$$`,
+      hinweis: `Substitution: bei Substitution in bestimmten Integralen die Grenzen mitsubstituieren!`,
+      schritte: [
+        { titel: "Lösung", text: `$t=5x^3+7$, $dt=15x^2dx$; Grenzen: $x{=}0\\to t{=}7$, $x{=}1\\to t{=}12$:
 $$\\frac{4}{15}\\int_7^{12}t^{-1/3}dt=\\frac{4}{15}\\cdot\\frac32\\big[t^{2/3}\\big]_7^{12}=\\frac25\\Big(12^{2/3}-7^{2/3}\\Big)$$` },
-        { titel: "Teil (f)", text: `$\\ln(x^2)=2\\ln x$ ⟹ Integrand $=\\frac{16\\ln x}{x}$, $t=\\ln x$:
+      ],
+      ergebnis: `$\\frac25(12^{2/3}-7^{2/3})$`,
+    },
+    {
+      id: "t1-a09f",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (f)",
+      quelle: "Übungsblatt 2, Aufgabe 2f",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_1^e\\frac{8\\ln(x^2)}{x}dx$$`,
+      hinweis: `Substitution $t=\\ln x$, beachte $\\ln(x^2)=2\\ln x$.`,
+      schritte: [
+        { titel: "Lösung", text: `$\\ln(x^2)=2\\ln x$ ⟹ Integrand $=\\frac{16\\ln x}{x}$, $t=\\ln x$:
 $$16\\Big[\\frac{\\ln^2x}{2}\\Big]_1^e=8(1-0)=8$$
 **Achtung:** Das Blatt nennt 4 – das passt zu $\\int_1^e\\frac{8\\ln(x)}{x}dx=4$. Mit $\\ln(x^2)$ wie gedruckt ist 8 korrekt (vermutlich Druckfehler im Blatt).` },
       ],
-      ergebnis: `(a) $\\frac\\pi4$ · (b) $\\ln 2$ · (c) $6e^4-4e^3$ · (d) $\\frac12-\\frac12\\ln2$ · (e) $\\frac25(12^{2/3}-7^{2/3})$ · (f) $8$ (bzw. $4$, falls $\\ln(x)$ statt $\\ln(x^2)$ gemeint war)`,
+      ergebnis: `$8$ (bzw. $4$, falls $\\ln(x)$ statt $\\ln(x^2)$ gemeint war)`,
     },
     {
-      id: "t1-a10",
+      id: "t1-a10a",
       typ: "Rechentechnik",
-      titel: "Bestimmte Integrale (selbständig)",
-      quelle: "Übungsblatt 2, Aufgabe 3 (Auswahl)",
+      titel: "Bestimmte Integrale (selbständig) (a)",
+      quelle: "Übungsblatt 2, Aufgabe 3a",
       schwierigkeit: 2,
       aufgabe: `Berechnen Sie:
-$$\\text{(a)}\\ \\int_1^{\\sqrt{19}}\\frac{x}{\\sqrt{4x^2+5}}dx \\qquad \\text{(b)}\\ \\int_0^{\\sqrt3}x\\arctan(x)\\,dx$$
-$$\\text{(c)}\\ \\int_2^8\\frac{dt}{t^2+t} \\qquad \\text{(f)}\\ \\int_0^{1/2}\\frac{5x}{\\sqrt{1-x^2}}dx$$`,
-      hinweis: `(a) $t=4x^2+5$. (b) partiell mit $u=\\arctan x$, dann $\\frac{x^2}{1+x^2}=1-\\frac{1}{1+x^2}$. (c) $t^2+t=t(t+1)$, PBZ. (f) $t=1-x^2$.`,
+$$\\int_1^{\\sqrt{19}}\\frac{x}{\\sqrt{4x^2+5}}dx$$`,
+      hinweis: `Substitution $t=4x^2+5$.`,
       schritte: [
-        { titel: "Teil (a)", text: `$t=4x^2+5$, $dt=8x\\,dx$; Grenzen $t: 9\\to 81$:
+        { titel: "Lösung", text: `$t=4x^2+5$, $dt=8x\\,dx$; Grenzen $t: 9\\to 81$:
 $$\\frac18\\int_9^{81}t^{-1/2}dt=\\frac18\\big[2\\sqrt t\\big]_9^{81}=\\frac14(9-3)=\\frac32$$` },
-        { titel: "Teil (b)", text: `Partiell, $u=\\arctan x$, $v'=x$:
+      ],
+      ergebnis: `$\\frac32$`,
+    },
+    {
+      id: "t1-a10b",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (selbständig) (b)",
+      quelle: "Übungsblatt 2, Aufgabe 3b",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^{\\sqrt3}x\\arctan(x)\\,dx$$`,
+      hinweis: `Partielle Integration mit $u=\\arctan x$, $v'=x$. Danach $\\frac{x^2}{1+x^2}=1-\\frac{1}{1+x^2}$ nutzen.`,
+      schritte: [
+        { titel: "Lösung", text: `Partiell, $u=\\arctan x$, $v'=x$:
 $$\\Big[\\frac{x^2}2\\arctan x\\Big]_0^{\\sqrt3}-\\frac12\\int_0^{\\sqrt3}\\frac{x^2}{1+x^2}dx=\\frac32\\cdot\\frac\\pi3-\\frac12\\big[x-\\arctan x\\big]_0^{\\sqrt3}$$
 $$=\\frac\\pi2-\\frac12\\Big(\\sqrt3-\\frac\\pi3\\Big)=\\frac{2\\pi}{3}-\\frac{\\sqrt3}{2}\\approx 1{,}228$$` },
-        { titel: "Teil (c)", text: `$\\frac{1}{t(t+1)}=\\frac1t-\\frac1{t+1}$:
+      ],
+      ergebnis: `$\\frac{2\\pi}3-\\frac{\\sqrt3}2$`,
+    },
+    {
+      id: "t1-a10c",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (selbständig) (c)",
+      quelle: "Übungsblatt 2, Aufgabe 3c",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_2^8\\frac{dt}{t^2+t}$$`,
+      hinweis: `$t^2+t=t(t+1)$, dann Partialbruchzerlegung.`,
+      schritte: [
+        { titel: "Lösung", text: `$\\frac{1}{t(t+1)}=\\frac1t-\\frac1{t+1}$:
 $$\\Big[\\ln\\frac{t}{t+1}\\Big]_2^8=\\ln\\frac89-\\ln\\frac23=\\ln\\Big(\\frac89\\cdot\\frac32\\Big)=\\ln\\frac43$$` },
-        { titel: "Teil (f)", text: `$t=1-x^2$, $dt=-2x\\,dx$, oder direkt: Stammfunktion $-5\\sqrt{1-x^2}$:
+      ],
+      ergebnis: `$\\ln\\frac43$`,
+    },
+    {
+      id: "t1-a10f",
+      typ: "Rechentechnik",
+      titel: "Bestimmte Integrale (selbständig) (f)",
+      quelle: "Übungsblatt 2, Aufgabe 3f",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^{1/2}\\frac{5x}{\\sqrt{1-x^2}}dx$$`,
+      hinweis: `Substitution $t=1-x^2$ (oder direkt die Stammfunktion erkennen).`,
+      schritte: [
+        { titel: "Lösung", text: `$t=1-x^2$, $dt=-2x\\,dx$, oder direkt: Stammfunktion $-5\\sqrt{1-x^2}$:
 $$\\big[-5\\sqrt{1-x^2}\\big]_0^{1/2}=-5\\cdot\\frac{\\sqrt3}2+5=5-\\frac{5\\sqrt3}{2}\\approx 0{,}670$$` },
       ],
-      ergebnis: `(a) $\\frac32$ · (b) $\\frac{2\\pi}3-\\frac{\\sqrt3}2$ · (c) $\\ln\\frac43$ · (f) $5-\\frac{5\\sqrt3}2$`,
+      ergebnis: `$5-\\frac{5\\sqrt3}2$`,
     },
     {
-      id: "t1-a11",
+      id: "t1-a11a",
       typ: "Rechentechnik",
-      titel: "Numerische Integration",
-      quelle: "Übungsblatt 3, Aufgabe 1",
+      titel: "Numerische Integration – Trapezregel",
+      quelle: "Übungsblatt 3, Aufgabe 1a",
       schwierigkeit: 2,
-      aufgabe: `Berechnen Sie näherungsweise $I=\\displaystyle\\int_{-1/2}^{1/2}e^{x^2}dx$ mit
-(a) der **Trapezregel** mit $n=10$ Teilintervallen,
-(b) der **Simpson-Regel** mit $m=10$ Teilintervallen,
-(c) dem **Taylorpolynom** 4. Grades um $x_0=0$.`,
-      hinweis: `$h=\\frac{b-a}{n}=0{,}1$. Trapezregel: $I\\approx\\frac h2\\big(f(a)+f(b)+2\\sum f(\\text{innere Stützstellen})\\big)$. Taylor: $e^{x^2}\\approx 1+x^2+\\frac{x^4}{2}$.`,
+      aufgabe: `Berechnen Sie das Integral $I=\\displaystyle\\int_{-1/2}^{1/2}e^{x^2}dx$ näherungsweise mit der **Trapezregel** mit $n=10$ Teilintervallen.`,
+      hinweis: `$h=\\frac{b-a}{n}=0{,}1$. Trapezregel: $I\\approx\\frac h2\\big(f(a)+f(b)+2\\sum f(\\text{innere Stützstellen})\\big)$.`,
       schritte: [
         { titel: "Stützstellen", text: `$a=-0{,}5$, $b=0{,}5$, $h=0{,}1$, Stützstellen $x_k=-0{,}5+k\\cdot 0{,}1$ für $k=0,\\dots,10$, Funktionswerte $f(x_k)=e^{x_k^2}$. Wegen Symmetrie gilt $f(-x)=f(x)$.` },
-        { titel: "Teil (a) – Trapezregel", text: `$$T_{10}=\\frac{h}{2}\\Big(f(x_0)+f(x_{10})+2\\sum_{k=1}^{9}f(x_k)\\Big)\\approx 1{,}09211$$` },
-        { titel: "Teil (b) – Simpson-Regel", text: `Ungerade Indizes mit Faktor 4, gerade innere mit Faktor 2:
-$$S_{10}=\\frac h3\\Big(f(x_0)+f(x_{10})+4\\!\\!\\sum_{k\\,\\text{ungerade}}\\!\\!f(x_k)+2\\!\\!\\sum_{k\\,\\text{gerade innen}}\\!\\!f(x_k)\\Big)\\approx 1{,}08998$$` },
-        { titel: "Teil (c) – Taylorpolynom", text: `$e^u\\approx 1+u+\\frac{u^2}2$ mit $u=x^2$: $\\;T_4(x)=1+x^2+\\frac{x^4}{2}$
-$$\\int_{-1/2}^{1/2}T_4\\,dx=\\Big[x+\\frac{x^3}3+\\frac{x^5}{10}\\Big]_{-1/2}^{1/2}=2\\Big(\\frac12+\\frac1{24}+\\frac1{320}\\Big)\\approx 1{,}0896$$` },
+        { titel: "Trapezregel", text: `$$T_{10}=\\frac{h}{2}\\Big(f(x_0)+f(x_{10})+2\\sum_{k=1}^{9}f(x_k)\\Big)\\approx 1{,}09211$$` },
       ],
-      ergebnis: `(a) $T_{10}\\approx 1{,}09211$ · (b) $S_{10}\\approx 1{,}08998$ · (c) $\\approx 1{,}0896$
-(Das Integral selbst ist nicht elementar lösbar – darum die Näherungen!)`,
+      ergebnis: `$T_{10}\\approx 1{,}09211$
+(Das Integral selbst ist nicht elementar lösbar – darum die Näherung!)`,
     },
     {
-      id: "t1-a12",
+      id: "t1-a11b",
+      typ: "Rechentechnik",
+      titel: "Numerische Integration – Simpson-Regel",
+      quelle: "Übungsblatt 3, Aufgabe 1b",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie das Integral $I=\\displaystyle\\int_{-1/2}^{1/2}e^{x^2}dx$ näherungsweise mit der **Simpson-Regel** mit $m=10$ Teilintervallen.`,
+      hinweis: `$h=\\frac{b-a}{m}=0{,}1$. Simpson-Regel: ungerade Indizes mit Faktor 4, gerade innere mit Faktor 2, Randpunkte mit Faktor 1 – alles mal $\\frac h3$.`,
+      schritte: [
+        { titel: "Stützstellen", text: `$a=-0{,}5$, $b=0{,}5$, $h=0{,}1$, Stützstellen $x_k=-0{,}5+k\\cdot 0{,}1$ für $k=0,\\dots,10$, Funktionswerte $f(x_k)=e^{x_k^2}$. Wegen Symmetrie gilt $f(-x)=f(x)$.` },
+        { titel: "Simpson-Regel", text: `Ungerade Indizes mit Faktor 4, gerade innere mit Faktor 2:
+$$S_{10}=\\frac h3\\Big(f(x_0)+f(x_{10})+4\\!\\!\\sum_{k\\,\\text{ungerade}}\\!\\!f(x_k)+2\\!\\!\\sum_{k\\,\\text{gerade innen}}\\!\\!f(x_k)\\Big)\\approx 1{,}08998$$` },
+      ],
+      ergebnis: `$S_{10}\\approx 1{,}08998$
+(Das Integral selbst ist nicht elementar lösbar – darum die Näherung!)`,
+    },
+    {
+      id: "t1-a11c",
+      typ: "Rechentechnik",
+      titel: "Numerische Integration – Taylorpolynom",
+      quelle: "Übungsblatt 3, Aufgabe 1c",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie das Integral $I=\\displaystyle\\int_{-1/2}^{1/2}e^{x^2}dx$ näherungsweise mit dem **Taylorpolynom 4. Grades** um $x_0=0$.`,
+      hinweis: `Taylor: $e^{x^2}\\approx 1+x^2+\\frac{x^4}{2}$ (aus $e^u\\approx 1+u+\\frac{u^2}{2}$ mit $u=x^2$).`,
+      schritte: [
+        { titel: "Taylorpolynom", text: `$e^u\\approx 1+u+\\frac{u^2}2$ mit $u=x^2$: $\\;T_4(x)=1+x^2+\\frac{x^4}{2}$
+$$\\int_{-1/2}^{1/2}T_4\\,dx=\\Big[x+\\frac{x^3}3+\\frac{x^5}{10}\\Big]_{-1/2}^{1/2}=2\\Big(\\frac12+\\frac1{24}+\\frac1{320}\\Big)\\approx 1{,}0896$$` },
+      ],
+      ergebnis: `$\\approx 1{,}0896$
+(Das Integral selbst ist nicht elementar lösbar – darum die Näherung!)`,
+    },
+    {
+      id: "t1-a12a",
       typ: "Verständnis",
-      titel: "Drei Wege zu einem Integral + Konvergenz",
-      quelle: "Übungsblatt 3, Aufgabe 2",
+      titel: "Drei Wege zu einem Integral",
+      quelle: "Übungsblatt 3, Aufgabe 2a",
       schwierigkeit: 2,
       aufgabe: `Gegeben sei $f(x)=\\dfrac{-6x^2-8}{x^3+4x}$.
-**(a)** Bestimmen Sie $\\int f(x)\\,dx$ auf drei Wegen: (i) Substitution des Nenners, (ii) PBZ, (iii) Regel $\\int\\frac{f'}{f}dx=\\ln|f|+C$.
-**(b)** Berechnen Sie $I=\\int_0^2 f(x)\\,dx$. Konvergent oder divergent?`,
-      hinweis: `Der Zähler ist genau $-2\\cdot$(Ableitung des Nenners). Bei (b): Was passiert bei $x=0$?`,
+Bestimmen Sie $\\int f(x)\\,dx$ auf drei Wegen: (i) Substitution des Nenners, (ii) Partialbruchzerlegung, (iii) Regel $\\int\\frac{f'}{f}dx=\\ln|f|+C$.`,
+      hinweis: `Der Zähler ist genau $-2\\cdot$(Ableitung des Nenners) – das funktioniert für alle drei Wege.`,
       schritte: [
-        { titel: "(a)(i) Substitution", text: `$t=x^3+4x$, $dt=(3x^2+4)dx$. Zähler: $-6x^2-8=-2(3x^2+4)$:
+        { titel: "Weg 1: Substitution", text: `$t=x^3+4x$, $dt=(3x^2+4)dx$. Zähler: $-6x^2-8=-2(3x^2+4)$:
 $$\\int\\frac{-2\\,dt}{t}=-2\\ln|t|+C=-2\\ln|x^3+4x|+C$$` },
-        { titel: "(a)(ii) PBZ (Kontrolle)", text: `$\\frac{-6x^2-8}{x(x^2+4)}=\\frac Ax+\\frac{Bx+C}{x^2+4}$ ⟹ $-6x^2-8=A(x^2+4)+(Bx+C)x$
+        { titel: "Weg 2: PBZ (Kontrolle)", text: `$\\frac{-6x^2-8}{x(x^2+4)}=\\frac Ax+\\frac{Bx+C}{x^2+4}$ ⟹ $-6x^2-8=A(x^2+4)+(Bx+C)x$
 $x=0$: $A=-2$; $x^2$: $-6=A+B\\Rightarrow B=-4$; $x$: $C=0$.
 $$\\int\\Big(\\frac{-2}x+\\frac{-4x}{x^2+4}\\Big)dx=-2\\ln|x|-2\\ln(x^2+4)+C=-2\\ln|x^3+4x|+C\\ \\checkmark$$` },
-        { titel: "(a)(iii) ln-Regel", text: `$f(x)=-2\\cdot\\frac{(x^3+4x)'}{x^3+4x}$ ⟹ sofort $-2\\ln|x^3+4x|+C$.` },
-        { titel: "(b) Uneigentliches Integral", text: `Bei $x=0$ ist der Nenner $0$ ⟹ Polstelle am linken Rand:
+        { titel: "Weg 3: ln-Regel", text: `$f(x)=-2\\cdot\\frac{(x^3+4x)'}{x^3+4x}$ ⟹ sofort $-2\\ln|x^3+4x|+C$.` },
+      ],
+      ergebnis: `$\\int f\\,dx=-2\\ln|x^3+4x|+C$ (alle drei Wege)`,
+    },
+    {
+      id: "t1-a12b",
+      typ: "Verständnis",
+      titel: "Uneigentliches Integral & Konvergenz",
+      quelle: "Übungsblatt 3, Aufgabe 2b",
+      schwierigkeit: 2,
+      aufgabe: `Gegeben sei $f(x)=\\dfrac{-6x^2-8}{x^3+4x}$ mit Stammfunktion $F(x)=-2\\ln|x^3+4x|+C$.
+Berechnen Sie $I=\\displaystyle\\int_0^2 f(x)\\,dx$. Konvergent oder divergent?`,
+      hinweis: `Was passiert mit der Stammfunktion bei $x\\to0$?`,
+      schritte: [
+        { titel: "Uneigentliches Integral", text: `Bei $x=0$ ist der Nenner $0$ ⟹ Polstelle am linken Rand:
 $$I=\\lim_{\\varepsilon\\to0^+}\\big[-2\\ln|x^3+4x|\\big]_\\varepsilon^2=-2\\ln(16)+2\\lim_{\\varepsilon\\to0^+}\\ln(\\varepsilon^3+4\\varepsilon)=-\\infty$$
 $I$ ist **bestimmt divergent** (gegen $-\\infty$).` },
       ],
-      ergebnis: `(a) $\\int f\\,dx=-2\\ln|x^3+4x|+C$ (alle drei Wege) · (b) $I=-\\infty$, bestimmt divergent`,
+      ergebnis: `$I=-\\infty$, bestimmt divergent`,
     },
     {
-      id: "t1-a13",
+      id: "t1-a13a",
       typ: "Rechentechnik",
-      titel: "Uneigentliche Integrale",
-      quelle: "Übungsblatt 3, Aufgabe 3",
+      titel: "Uneigentliche Integrale (a)",
+      quelle: "Übungsblatt 3, Aufgabe 3a",
       schwierigkeit: 2,
       video: "Bsp09–Bsp11 (Uneigentliche Integrale)",
-      aufgabe: `Berechnen Sie die folgenden uneigentlichen Integrale:
-$$\\text{(a)}\\ \\int_0^{\\pi/2}\\frac{\\cos x}{1-\\sin x}dx \\qquad \\text{(b)}\\ \\int_1^\\infty\\frac{dx}{x^3+x^2} \\qquad \\text{(c)}\\ \\int_{-1}^{1}\\frac{3}{x^2}e^{3/x}dx$$`,
-      hinweis: `(a) Polstelle bei $x=\\frac\\pi2$ (dort $\\sin x=1$). (b) PBZ mit $x^2(x+1)$. (c) Polstelle bei $x=0$ im Inneren ⟹ aufteilen!`,
+      aufgabe: `Berechnen Sie das folgende uneigentliche Integral:
+$$\\int_0^{\\pi/2}\\frac{\\cos x}{1-\\sin x}dx$$`,
+      hinweis: `Polstelle bei $x=\\frac\\pi2$ (dort $\\sin x=1$) – als Grenzwert betrachten.`,
       schritte: [
-        { titel: "Teil (a)", text: `$t=1-\\sin x$: Stammfunktion $-\\ln|1-\\sin x|$. Bei $x\\to\\frac\\pi2$: $1-\\sin x\\to 0^+$:
+        { titel: "Lösung", text: `$t=1-\\sin x$: Stammfunktion $-\\ln|1-\\sin x|$. Bei $x\\to\\frac\\pi2$: $1-\\sin x\\to 0^+$:
 $$\\lim_{b\\to\\pi/2}\\big[-\\ln(1-\\sin x)\\big]_0^b=\\lim(-\\ln(1-\\sin b))+\\ln 1=+\\infty$$
 **Divergent** (gegen $\\infty$).` },
-        { titel: "Teil (b) – PBZ", text: `$\\frac1{x^2(x+1)}=\\frac Ax+\\frac B{x^2}+\\frac C{x+1}$: $1=Ax(x+1)+B(x+1)+Cx^2$
+      ],
+      ergebnis: `divergent ($\\infty$)`,
+    },
+    {
+      id: "t1-a13b",
+      typ: "Rechentechnik",
+      titel: "Uneigentliche Integrale (b)",
+      quelle: "Übungsblatt 3, Aufgabe 3b",
+      schwierigkeit: 2,
+      video: "Bsp09–Bsp11 (Uneigentliche Integrale)",
+      aufgabe: `Berechnen Sie das folgende uneigentliche Integral:
+$$\\int_1^\\infty\\frac{dx}{x^3+x^2}$$`,
+      hinweis: `Partialbruchzerlegung mit $x^2(x+1)$.`,
+      schritte: [
+        { titel: "PBZ", text: `$\\frac1{x^2(x+1)}=\\frac Ax+\\frac B{x^2}+\\frac C{x+1}$: $1=Ax(x+1)+B(x+1)+Cx^2$
 $x=0$: $B=1$; $x=-1$: $C=1$; $x^2$: $0=A+C\\Rightarrow A=-1$.
 Stammfunktion: $F(x)=-\\ln|x|-\\frac1x+\\ln|x+1|=\\ln\\frac{x+1}{x}-\\frac1x$` },
-        { titel: "Teil (b) – Grenzwert", text: `$$\\lim_{b\\to\\infty}\\Big[\\ln\\frac{x+1}x-\\frac1x\\Big]_1^b=(\\ln1-0)-(\\ln2-1)=1-\\ln(2)\\approx 0{,}307$$
+        { titel: "Grenzwert", text: `$$\\lim_{b\\to\\infty}\\Big[\\ln\\frac{x+1}x-\\frac1x\\Big]_1^b=(\\ln1-0)-(\\ln2-1)=1-\\ln(2)\\approx 0{,}307$$
 **Konvergent.**` },
-        { titel: "Teil (c)", text: `Stammfunktion: $t=\\frac3x$ ⟹ $\\int\\frac3{x^2}e^{3/x}dx=-e^{3/x}+C$.
+      ],
+      ergebnis: `$1-\\ln 2$, konvergent`,
+    },
+    {
+      id: "t1-a13c",
+      typ: "Rechentechnik",
+      titel: "Uneigentliche Integrale (c)",
+      quelle: "Übungsblatt 3, Aufgabe 3c",
+      schwierigkeit: 2,
+      video: "Bsp09–Bsp11 (Uneigentliche Integrale)",
+      aufgabe: `Berechnen Sie das folgende uneigentliche Integral:
+$$\\int_{-1}^{1}\\frac{3}{x^2}e^{3/x}dx$$`,
+      hinweis: `Polstelle bei $x=0$ liegt im Inneren des Intervalls ⟹ aufteilen!`,
+      schritte: [
+        { titel: "Lösung", text: `Stammfunktion: $t=\\frac3x$ ⟹ $\\int\\frac3{x^2}e^{3/x}dx=-e^{3/x}+C$.
 Polstelle bei $x=0$ **im Inneren** ⟹ aufteilen in $\\int_{-1}^0+\\int_0^1$.
 Rechter Teil: $\\lim_{\\varepsilon\\to0^+}\\big[-e^{3/x}\\big]_\\varepsilon^1=-e^3+\\lim_{\\varepsilon\\to0^+}e^{3/\\varepsilon}=+\\infty$
 **Divergent** (gegen $\\infty$) – der linke Teil kann das nicht mehr retten.` },
       ],
-      ergebnis: `(a) divergent ($\\infty$) · (b) $1-\\ln 2$, konvergent · (c) divergent ($\\infty$)`,
+      ergebnis: `divergent ($\\infty$)`,
     },
     {
-      id: "t1-a14",
+      id: "t1-a14a",
       typ: "Rechentechnik",
-      titel: "Uneigentliche Integrale (selbständig)",
-      quelle: "Übungsblatt 3, Aufgabe 5",
+      titel: "Uneigentliche Integrale (selbständig) (a)",
+      quelle: "Übungsblatt 3, Aufgabe 5a",
       schwierigkeit: 2,
       aufgabe: `Berechnen Sie:
-$$\\text{(a)}\\ \\int_0^\\infty xe^{-x^2}dx \\qquad \\text{(b)}\\ \\int_{-\\infty}^\\infty xe^{-x^2}dx \\qquad \\text{(c)}\\ \\int_1^3\\frac{2x}{\\sqrt{9-x^2}}dx$$
-$$\\text{(d)}\\ \\int_0^1\\frac{dx}{x\\ln x} \\qquad \\text{(e)}\\ \\int_0^3\\frac{dx}{x-1} \\qquad \\text{(f)}\\ \\int_0^3\\frac{dx}{(x-1)^2}$$`,
-      hinweis: `Stammfunktionen: (a,b) $-\\frac12e^{-x^2}$, (c) $-2\\sqrt{9-x^2}$, (d) $\\ln|\\ln x|$, (e) $\\ln|x-1|$, (f) $-\\frac1{x-1}$. Bei (e),(f): Polstelle $x=1$ im Inneren!`,
+$$\\int_0^\\infty xe^{-x^2}dx$$`,
+      hinweis: `Stammfunktion: $-\\frac12e^{-x^2}$.`,
       schritte: [
-        { titel: "Teil (a)", text: `$$\\lim_{b\\to\\infty}\\Big[-\\frac12e^{-x^2}\\Big]_0^b=0+\\frac12=\\frac12 \\quad\\textbf{konvergent}$$` },
-        { titel: "Teil (b)", text: `Beide Hälften konvergieren: $\\int_{-\\infty}^0=-\\frac12$, $\\int_0^\\infty=\\frac12$.
-$$\\int_{-\\infty}^\\infty xe^{-x^2}dx=0 \\quad\\textbf{konvergent}$$` },
-        { titel: "Teil (c)", text: `Polstelle bei $x=3$ (Wurzel wird 0):
-$$\\lim_{b\\to3^-}\\big[-2\\sqrt{9-x^2}\\big]_1^b=0+2\\sqrt8=4\\sqrt2 \\quad\\textbf{konvergent}$$` },
-        { titel: "Teil (d)", text: `Stammfunktion $\\ln|\\ln x|$. Bei $x\\to1^-$: $|\\ln x|\\to0^+$ ⟹ $\\ln|\\ln x|\\to-\\infty$.
-**Divergent.**` },
-        { titel: "Teil (e)", text: `Polstelle $x=1$ innen, aufteilen: $\\int_0^1\\frac{dx}{x-1}=\\lim_{b\\to1^-}\\ln|x-1|\\Big|_0^b=-\\infty$
-**Divergent.** (Achtung: "links $-\\infty$, rechts $+\\infty$ hebt sich" gilt NICHT – beide Teile müssen einzeln konvergieren.)` },
-        { titel: "Teil (f)", text: `$\\int_0^1\\frac{dx}{(x-1)^2}=\\lim_{b\\to1^-}\\Big[-\\frac1{x-1}\\Big]_0^b=+\\infty$
-**Divergent** (gegen $+\\infty$).` },
+        { titel: "Lösung", text: `$$\\lim_{b\\to\\infty}\\Big[-\\frac12e^{-x^2}\\Big]_0^b=0+\\frac12=\\frac12 \\quad\\textbf{konvergent}$$` },
       ],
-      ergebnis: `(a) $\\frac12$ · (b) $0$ · (c) $4\\sqrt2$ · (d) divergent · (e) divergent · (f) divergent ($+\\infty$)`,
+      ergebnis: `$\\frac12$, konvergent`,
     },
     {
-      id: "t1-a15",
+      id: "t1-a14b",
+      typ: "Rechentechnik",
+      titel: "Uneigentliche Integrale (selbständig) (b)",
+      quelle: "Übungsblatt 3, Aufgabe 5b",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_{-\\infty}^\\infty xe^{-x^2}dx$$`,
+      hinweis: `Stammfunktion: $-\\frac12e^{-x^2}$. Beide Grenzwerte ($-\\infty$ und $+\\infty$) müssen einzeln existieren.`,
+      schritte: [
+        { titel: "Lösung", text: `Beide Hälften konvergieren: $\\int_{-\\infty}^0=-\\frac12$, $\\int_0^\\infty=\\frac12$.
+$$\\int_{-\\infty}^\\infty xe^{-x^2}dx=0 \\quad\\textbf{konvergent}$$` },
+      ],
+      ergebnis: `$0$, konvergent`,
+    },
+    {
+      id: "t1-a14c",
+      typ: "Rechentechnik",
+      titel: "Uneigentliche Integrale (selbständig) (c)",
+      quelle: "Übungsblatt 3, Aufgabe 5c",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_1^3\\frac{2x}{\\sqrt{9-x^2}}dx$$`,
+      hinweis: `Stammfunktion: $-2\\sqrt{9-x^2}$. Polstelle (Wurzel wird 0) bei $x=3$.`,
+      schritte: [
+        { titel: "Lösung", text: `Polstelle bei $x=3$ (Wurzel wird 0):
+$$\\lim_{b\\to3^-}\\big[-2\\sqrt{9-x^2}\\big]_1^b=0+2\\sqrt8=4\\sqrt2 \\quad\\textbf{konvergent}$$` },
+      ],
+      ergebnis: `$4\\sqrt2$, konvergent`,
+    },
+    {
+      id: "t1-a14d",
+      typ: "Rechentechnik",
+      titel: "Uneigentliche Integrale (selbständig) (d)",
+      quelle: "Übungsblatt 3, Aufgabe 5d",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^1\\frac{dx}{x\\ln x}$$`,
+      hinweis: `Stammfunktion: $\\ln|\\ln x|$. Was passiert bei $x\\to1^-$?`,
+      schritte: [
+        { titel: "Lösung", text: `Stammfunktion $\\ln|\\ln x|$. Bei $x\\to1^-$: $|\\ln x|\\to0^+$ ⟹ $\\ln|\\ln x|\\to-\\infty$.
+**Divergent.**` },
+      ],
+      ergebnis: `divergent`,
+    },
+    {
+      id: "t1-a14e",
+      typ: "Rechentechnik",
+      titel: "Uneigentliche Integrale (selbständig) (e)",
+      quelle: "Übungsblatt 3, Aufgabe 5e",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^3\\frac{dx}{x-1}$$`,
+      hinweis: `Stammfunktion: $\\ln|x-1|$. Polstelle $x=1$ liegt im Inneren ⟹ aufteilen!`,
+      schritte: [
+        { titel: "Lösung", text: `Polstelle $x=1$ innen, aufteilen: $\\int_0^1\\frac{dx}{x-1}=\\lim_{b\\to1^-}\\ln|x-1|\\Big|_0^b=-\\infty$
+**Divergent.** (Achtung: "links $-\\infty$, rechts $+\\infty$ hebt sich" gilt NICHT – beide Teile müssen einzeln konvergieren.)` },
+      ],
+      ergebnis: `divergent`,
+    },
+    {
+      id: "t1-a14f",
+      typ: "Rechentechnik",
+      titel: "Uneigentliche Integrale (selbständig) (f)",
+      quelle: "Übungsblatt 3, Aufgabe 5f",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie:
+$$\\int_0^3\\frac{dx}{(x-1)^2}$$`,
+      hinweis: `Stammfunktion: $-\\frac1{x-1}$. Polstelle $x=1$ liegt im Inneren ⟹ aufteilen!`,
+      schritte: [
+        { titel: "Lösung", text: `$\\int_0^1\\frac{dx}{(x-1)^2}=\\lim_{b\\to1^-}\\Big[-\\frac1{x-1}\\Big]_0^b=+\\infty$
+**Divergent** (gegen $+\\infty$).` },
+      ],
+      ergebnis: `divergent ($+\\infty$)`,
+    },
+    {
+      id: "t1-a15a",
       typ: "Anwendung",
-      titel: "Bogenlängen",
-      quelle: "Übungsblatt 4, Aufgabe 1",
+      titel: "Bogenlängen (a)",
+      quelle: "Übungsblatt 4, Aufgabe 1a",
       schwierigkeit: 3,
-      aufgabe: `Berechnen Sie die Bogenlängen der Graphen ($s=\\int_a^b\\sqrt{1+(f'(x))^2}\\,dx$):
-**(a)** $f_1(x)=\\sqrt{x^3}$ auf $[0,5]$
-**(b)** $f_2(x)=\\frac12(e^x+e^{-x})$ auf $[-1,1]$
-**(c)** $f_3(x)=\\ln(x^2-1)$ auf $[2,3]$`,
+      aufgabe: `Berechnen Sie die Bogenlänge des Graphen von $f_1(x)=\\sqrt{x^3}$ auf $[0,5]$
+($s=\\int_a^b\\sqrt{1+(f'(x))^2}\\,dx$).`,
       hinweis: `Ziel ist immer, $1+(f')^2$ zu einem vollständigen Quadrat zu machen (binomische Formeln!), damit die Wurzel verschwindet.`,
       schritte: [
-        { titel: "Teil (a)", text: `$f_1=x^{3/2}$, $f_1'=\\frac32x^{1/2}$, $1+(f_1')^2=1+\\frac94x$:
+        { titel: "Lösung", text: `$f_1=x^{3/2}$, $f_1'=\\frac32x^{1/2}$, $1+(f_1')^2=1+\\frac94x$:
 $$s=\\int_0^5\\sqrt{1+\\tfrac94x}\\,dx=\\Big[\\frac{8}{27}\\big(1+\\tfrac94x\\big)^{3/2}\\Big]_0^5=\\frac8{27}\\Big(\\big(\\tfrac{49}4\\big)^{3/2}-1\\Big)=\\frac8{27}\\Big(\\frac{343}8-1\\Big)=\\frac{335}{27}$$` },
-        { titel: "Teil (b)", text: `$f_2'=\\frac12(e^x-e^{-x})$. Mit binomischen Formeln:
+      ],
+      ergebnis: `$\\frac{335}{27}$`,
+    },
+    {
+      id: "t1-a15b",
+      typ: "Anwendung",
+      titel: "Bogenlängen (b)",
+      quelle: "Übungsblatt 4, Aufgabe 1b",
+      schwierigkeit: 3,
+      aufgabe: `Berechnen Sie die Bogenlänge des Graphen von $f_2(x)=\\frac12(e^x+e^{-x})$ auf $[-1,1]$
+($s=\\int_a^b\\sqrt{1+(f'(x))^2}\\,dx$).`,
+      hinweis: `Ziel ist immer, $1+(f')^2$ zu einem vollständigen Quadrat zu machen (binomische Formeln!), damit die Wurzel verschwindet.`,
+      schritte: [
+        { titel: "Lösung", text: `$f_2'=\\frac12(e^x-e^{-x})$. Mit binomischen Formeln:
 $$1+(f_2')^2=1+\\tfrac14(e^{2x}-2+e^{-2x})=\\tfrac14(e^{2x}+2+e^{-2x})=\\Big(\\tfrac{e^x+e^{-x}}2\\Big)^2$$
 $$s=\\int_{-1}^1\\frac{e^x+e^{-x}}2dx=\\Big[\\frac{e^x-e^{-x}}2\\Big]_{-1}^1=e-e^{-1}$$` },
-        { titel: "Teil (c)", text: `$f_3'=\\frac{2x}{x^2-1}$:
+      ],
+      ergebnis: `$e-e^{-1}$`,
+    },
+    {
+      id: "t1-a15c",
+      typ: "Anwendung",
+      titel: "Bogenlängen (c)",
+      quelle: "Übungsblatt 4, Aufgabe 1c",
+      schwierigkeit: 3,
+      aufgabe: `Berechnen Sie die Bogenlänge des Graphen von $f_3(x)=\\ln(x^2-1)$ auf $[2,3]$
+($s=\\int_a^b\\sqrt{1+(f'(x))^2}\\,dx$).`,
+      hinweis: `Ziel ist immer, $1+(f')^2$ zu einem vollständigen Quadrat zu machen (binomische Formeln!), damit die Wurzel verschwindet.`,
+      schritte: [
+        { titel: "Lösung", text: `$f_3'=\\frac{2x}{x^2-1}$:
 $$1+(f_3')^2=\\frac{(x^2-1)^2+4x^2}{(x^2-1)^2}=\\frac{(x^2+1)^2}{(x^2-1)^2}$$
 $$s=\\int_2^3\\frac{x^2+1}{x^2-1}dx=\\int_2^3\\Big(1+\\frac1{x-1}-\\frac1{x+1}\\Big)dx=\\Big[x+\\ln\\frac{x-1}{x+1}\\Big]_2^3=1+\\ln\\frac{3}{2}$$` },
       ],
-      ergebnis: `(a) $\\frac{335}{27}$ · (b) $e-e^{-1}$ · (c) $1+\\ln\\frac32$`,
+      ergebnis: `$1+\\ln\\frac32$`,
     },
     {
       id: "t1-a16",
@@ -413,43 +1049,68 @@ Mit $a=2$ cm: $s=16$ cm.` },
       ergebnis: `$s=8a=16\\,$cm`,
     },
     {
-      id: "t1-a17",
+      id: "t1-a17a",
       typ: "Anwendung",
-      titel: "Rotationskörper: Diffusor",
-      quelle: "Übungsblatt 4, Aufgabe 4",
+      titel: "Rotationskörper: Diffusor – Volumen",
+      quelle: "Übungsblatt 4, Aufgabe 4a",
       schwierigkeit: 3,
       aufgabe: `Der Innenradius eines rotationssymmetrischen Diffusors ist $y=\\sqrt{e^x+1}$ für $x\\in[\\ln 2,\\ln 8]$ (in dm).
-Berechnen Sie **Volumen** und **Mantelfläche** der Innenwand.
-$$V_x=\\pi\\int_a^b y^2\\,dx,\\qquad M_x=2\\pi\\int_a^b y\\sqrt{1+(y')^2}\\,dx$$`,
-      hinweis: `Beim Mantel: $y\\sqrt{1+(y')^2}$ unter EINE Wurzel ziehen – es entsteht ein vollständiges Quadrat $(e^x+2)^2$.`,
+Berechnen Sie das **Volumen** der Innenwand: $V_x=\\pi\\int_a^b y^2\\,dx$.`,
+      hinweis: `$y^2=e^x+1$ – direkt integrieren.`,
       schritte: [
-        { titel: "Volumen", text: `$y^2=e^x+1$:
+        { titel: "Lösung", text: `$y^2=e^x+1$:
 $$V_x=\\pi\\int_{\\ln2}^{\\ln8}(e^x+1)dx=\\pi\\big[e^x+x\\big]_{\\ln2}^{\\ln8}=\\pi\\big(8+\\ln8-2-\\ln2\\big)=\\pi\\big(6+\\ln 4\\big)\\ [\\text{dm}^3]$$` },
-        { titel: "Mantel – Wurzel vereinfachen", text: `$y'=\\dfrac{e^x}{2\\sqrt{e^x+1}}$ ⟹ $1+(y')^2=1+\\dfrac{e^{2x}}{4(e^x+1)}$
-$$y\\sqrt{1+(y')^2}=\\sqrt{(e^x+1)+\\frac{e^{2x}}4}=\\frac12\\sqrt{e^{2x}+4e^x+4}=\\frac{e^x+2}2$$` },
-        { titel: "Mantel – Integrieren", text: `$$M_x=2\\pi\\int_{\\ln2}^{\\ln8}\\frac{e^x+2}2dx=\\pi\\big[e^x+2x\\big]_{\\ln2}^{\\ln8}=\\pi\\big(8+2\\ln8-2-2\\ln2\\big)=\\pi\\big(6+\\ln 16\\big)\\ [\\text{dm}^2]$$` },
       ],
-      ergebnis: `$V_x=\\pi(6+\\ln 4)\\,$dm³ $\\approx 23{,}2\\,$dm³ · $M_x=\\pi(6+\\ln 16)\\,$dm² $\\approx 27{,}6\\,$dm²`,
+      ergebnis: `$V_x=\\pi(6+\\ln 4)\\,$dm³ $\\approx 23{,}2\\,$dm³`,
     },
     {
-      id: "t1-a18",
+      id: "t1-a17b",
       typ: "Anwendung",
-      titel: "Unendlicher Rotationskörper (selbständig)",
-      quelle: "Übungsblatt 4, Aufgabe 7",
+      titel: "Rotationskörper: Diffusor – Mantelfläche",
+      quelle: "Übungsblatt 4, Aufgabe 4b",
+      schwierigkeit: 3,
+      aufgabe: `Der Innenradius eines rotationssymmetrischen Diffusors ist $y=\\sqrt{e^x+1}$ für $x\\in[\\ln 2,\\ln 8]$ (in dm).
+Berechnen Sie die **Mantelfläche** der Innenwand: $M_x=2\\pi\\int_a^b y\\sqrt{1+(y')^2}\\,dx$.`,
+      hinweis: `$y\\sqrt{1+(y')^2}$ unter EINE Wurzel ziehen – es entsteht ein vollständiges Quadrat $(e^x+2)^2$.`,
+      schritte: [
+        { titel: "Wurzel vereinfachen", text: `$y'=\\dfrac{e^x}{2\\sqrt{e^x+1}}$ ⟹ $1+(y')^2=1+\\dfrac{e^{2x}}{4(e^x+1)}$
+$$y\\sqrt{1+(y')^2}=\\sqrt{(e^x+1)+\\frac{e^{2x}}4}=\\frac12\\sqrt{e^{2x}+4e^x+4}=\\frac{e^x+2}2$$` },
+        { titel: "Integrieren", text: `$$M_x=2\\pi\\int_{\\ln2}^{\\ln8}\\frac{e^x+2}2dx=\\pi\\big[e^x+2x\\big]_{\\ln2}^{\\ln8}=\\pi\\big(8+2\\ln8-2-2\\ln2\\big)=\\pi\\big(6+\\ln 16\\big)\\ [\\text{dm}^2]$$` },
+      ],
+      ergebnis: `$M_x=\\pi(6+\\ln 16)\\,$dm² $\\approx 27{,}6\\,$dm²`,
+    },
+    {
+      id: "t1-a18a",
+      typ: "Anwendung",
+      titel: "Unendlicher Rotationskörper (selbständig) – Volumen",
+      quelle: "Übungsblatt 4, Aufgabe 7a",
       schwierigkeit: 3,
       aufgabe: `Der Rotationskörper $K$ entsteht durch Rotation von $y=e^{-x}$, $x\\in[0,\\infty)$, um die $x$-Achse.
-**(a)** Volumen $V_x$? **(b)** Mantelfläche $M_x$?
-Hilfe: $\\int\\sqrt{1+x^2}\\,dx=\\frac12\\big(x\\sqrt{1+x^2}+\\ln|2x+2\\sqrt{1+x^2}|\\big)+c$`,
-      hinweis: `(a) ist ein einfaches uneigentliches Integral. (b) Substitution $u=e^{-x}$ führt auf $\\int_0^1\\sqrt{1+u^2}\\,du$.`,
+Berechnen Sie das **Volumen** $V_x$.`,
+      hinweis: `Einfaches uneigentliches Integral $V_x=\\pi\\int_0^\\infty y^2\\,dx$.`,
       schritte: [
-        { titel: "(a) Volumen", text: `$$V_x=\\pi\\int_0^\\infty e^{-2x}dx=\\pi\\lim_{b\\to\\infty}\\Big[-\\frac12e^{-2x}\\Big]_0^b=\\pi\\cdot\\frac12=\\frac{\\pi}{2}$$` },
-        { titel: "(b) Substitution", text: `$M_x=2\\pi\\int_0^\\infty e^{-x}\\sqrt{1+e^{-2x}}\\,dx$. Mit $u=e^{-x}$, $du=-e^{-x}dx$; Grenzen $x:0\\to\\infty$ ⟹ $u:1\\to0$:
+        { titel: "Lösung", text: `$$V_x=\\pi\\int_0^\\infty e^{-2x}dx=\\pi\\lim_{b\\to\\infty}\\Big[-\\frac12e^{-2x}\\Big]_0^b=\\pi\\cdot\\frac12=\\frac{\\pi}{2}$$` },
+      ],
+      ergebnis: `$V_x=\\frac\\pi2$`,
+    },
+    {
+      id: "t1-a18b",
+      typ: "Anwendung",
+      titel: "Unendlicher Rotationskörper (selbständig) – Mantelfläche",
+      quelle: "Übungsblatt 4, Aufgabe 7b",
+      schwierigkeit: 3,
+      aufgabe: `Der Rotationskörper $K$ entsteht durch Rotation von $y=e^{-x}$, $x\\in[0,\\infty)$, um die $x$-Achse.
+Berechnen Sie die **Mantelfläche** $M_x$.
+Hilfe: $\\int\\sqrt{1+x^2}\\,dx=\\frac12\\big(x\\sqrt{1+x^2}+\\ln|2x+2\\sqrt{1+x^2}|\\big)+c$`,
+      hinweis: `Substitution $u=e^{-x}$ führt auf $\\int_0^1\\sqrt{1+u^2}\\,du$ – dafür ist die gegebene Hilfsformel gedacht.`,
+      schritte: [
+        { titel: "Substitution", text: `$M_x=2\\pi\\int_0^\\infty e^{-x}\\sqrt{1+e^{-2x}}\\,dx$. Mit $u=e^{-x}$, $du=-e^{-x}dx$; Grenzen $x:0\\to\\infty$ ⟹ $u:1\\to0$:
 $$M_x=2\\pi\\int_0^1\\sqrt{1+u^2}\\,du$$` },
-        { titel: "(b) Auswerten", text: `Mit der gegebenen Stammfunktion:
+        { titel: "Auswerten", text: `Mit der gegebenen Stammfunktion:
 $$\\int_0^1\\sqrt{1+u^2}du=\\frac12\\Big(\\sqrt2+\\ln(2+2\\sqrt2)-\\ln2\\Big)=\\frac12\\big(\\sqrt2+\\ln(1+\\sqrt2)\\big)$$
 $$M_x=\\pi\\big(\\sqrt2+\\ln(1+\\sqrt2)\\big)\\approx 7{,}21$$` },
       ],
-      ergebnis: `(a) $V_x=\\frac\\pi2$ · (b) $M_x=\\pi(\\sqrt2+\\ln(1+\\sqrt2))\\approx 7{,}21$
+      ergebnis: `$M_x=\\pi(\\sqrt2+\\ln(1+\\sqrt2))\\approx 7{,}21$
 Bemerkenswert: endliches Volumen und endliche Mantelfläche trotz unendlicher Länge!`,
     },
   ],
