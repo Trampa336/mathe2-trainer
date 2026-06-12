@@ -5,7 +5,9 @@ Komplett auf Deutsch, läuft lokal im Browser, kein Internet nötig.
 
 ## Starten
 
-**Am einfachsten:** `index.html` doppelklicken (öffnet im Browser).
+**Online (auch am Handy):** https://trampa336.github.io/mathe2-trainer/
+
+**Lokal:** `index.html` doppelklicken (öffnet im Browser).
 
 **Oder** mit lokalem Server (empfohlen, identisches Verhalten auf dem Handy im WLAN):
 
