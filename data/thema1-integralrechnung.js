@@ -454,41 +454,31 @@ Bemerkenswert: endliches Volumen und endliche Mantelfläche trotz unendlicher L�
     },
   ],
   karten: [
-    { id: "t1-k01", vorne: `$\\int x^\\alpha\\,dx=?$`, hinten: `$$\\frac{1}{\\alpha+1}x^{\\alpha+1}+c\\quad(\\alpha\\neq-1)$$` },
-    { id: "t1-k02", vorne: `$\\int\\frac1x\\,dx=?$`, hinten: `$$\\ln|x|+c$$ (Betragsstriche nicht vergessen!)` },
-    { id: "t1-k03", vorne: `$\\int e^x dx=?$ $\\quad\\int a^x dx=?$`, hinten: `$$\\int e^xdx=e^x+c\\qquad \\int a^xdx=\\frac{1}{\\ln a}a^x+c\\ (a>0)$$` },
-    { id: "t1-k04", vorne: `$\\int\\sin x\\,dx=?$ $\\quad\\int\\cos x\\,dx=?$`, hinten: `$$\\int\\sin x\\,dx=-\\cos x+c\\qquad\\int\\cos x\\,dx=\\sin x+c$$ Merke: beim Integrieren von $\\sin$ kommt das Minus.` },
-    { id: "t1-k05", vorne: `$\\int\\frac{1}{\\cos^2x}dx=?$ $\\quad\\int\\tan x\\,dx=?$`, hinten: `$$\\int\\frac{dx}{\\cos^2x}=\\tan x+c\\qquad\\int\\tan x\\,dx=-\\ln|\\cos x|+c$$` },
-    { id: "t1-k06", vorne: `$\\int\\frac{1}{1+x^2}dx=?$`, hinten: `$$\\arctan(x)+c$$ Allgemeiner: $\\int\\frac{dx}{x^2+a^2}=\\frac1a\\arctan\\frac xa+c$` },
-    { id: "t1-k07", vorne: `Formel: **Partielle Integration**`, hinten: `$$\\int u\\,v'\\,dx=u\\,v-\\int u'\\,v\\,dx$$ Wahl: $u$ = wird beim Ableiten einfacher (Polynom, $\\ln$); $v'$ = leicht integrierbar.` },
-    { id: "t1-k08", vorne: `Formel: **Lineare Substitution** $\\int f(ax+b)\\,dx$`, hinten: `$$\\int f(ax+b)\\,dx=\\frac1a F(ax+b)+c$$ ($F$ = Stammfunktion von $f$)` },
-    { id: "t1-k09", vorne: `**Substitution**: die 5 Schritte`, hinten: `1. $t=g(x)$ aufstellen
-2. $\\frac{dt}{dx}=g'(x)$ ⟹ $dx=\\frac{dt}{g'(x)}$
-3. $x$ und $dx$ im Integranden eliminieren
-4. Nach $t$ integrieren
-5. Rücksubstitution $t=g(x)$
-(Bei bestimmten Integralen: Grenzen mitsubstituieren, dann keine Rücksubstitution.)` },
-    { id: "t1-k10", vorne: `$\\int\\frac{f'(x)}{f(x)}dx=?$`, hinten: `$$\\ln|f(x)|+c$$ (Regel I3 – Zähler ist Ableitung des Nenners)` },
-    { id: "t1-k11", vorne: `$\\int (f(x))^n\\cdot f'(x)\\,dx=?$`, hinten: `$$\\frac{1}{n+1}(f(x))^{n+1}+c$$ (Regel I4)` },
-    { id: "t1-k12", vorne: `**PBZ**: Wann anwendbar, was prüft man zuerst?`, hinten: `Für gebrochenrationale Funktionen $\\frac{p(x)}{q(x)}$.
-Zuerst prüfen: **echt** gebrochenrational (Zählergrad < Nennergrad)?
-Wenn nicht ⟹ erst **Polynomdivision**!` },
-    { id: "t1-k13", vorne: `**PBZ-Ansatz** für $k$-fache reelle Nullstelle $(x-a)^k$`, hinten: `$$\\frac{A_1}{x-a}+\\frac{A_2}{(x-a)^2}+\\dots+\\frac{A_k}{(x-a)^k}$$` },
-    { id: "t1-k14", vorne: `**PBZ-Ansatz** für unzerlegbaren quadratischen Faktor $x^2+bx+c$`, hinten: `$$\\frac{Bx+C}{x^2+bx+c}$$ (bei $l$-facher Potenz entsprechend bis $\\frac{B_lx+C_l}{(x^2+bx+c)^l}$)` },
-    { id: "t1-k15", vorne: `$\\int\\frac{A}{x-a}dx=?$ $\\quad\\int\\frac{A}{(x-a)^k}dx$ für $k>1$?`, hinten: `$$\\int\\frac A{x-a}dx=A\\ln|x-a|+c$$ $$\\int\\frac A{(x-a)^k}dx=-\\frac{1}{k-1}\\cdot\\frac{A}{(x-a)^{k-1}}+c$$` },
-    { id: "t1-k16", vorne: `$\\int\\frac{1}{x^2+px+q}dx$ (mit $p^2-4q<0$) $=?$`, hinten: `$$\\frac{2}{\\sqrt{4q-p^2}}\\arctan\\Big(\\frac{2x+p}{\\sqrt{4q-p^2}}\\Big)+c$$` },
-    { id: "t1-k17", vorne: `**Hauptsatz** der Differential- und Integralrechnung`, hinten: `Ist $G$ irgendeine Stammfunktion von $f$, so gilt
-$$\\int_a^b f(x)\\,dx=G(b)-G(a)$$` },
-    { id: "t1-k18", vorne: `Formel: **Trapezregel**`, hinten: `$$I\\approx\\frac h2\\Big(f(a)+f(b)+2\\sum_{k=1}^{n-1}f(a+kh)\\Big)$$ mit $h=\\frac{b-a}n$` },
-    { id: "t1-k19", vorne: `Formel: **Simpson-Regel**`, hinten: `$$I\\approx\\frac h3\\Big(f(a)+f(b)+4\\!\\!\\sum_{\\text{ungerade }j}\\!\\!f(x_j)+2\\!\\!\\sum_{\\text{gerade innere }k}\\!\\!f(x_k)\\Big)$$ $m=2n$ = **gerade** Anzahl Teilintervalle, $h=\\frac{b-a}m$` },
-    { id: "t1-k20", vorne: `**Uneigentliches Integral** mit unendlicher Grenze: Definition?`, hinten: `$$\\int_a^\\infty f(x)dx:=\\lim_{b\\to\\infty}\\int_a^b f(x)dx$$ Konvergent, falls der Grenzwert existiert und endlich ist; sonst divergent.` },
-    { id: "t1-k21", vorne: `**Uneigentliches Integral**: Polstelle im Inneren von $[a,b]$ – Vorgehen?`, hinten: `Bei Polstelle $p$: aufteilen
-$$\\int_a^b=\\int_a^p+\\int_p^b$$
-**Beide** Teile müssen einzeln konvergieren! ($\\infty-\\infty$ hebt sich NICHT weg)` },
-    { id: "t1-k22", vorne: `Formel: **Bogenlänge** eines Graphen $y=f(x)$, $x\\in[a,b]$`, hinten: `$$s=\\int_a^b\\sqrt{1+(f'(x))^2}\\,dx$$ Trick: $1+(f')^2$ oft ein vollständiges Quadrat (binomische Formeln).` },
-    { id: "t1-k23", vorne: `Formel: **Bogenlänge** einer parametrischen Kurve $(x(t),y(t))$`, hinten: `$$s=\\int_{t_1}^{t_2}\\sqrt{(x'(t))^2+(y'(t))^2}\\,dt$$` },
-    { id: "t1-k24", vorne: `Formel: **Volumen** Rotationskörper (Rotation um $x$-Achse)`, hinten: `$$V_x=\\pi\\int_a^b (f(x))^2\\,dx$$` },
-    { id: "t1-k25", vorne: `Formel: **Mantelfläche** Rotationskörper (Rotation um $x$-Achse)`, hinten: `$$M_x=2\\pi\\int_a^b f(x)\\sqrt{1+(f'(x))^2}\\,dx$$` },
-    { id: "t1-k26", vorne: `Halbwinkelformel für $1-\\cos x$ (wichtig bei Zykloiden!)`, hinten: `$$1-\\cos x=2\\sin^2\\Big(\\frac x2\\Big)$$` },
+    { id: "t1-k01", vorne: `**Strategie:** Du sollst ein unbestimmtes Integral lösen. In welcher **Reihenfolge** prüfst du die Methoden?`, hinten: `1. **Umformen/Vereinfachen** (Bruch aufteilen, Wurzeln als Potenzen, ausmultiplizieren)
+2. **Grundintegral** oder **lineare Substitution** $f(ax+b)$?
+3. Steht die **innere Ableitung als Faktor** da → **Substitution**
+4. **Produkt** (Polynom·$e^x$/$\\sin$/$\\ln$) → **partielle Integration**
+5. **Gebrochenrational** → **Partialbruchzerlegung**` },
+    { id: "t1-k02", vorne: `Woran **erkennst** du, dass **Substitution** der richtige Weg ist?`, hinten: `Im Integranden steckt eine **innere Funktion** $g(x)$, deren **Ableitung $g'(x)$** (bis auf einen konstanten Faktor) als Faktor mit dabei ist.
+Beispiel: $\\int x^2 e^{x^3+5}\\,dx$ — die Ableitung von $x^3+5$ ist $3x^2$, steht (bis auf Faktor) da. Setze $t=x^3+5$.` },
+    { id: "t1-k03", vorne: `**Partielle Integration:** Wie wählst du $u$ und $v'$? Und welche **zwei Sondertricks** musst du kennen?`, hinten: `$u$ = der Teil, der beim **Ableiten einfacher** wird (Polynom, $\\ln x$, $\\arctan x$); $v'$ = leicht integrierbar.
+**Trick 1:** $\\int\\ln x\\,dx$ — kein Produkt? Nimm $u=\\ln x,\\ v'=1$.
+**Trick 2:** $\\int e^x\\sin x\\,dx$ — zweimal partiell, dann nach dem Integral **auflösen** (es kommt im Kreis zurück).` },
+    { id: "t1-k04", vorne: `Woran erkennst du sofort, dass ein Integral einen **Logarithmus** ergibt?`, hinten: `Der **Zähler ist die Ableitung des Nenners** (oder ein Vielfaches davon):
+$$\\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+c$$
+Beispiel: $\\int\\frac{2x}{x^2+4}dx=\\ln(x^2+4)+c$. **Betragsstriche** nicht vergessen.` },
+    { id: "t1-k05", vorne: `**Partialbruchzerlegung:** Was prüfst du **zuerst**, und welcher **Ansatz** gehört zu welchem Nennerfaktor?`, hinten: `Zuerst: **echt gebrochenrational** (Zählergrad < Nennergrad)? Wenn nein → erst **Polynomdivision**.
+Dann je Faktor: $(x-a)^k$ → $\\frac{A_1}{x-a}+\\dots+\\frac{A_k}{(x-a)^k}$;
+nicht faktorisierbares $x^2+px+q$ → $\\frac{Bx+C}{x^2+px+q}$ (linearer Zähler!).` },
+    { id: "t1-k06", vorne: `Was sagt der **Hauptsatz** anschaulich, und worauf achtest du beim **Substituieren bestimmter** Integrale?`, hinten: `Hauptsatz: $\\int_a^b f\\,dx=F(b)-F(a)$ für **irgendeine** Stammfunktion ($c$ fällt weg) — er verbindet Fläche und Stammfunktion.
+Bei Substitution: **Grenzen mitsubstituieren** (dann keine Rücksubstitution) — oder mit den **alten** Grenzen nach Rücksubstitution. Nicht mischen!` },
+    { id: "t1-k07", vorne: `Wann brauchst du **numerische** Integration, und was unterscheidet **Trapez-** von **Simpson-Regel**?`, hinten: `Wenn es **keine elementare Stammfunktion** gibt (z.B. $e^{x^2}$) oder nur **Messwerte** vorliegen.
+**Trapez:** Stützstellen durch **Geraden** verbinden. **Simpson:** durch **Parabeln** → **genauer**, braucht aber eine **gerade** Anzahl Teilintervalle.` },
+    { id: "t1-k08", vorne: `Woran erkennst du ein **uneigentliches** Integral, und wann **konvergiert** es?`, hinten: `Erkennen: (1) eine Grenze ist **$\\pm\\infty$**, oder (2) der Integrand hat eine **Polstelle** im Bereich. Dann nicht einfach einsetzen, sondern als **Grenzwert** rechnen.
+**Konvergent**, wenn dieser Grenzwert **existiert und endlich** ist — sonst divergent.` },
+    { id: "t1-k09", vorne: `Eine **Polstelle liegt mitten** im Integrationsintervall. Wie gehst du vor — und welcher Fehler droht?`, hinten: `Am Pol $p$ **aufteilen**: $\\int_a^b=\\int_a^p+\\int_p^b$, jeden Teil als Grenzwert.
+**Falle:** **beide** Teile müssen **einzeln** konvergieren. $+\\infty$ und $-\\infty$ heben sich **nicht** auf — durchintegrieren über den Pol ist falsch.` },
+    { id: "t1-k10", vorne: `**Anwendungen:** Was ist der Trick bei der **Bogenlänge**, und wie unterscheiden sich **Volumen** und **Mantelfläche** (Rotation um $x$)?`, hinten: `Bogenlänge $s=\\int\\sqrt{1+(f')^2}\\,dx$ — Trick: $1+(f')^2$ wird fast immer ein **vollständiges Quadrat** (binomische Formeln), dann verschwindet die Wurzel.
+$V_x=\\pi\\int f^2\\,dx$ (nur Funktion²). $M_x=2\\pi\\int f\\sqrt{1+(f')^2}\\,dx$ — Mantel braucht zusätzlich den **Bogenlängenfaktor**.` },
   ],
 });

@@ -185,6 +185,7 @@ h2 { font-size: 1.1rem; margin: 1.2rem 0 0.6rem; }
   overflow-x: auto;
 }
 .schritt-titel { font-weight: 700; color: var(--akzent); font-size: 0.9rem; margin-bottom: 0.2rem; }
+.schritte-block { margin: 0.6rem 0; }
 .ergebnis-box {
   background: var(--gruen-hell);
   border: 1px solid var(--gruen);

@@ -51,7 +51,8 @@
   // ---------- Sitzungszustand (nicht persistiert) ----------
 
   const sitzung = {
-    schritte: {},      // aufgabeId -> Anzahl aufgedeckter Schritte
+    loesung: {},       // aufgabeId -> Lösung (Ergebnis) sichtbar?
+    schritte: {},      // aufgabeId -> Schritt-für-Schritt-Lösung sichtbar?
     hinweis: {},       // aufgabeId -> Hinweis sichtbar?
     kartenQueue: null, // aktuelle Kartenrunde
     kartenIndex: 0,
@@ -203,9 +204,10 @@
     if (!hit) return renderDashboard();
     const { thema, aufgabe } = hit;
 
-    const offen = sitzung.schritte[aufgabe.id] || 0;
+    const loesungAn = !!sitzung.loesung[aufgabe.id];
+    const schritteAn = !!sitzung.schritte[aufgabe.id];
     const hinweisAn = !!sitzung.hinweis[aufgabe.id];
-    const alleSchritteOffen = offen >= aufgabe.schritte.length;
+    const hatSchritte = aufgabe.schritte && aufgabe.schritte.length > 0;
     const idx = thema.aufgaben.indexOf(aufgabe);
 
     let html = "";
@@ -227,18 +229,29 @@
         : '<button class="btn sekundaer" id="hinweis-btn">💡 Hinweis anzeigen</button> ';
     }
 
-    for (let i = 0; i < offen && i < aufgabe.schritte.length; i++) {
-      const s = aufgabe.schritte[i];
-      html += '<div class="schritt"><div class="schritt-titel">Schritt ' + (i + 1) + ": " + s.titel + "</div>" +
-        md(s.text) + "</div>";
-    }
-
-    if (!alleSchritteOffen) {
-      html += '<button class="btn" id="schritt-btn">' +
-        (offen === 0 ? "Lösung Schritt für Schritt" : "Nächster Schritt") +
-        " (" + offen + "/" + aufgabe.schritte.length + ")</button>";
+    // Lösung-Knopf: zeigt das Ergebnis direkt an
+    if (!loesungAn) {
+      html += '<button class="btn" id="loesung-btn">✓ Lösung anzeigen</button>';
     } else {
       html += '<div class="ergebnis-box"><strong>Ergebnis:</strong><br>' + md(aufgabe.ergebnis) + "</div>";
+    }
+
+    // Schritt-für-Schritt: ein einziger Toggle für alle Schritte
+    if (hatSchritte) {
+      if (!schritteAn) {
+        html += '<button class="btn sekundaer" id="schritt-btn">📝 Schritt-für-Schritt-Lösung anzeigen</button>';
+      } else {
+        html += '<div class="schritte-block">';
+        for (let i = 0; i < aufgabe.schritte.length; i++) {
+          const s = aufgabe.schritte[i];
+          html += '<div class="schritt"><div class="schritt-titel">Schritt ' + (i + 1) + ": " + s.titel + "</div>" +
+            md(s.text) + "</div>";
+        }
+        html += '<button class="btn leise" id="schritt-zu-btn">Schritte ausblenden</button></div>';
+      }
+    }
+
+    if (loesungAn) {
       if (aufgabe.video) {
         html += '<div class="video-hinweis">🎬 Passendes Video im Repetitorien-Ordner: ' + aufgabe.video + "</div>";
       }
@@ -277,12 +290,22 @@
       sitzung.hinweis[aufgabe.id] = true;
       renderAufgabe(aufgabeId, mixModus);
     });
+    const lb = document.getElementById("loesung-btn");
+    if (lb) lb.addEventListener("click", () => {
+      sitzung.loesung[aufgabe.id] = true;
+      renderAufgabe(aufgabeId, mixModus);
+    });
     const sb = document.getElementById("schritt-btn");
     if (sb) sb.addEventListener("click", () => {
-      sitzung.schritte[aufgabe.id] = offen + 1;
+      sitzung.schritte[aufgabe.id] = true;
       renderAufgabe(aufgabeId, mixModus);
       const schritte = app.querySelectorAll(".schritt");
-      if (schritte.length) schritte[schritte.length - 1].scrollIntoView({ behavior: "smooth", block: "center" });
+      if (schritte.length) schritte[0].scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    const szb = document.getElementById("schritt-zu-btn");
+    if (szb) szb.addEventListener("click", () => {
+      sitzung.schritte[aufgabe.id] = false;
+      renderAufgabe(aufgabeId, mixModus);
     });
     app.querySelectorAll("[data-grade]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -420,7 +443,11 @@
     sitzung.mixQueue = auswahl.map((a) => a.id);
     sitzung.mixIndex = 0;
     // Schritte der Mix-Aufgaben wieder verdecken
-    auswahl.forEach((a) => { delete sitzung.schritte[a.id]; delete sitzung.hinweis[a.id]; });
+    auswahl.forEach((a) => {
+      delete sitzung.loesung[a.id];
+      delete sitzung.schritte[a.id];
+      delete sitzung.hinweis[a.id];
+    });
   }
 
   function renderMix() {

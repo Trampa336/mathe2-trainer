@@ -543,34 +543,23 @@ $x=y$: $(2x)^2=9\\Rightarrow x=\\pm\\frac32$ ⟹ Stellen $(\\frac32,\\frac32)$ u
     },
   ],
   karten: [
-    { id: "t2-k00", vorne: `**Definitionsbereich** bestimmen – die drei Standard-Checks?`, hinten: `Wurzel: Radikand $\\ge0$ · $\\ln$: Argument $>0$ · Nenner: $\\neq0$
-(Wurzel **im Nenner**: Radikand $>0$). Bedingungen mit $\\wedge$ kombinieren, dann skizzieren.` },
-    { id: "t2-k01", vorne: `**Partielle Ableitung** $f_x$ – wie wird abgeleitet?`, hinten: `Nach $x$ ableiten, dabei **alle anderen Variablen wie Konstanten** behandeln. Notation: $f_x=\\frac{\\partial f}{\\partial x}$` },
-    { id: "t2-k02", vorne: `**Gradient** $\\nabla f$ – Definition und geometrische Bedeutung?`, hinten: `$$\\nabla f=\\begin{pmatrix}f_x\\\\f_y\\end{pmatrix}$$ Zeigt in Richtung des **steilsten Anstiegs**; steht **senkrecht auf den Niveaulinien**.` },
-    { id: "t2-k03", vorne: `Formel: **Tangentialebene** an $z=f(x,y)$ in $(x_0,y_0)$`, hinten: `$$T(x,y)=f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$$` },
-    { id: "t2-k04", vorne: `Formel: **Totales (vollständiges) Differential** von $z=f(x,y)$`, hinten: `$$dz=f_x\\,dx+f_y\\,dy$$ Linearisierte Änderung von $f$ bei kleinen Änderungen $dx$, $dy$.` },
-    { id: "t2-k05", vorne: `**Fehlerrechnung**: maximaler absoluter Fehler (Größtfehler) von $z=f(x,y)$`, hinten: `$$|\\Delta z|\\approx|f_x|\\cdot|\\Delta x|+|f_y|\\cdot|\\Delta y|$$ (Beträge! Worst Case aller Vorzeichen)` },
-    { id: "t2-k06", vorne: `**Relativer Fehler** bei Potenzprodukt $z=c\\cdot x^m y^n$?`, hinten: `$$\\Big|\\frac{\\Delta z}{z}\\Big|\\approx|m|\\Big|\\frac{\\Delta x}{x}\\Big|+|n|\\Big|\\frac{\\Delta y}{y}\\Big|$$ Exponenten als Faktoren vor die relativen Einzelfehler.` },
-    { id: "t2-k07", vorne: `**Niveaulinie** (Höhenlinie) – Definition?`, hinten: `Menge aller Punkte mit gleichem Funktionswert:
-$$N_h=\\{(x,y)\\mid f(x,y)=h\\}$$` },
-    { id: "t2-k08", vorne: `**Stationäre Stelle** von $f(x,y)$ – Bedingung?`, hinten: `$$f_x(x_0,y_0)=0\\quad\\text{und}\\quad f_y(x_0,y_0)=0$$ (notwendige Bedingung für lokale Extrema im Inneren)` },
-    { id: "t2-k09", vorne: `**Hinreichende Bedingung**: Größe $D$ und Entscheidungsregeln?`, hinten: `$$D=f_{xx}f_{yy}-f_{xy}^2$$
-$D>0,\\ f_{xx}>0$: lok. **Minimum** · $D>0,\\ f_{xx}<0$: lok. **Maximum**
-$D<0$: **Sattelpunkt** · $D=0$: keine Aussage` },
-    { id: "t2-k10", vorne: `Satz von **Schwarz**?`, hinten: `Bei stetigen zweiten partiellen Ableitungen gilt
-$$f_{xy}=f_{yx}$$ (Reihenfolge der Ableitungen egal)` },
-    { id: "t2-k11", vorne: `**Lagrange-Methode**: Ansatz für Extrema von $f$ unter NB $g=0$?`, hinten: `$$L(x,y,\\lambda)=f(x,y)+\\lambda\\,g(x,y)$$
-$$L_x=0,\\quad L_y=0,\\quad L_\\lambda=g=0$$ lösen (äquivalent: $\\nabla f=\\mu\\nabla g$ und $g=0$).` },
-    { id: "t2-k12", vorne: `**Substitutionsmethode** bei Extrema mit Nebenbedingung – wann und wie?`, hinten: `Wenn die NB nach einer Variablen **auflösbar** ist (z.B. $z=3x^2+y^2+4$): einsetzen ⟹ gewöhnliche Extremwertaufgabe mit einer Variablen weniger.` },
-    { id: "t2-k13", vorne: `Wie entscheidet man bei **Lagrange**, ob Min oder Max vorliegt?`, hinten: `Nicht über $D$! Stattdessen: **Niveaulinienbild** mit eingezeichneter NB-Kurve, geometrische Überlegung oder Funktionswerte der Kandidaten vergleichen.` },
-    { id: "t2-k14", vorne: `**Extrema auf abgeschlossenem Bereich** $D$ – Vorgehen?`, hinten: `1. Stationäre Stellen im **Inneren** suchen
-2. **Rand** untersuchen (Kanten einsetzen / Niveaulinien schieben)
-3. **Eckpunkte** auswerten
-4. Alle Kandidaten vergleichen` },
-    { id: "t2-k15", vorne: `**Regressionsgerade** $y=b_1x+b_0$: Formeln für $b_1$, $b_0$?`, hinten: `$$b_1=\\frac{\\sum(x_i-\\bar x)(y_i-\\bar y)}{\\sum(x_i-\\bar x)^2}\\qquad b_0=\\bar y-b_1\\bar x$$` },
-    { id: "t2-k16", vorne: `**Methode der kleinsten Quadrate**: Grundidee?`, hinten: `Parameter so wählen, dass die Summe der quadrierten Abweichungen minimal wird:
-$$d=\\sum_i\\big(f(x_i)-y_i\\big)^2\\to\\min$$ Partielle Ableitungen nach den Parametern null setzen ⟹ Normalgleichungen (LGS).` },
-    { id: "t2-k17", vorne: `Abstand minimieren mit Lagrange – welcher **Trick**?`, hinten: `Statt $d=\\sqrt{(x-a)^2+(y-b)^2}$ das **Quadrat** $f=(x-a)^2+(y-b)^2$ minimieren – gleiche Minimalstelle, viel einfachere Ableitungen.` },
-    { id: "t2-k18", vorne: `Prozentuale Änderung über das totale Differential (z.B. $T=2\\pi\\sqrt{LC}$)?`, hinten: `$$\\frac{\\Delta T}{T}\\approx\\frac12\\frac{\\Delta L}{L}+\\frac12\\frac{\\Delta C}{C}$$ Bei gegebenen Änderungen **mit Vorzeichen** rechnen (kein Worst Case wie beim Messfehler).` },
+    { id: "t2-k01", vorne: `Was bedeutet die **partielle Ableitung** $f_x$ — wie rechnest du sie, und wie **kontrollierst** du dich?`, hinten: `Änderungsrate von $f$ in **$x$-Richtung**: nach $x$ ableiten, **alle anderen Variablen wie Konstanten** behandeln.
+**Kontrolle (Satz von Schwarz):** $f_{xy}=f_{yx}$ — stimmen deine gemischten 2. Ableitungen nicht überein, hast du dich verrechnet.` },
+    { id: "t2-k02", vorne: `Was sagt dir der **Gradient** $\\nabla f$ **geometrisch**?`, hinten: `$\\nabla f=(f_x,f_y)^T$ zeigt in Richtung des **steilsten Anstiegs** und steht **senkrecht auf den Niveaulinien**. Seine Länge = Stärke des Anstiegs.` },
+    { id: "t2-k03", vorne: `Wofür steht die **Tangentialebene**, und was brauchst du, um sie aufzustellen?`, hinten: `Sie ist die **lineare Näherung** von $f$ am Punkt. Zutaten: Funktionswert $f(x_0,y_0)$ **und beide** partiellen Ableitungen dort:
+$$T=f_0+f_x(x-x_0)+f_y(y-y_0)$$` },
+    { id: "t2-k04", vorne: `Was ist das **totale Differential** und wofür benutzt man es praktisch?`, hinten: `$dz=f_x\\,dx+f_y\\,dy$ — die linearisierte **Änderung** von $f$. Praktischer Hauptzweck: **Fehlerfortpflanzung** — wie wirken kleine Mess­ungenauigkeiten $dx,dy$ aufs Ergebnis?` },
+    { id: "t2-k05", vorne: `**Fehlerrechnung:** Wann rechnest du mit **Beträgen**, wann mit **Exponenten**, wann **mit Vorzeichen**?`, hinten: `**Größtfehler** (Worst Case): $|\\Delta z|\\approx|f_x||\\Delta x|+|f_y||\\Delta y|$ — **Beträge**.
+**Potenzprodukt** $z=c\\,x^m y^n$: $\\left|\\frac{\\Delta z}{z}\\right|\\approx|m|\\left|\\frac{\\Delta x}{x}\\right|+|n|\\left|\\frac{\\Delta y}{y}\\right|$.
+**Gegebene Änderung** ("$L$ −5 %"): **mit Vorzeichen**, kein Worst Case.` },
+    { id: "t2-k06", vorne: `Was ist eine **Niveaulinie**, und wozu hilft sie dir?`, hinten: `Menge aller Punkte mit **gleichem Funktionswert** $f(x,y)=c$ — wie Höhenlinien auf der Wanderkarte. Hilft, den Graphen zu verstehen und bei **Lagrange** Min/Max geometrisch zu entscheiden.` },
+    { id: "t2-k07", vorne: `**Lokale Extrema** von $f(x,y)$: Welche zwei Schritte machst du, und was sagt die Diskriminante $D$?`, hinten: `1. **Stationäre Stellen:** $f_x=0$ **und** $f_y=0$.
+2. **Klassifizieren** mit $D=f_{xx}f_{yy}-f_{xy}^2$:
+$D>0,f_{xx}>0$ → **Min** · $D>0,f_{xx}<0$ → **Max** · $D<0$ → **Sattel** · $D=0$ → keine Aussage.` },
+    { id: "t2-k08", vorne: `Du suchst Extrema auf einem **abgeschlossenen Bereich** $D$. Warum reichen stationäre Stellen nicht?`, hinten: `Das Maximum/Minimum kann auf dem **Rand** liegen, wo $f_x,f_y$ nicht null sein müssen. Also zusätzlich **Randkanten** (einsetzen / Niveaulinien schieben) und **Eckpunkte** prüfen, dann alle Kandidaten vergleichen.` },
+    { id: "t2-k09", vorne: `**Lagrange:** Wann brauchst du es, was ist die Idee, und wie entscheidest du Min/Max?`, hinten: `Bei Extrema **unter einer Nebenbedingung** $g(x,y)=0$. Idee: $\\nabla f=\\mu\\nabla g$ plus $g=0$ (Gradienten im Optimum **parallel**).
+Min oder Max? **Nicht über $D$** — über Niveaulinienbild oder Vergleich der Funktionswerte.
+**Alternative:** Lässt sich $g=0$ nach einer Variablen auflösen → **einsetzen** (Substitution, oft schneller).` },
+    { id: "t2-k10", vorne: `**Regression / kleinste Quadrate:** Was wird minimiert, und wie hängt das mit Extrema zusammen?`, hinten: `Die **Summe der quadrierten Abweichungen** $d=\\sum_i(f(x_i)-y_i)^2$. Das ist eine Funktion der **Parameter** — ihre partiellen Ableitungen $=0$ (Normalgleichungen) liefern das **Minimum** und damit die Ausgleichskurve.` },
   ],
 });
