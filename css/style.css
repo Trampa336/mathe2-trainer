@@ -1,0 +1,263 @@
+:root {
+  --blau: #1d4ed8;
+  --blau-hell: #dbeafe;
+  --gruen: #16a34a;
+  --gruen-hell: #dcfce7;
+  --gelb: #d97706;
+  --gelb-hell: #fef3c7;
+  --rot: #dc2626;
+  --rot-hell: #fee2e2;
+  --grau: #6b7280;
+  --grau-hell: #f3f4f6;
+  --rand: #e5e7eb;
+  --text: #111827;
+  --bg: #f9fafb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+/* ---------- Kopfzeile ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--blau);
+  color: #fff;
+  padding: 0.6rem 1rem;
+}
+.topbar-title {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.topbar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1 { font-size: 1.35rem; margin: 0.5rem 0 1rem; }
+h2 { font-size: 1.1rem; margin: 1.2rem 0 0.6rem; }
+
+/* ---------- Karten / Boxen ---------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.thema-card { display: flex; flex-direction: column; gap: 0.5rem; }
+.thema-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+.thema-titel { font-weight: 700; font-size: 1.05rem; }
+.thema-unter { color: var(--grau); font-size: 0.85rem; }
+
+.progressbar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--grau-hell);
+  overflow: hidden;
+}
+.progressbar > div { height: 100%; background: var(--gruen); }
+.progress-label { font-size: 0.8rem; color: var(--grau); }
+
+.thema-aktionen { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.3rem; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  background: var(--blau);
+  color: #fff;
+}
+.btn.sekundaer { background: var(--grau-hell); color: var(--text); }
+.btn.leise { background: none; color: var(--grau); font-weight: 400; padding: 0.55rem 0.4rem; }
+.btn.gruen { background: var(--gruen); }
+.btn.gelb { background: var(--gelb); }
+.btn.rot { background: var(--rot); }
+.btn:active { opacity: 0.85; }
+.btn:disabled { opacity: 0.4; cursor: default; }
+
+/* ---------- Aufgabenliste ---------- */
+.aufgaben-liste { display: flex; flex-direction: column; gap: 0.5rem; }
+.aufgabe-zeile {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: #fff;
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.aufgabe-zeile:hover { border-color: var(--blau); }
+.status-punkt {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--rand);
+}
+.status-punkt.sicher { background: var(--gruen); }
+.status-punkt.hilfe { background: var(--gelb); }
+.status-punkt.nicht { background: var(--rot); }
+.aufgabe-info { flex: 1; min-width: 0; }
+.aufgabe-titel { font-weight: 600; font-size: 0.95rem; }
+.aufgabe-quelle { color: var(--grau); font-size: 0.8rem; }
+.schwierigkeit { color: var(--gelb); font-size: 0.8rem; white-space: nowrap; }
+
+/* ---------- Lernblöcke & Typ-Chips ---------- */
+.einfuehrung {
+  border-left: 4px solid var(--blau);
+  font-size: 0.92rem;
+}
+.block-intro {
+  color: #4b5563;
+  font-size: 0.9rem;
+  margin: -0.2rem 0 0.7rem;
+  padding-left: 0.2rem;
+}
+.typ-chip {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.typ-rechentechnik { background: var(--blau-hell); color: var(--blau); }
+.typ-anwendung { background: var(--gruen-hell); color: var(--gruen); }
+.typ-verstaendnis { background: #ede9fe; color: #6d28d9; }
+.typ-klausurtyp { background: var(--rot-hell); color: var(--rot); }
+
+/* ---------- Aufgabenansicht ---------- */
+.aufgabe-text { font-size: 1rem; overflow-x: auto; }
+.hinweis-box {
+  background: var(--gelb-hell);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+}
+.schritt {
+  border-left: 4px solid var(--blau);
+  background: #fff;
+  border-radius: 0 10px 10px 0;
+  padding: 0.7rem 1rem;
+  margin: 0.6rem 0;
+  overflow-x: auto;
+}
+.schritt-titel { font-weight: 700; color: var(--blau); font-size: 0.9rem; margin-bottom: 0.2rem; }
+.ergebnis-box {
+  background: var(--gruen-hell);
+  border: 1px solid var(--gruen);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin: 0.8rem 0;
+  overflow-x: auto;
+}
+.video-hinweis {
+  color: var(--grau);
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+}
+.bewertung { margin-top: 1rem; }
+.bewertung-frage { font-weight: 600; margin-bottom: 0.5rem; }
+.bewertung-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.aufgabe-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+/* ---------- Formelkarten ---------- */
+.lernkarte {
+  background: #fff;
+  border: 1px solid var(--rand);
+  border-radius: 14px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.2rem;
+  cursor: pointer;
+  overflow-x: auto;
+  font-size: 1.05rem;
+}
+.lernkarte .seite-label {
+  color: var(--grau);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+.karten-buttons { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+.karten-buttons .btn { flex: 1; }
+.karten-fortschritt { color: var(--grau); font-size: 0.85rem; text-align: center; margin-top: 0.7rem; }
+.boxen-leiste { display: flex; gap: 0.8rem; justify-content: center; margin-top: 0.4rem; font-size: 0.8rem; color: var(--grau); }
+
+/* ---------- Sonstiges ---------- */
+.leer-hinweis { color: var(--grau); text-align: center; padding: 2rem 1rem; }
+.zurueck { display: inline-block; color: var(--grau); text-decoration: none; font-size: 0.9rem; margin-bottom: 0.6rem; }
+.hidden-bereich { margin-top: 1.5rem; }
+.hidden-bereich .thema-card { opacity: 0.6; }
+.abzeichen {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--blau-hell);
+  color: var(--blau);
+  font-weight: 600;
+}
+.schwach-hinweis {
+  background: var(--rot-hell);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.fussnote { color: var(--grau); font-size: 0.8rem; text-align: center; margin: 2rem 0 1rem; }
+.fussnote button { background: none; border: none; color: var(--grau); text-decoration: underline; cursor: pointer; font-size: 0.8rem; }
+
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.2rem 0; }
+
+@media (max-width: 480px) {
+  .container { padding: 0.7rem; }
+  .card { padding: 0.8rem; }
+  .bewertung-buttons .btn { flex: 1; padding: 0.55rem 0.5rem; font-size: 0.85rem; }
+  .aufgabe-text, .lernkarte { font-size: 0.95rem; }
+}
