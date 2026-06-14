@@ -259,6 +259,53 @@ h2 { font-size: 1.1rem; margin: 1.2rem 0 0.6rem; }
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
+/* ---------- Lernplan / Countdown ---------- */
+.lernplan { border-color: var(--akzent); }
+.lernplan .countdown {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--akzent);
+  margin-bottom: 0.5rem;
+}
+.lernplan-intro { color: var(--grau); font-size: 0.9rem; margin-bottom: 0.8rem; }
+.phase {
+  border-top: 1px solid var(--rand);
+  padding: 0.6rem 0.2rem;
+}
+.phase.aktiv {
+  background: var(--akzent-bg);
+  border-left: 3px solid var(--akzent);
+  border-radius: 0 8px 8px 0;
+  padding-left: 0.7rem;
+  margin: 0 -0.2rem;
+}
+.phase-kopf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.phase .kw { color: var(--grau); font-size: 0.8rem; }
+.phase-titel { font-weight: 700; }
+.phase .hier {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--akzent);
+}
+.phase-text { font-size: 0.88rem; color: var(--text); margin-top: 0.2rem; }
+.lernplan .strategie {
+  margin-top: 0.9rem;
+  border-top: 1px solid var(--rand);
+  padding-top: 0.7rem;
+  font-size: 0.85rem;
+  color: var(--grau);
+}
+.lernplan .strategie-titel { font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+.lernplan .strategie ul { margin: 0; padding-left: 1.1rem; }
+.lernplan .strategie li { margin-bottom: 0.3rem; }
+.lernplan .strategie strong { color: var(--text); }
+
 .fussnote { color: var(--grau); font-size: 0.8rem; text-align: center; margin: 2rem 0 1rem; }
 .fussnote button { background: none; border: none; color: var(--grau); text-decoration: underline; cursor: pointer; font-size: 0.8rem; }
 

@@ -23,6 +23,7 @@ python3 -m http.server 8742
 - **69 Übungsaufgaben** aus den Übungsblättern 1–14 mit Schritt-für-Schritt-Lösungen,
   alle Endergebnisse gegen die gedruckten Lösungen der Blätter geprüft
 - **82 Formelkarten** (Leitner-System: Neu → Wackelig → Sicher)
+- **Lernplan** auf dem Dashboard mit Countdown bis zur Klausur (07.07.2026) und Wochen-Phasen
 - **Zufallsmix**: 5 zufällige Aufgaben, schwache Themen kommen öfter dran
 - Selbsteinschätzung pro Aufgabe (Sicher / Mit Hilfe / Nicht gekonnt) steuert
   die Schwache-Themen-Hinweise auf dem Dashboard

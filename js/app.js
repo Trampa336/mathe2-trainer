@@ -42,6 +42,77 @@
     return g === "sicher" ? "Sicher" : g === "hilfe" ? "Mit Hilfe" : g === "nicht" ? "Nicht gekonnt" : "Offen";
   }
 
+  // ---------- Lernplan / Countdown ----------
+
+  const KLAUSUR = new Date(2026, 6, 7); // 07.07.2026 (Monat 6 = Juli)
+
+  function tageBisKlausur() {
+    const heute = new Date();
+    heute.setHours(0, 0, 0, 0);
+    return Math.ceil((KLAUSUR - heute) / 86400000);
+  }
+
+  // Phasen: aktiv ist die erste, deren "bis"-Datum heute noch nicht überschritten ist.
+  const LERNPLAN = [
+    {
+      bis: new Date(2026, 5, 21), kw: "KW 25 · 15.–21.06", titel: "Integralrechnung",
+      text: "Größtes Thema (69 Aufgaben). **Thema 1** systematisch: Integrationsmethoden → PBZ → uneigentliche & numerische Integrale → Anwendungen. Täglich 10–15 Formelkarten zu Thema 1.",
+    },
+    {
+      bis: new Date(2026, 5, 28), kw: "KW 26 · 22.–28.06", titel: "Mehrdimensionale Analysis",
+      text: "**Thema 2** (Funktionen mehrerer Variablen) und **Thema 3** (Bereichs- & Kurvenintegrale). Formelkarten 2 + 3 dazunehmen.",
+    },
+    {
+      bis: new Date(2026, 6, 5), kw: "KW 27 · 29.06–05.07", titel: "Stochastik & erste Wiederholung",
+      text: "**Thema 4** (Ereignisse & Wahrscheinlichkeiten) und **Thema 5** (Zufallsgrößen & Verteilungen). Erste Wiederholungsrunde anhand des 📌-Hinweises; Zufallsmix starten.",
+    },
+    {
+      bis: new Date(2026, 6, 7), kw: "Endspurt · 06.–07.07", titel: "Generalprobe",
+      text: "Zufallsmix über alle Themen, alle mit „✗ Nicht gekonnt“ markierten Aufgaben erneut rechnen, Formelkarten bis alles 🟢 ist. Klausur am 07.07.",
+    },
+  ];
+
+  const STRATEGIE = [
+    "**Ehrlich bewerten.** Nach jeder Aufgabe „Sicher / Mit Hilfe / Nicht gekonnt“ wählen – nur so findet die App über den 📌-Hinweis deine Schwächen.",
+    "**Erst selbst rechnen**, dann Hinweis 💡 → Ergebnis ✓ → Schritt-für-Schritt. Bei Bedarf das passende Repetitorien-Video.",
+    "**Formelkarten täglich**, kurz aber regelmäßig (Leitner: 🔴 → 🟡 → 🟢).",
+    "**Zufallsmix ab Phase 3** als Klausursimulation – mischt Aufgaben und gewichtet deine Schwächen stärker.",
+  ];
+
+  function lernplanBanner() {
+    const tage = tageBisKlausur();
+    if (tage < 0) return ""; // Klausur vorbei – Karte ausblenden
+
+    const countdown = tage === 0
+      ? "<strong>Heute ist Klausur</strong> – viel Erfolg! 🍀"
+      : "Noch <strong>" + tage + (tage === 1 ? " Tag" : " Tage") + "</strong> bis zur Klausur am 07.07.2026";
+
+    let aktivGesetzt = false;
+    const phasen = LERNPLAN.map((p) => {
+      const aktiv = !aktivGesetzt && tageBisKlausur() >= 0 && new Date() <= new Date(p.bis.getFullYear(), p.bis.getMonth(), p.bis.getDate(), 23, 59, 59);
+      if (aktiv) aktivGesetzt = true;
+      return (
+        '<div class="phase' + (aktiv ? " aktiv" : "") + '">' +
+        '<div class="phase-kopf"><span class="kw">' + p.kw + "</span>" +
+        '<span class="phase-titel">' + p.titel + "</span>" +
+        (aktiv ? '<span class="hier">● Du bist hier</span>' : "") + "</div>" +
+        '<div class="phase-text">' + md(p.text) + "</div>" +
+        "</div>"
+      );
+    }).join("");
+
+    const strategie = '<div class="strategie"><div class="strategie-titel">So nutzt du den Trainer</div><ul>' +
+      STRATEGIE.map((s) => "<li>" + md(s) + "</li>").join("") + "</ul></div>";
+
+    return (
+      '<div class="card lernplan">' +
+      '<div class="countdown">⏳ ' + countdown + "</div>" +
+      '<div class="lernplan-intro">Dein Fahrplan bis zur Klausur – Thema für Thema, dann Wiederholung:</div>' +
+      phasen + strategie +
+      "</div>"
+    );
+  }
+
   function typChip(a) {
     if (!a.typ) return "";
     const cls = a.typ.toLowerCase().replace(/ä/g, "ae").replace(/ü/g, "ue").replace(/ö/g, "oe");
@@ -69,7 +140,7 @@
     const sichtbar = sichtbareThemen();
     const versteckt = DATA.themen.filter((t) => Store.isHidden(t.id));
 
-    let html = "<h1>Womit willst du üben?</h1>";
+    let html = lernplanBanner() + "<h1>Womit willst du üben?</h1>";
 
     // Schwächste Themen ermitteln
     const schwach = sichtbar
