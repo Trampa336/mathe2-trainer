@@ -12,7 +12,7 @@ window.MATHE2_DATA.themen.push({
     { titel: "Ebene Bereichsintegrale (kartesisch)", intro: `Doppelintegrale $\\iint_B f\\,db$ über Normalbereiche: Randkurven schneiden, Grenzen aufstellen, von innen nach außen integrieren. Mit $f=1$ entsteht die **Fläche**, mit $f=\\varrho$ die **Masse**, mit $f=x$ bzw. $f=y$ der **Schwerpunkt** – und mit Dreifachintegralen das **Volumen**.`, aufgaben: ["t3-a01a","t3-a01b","t3-a01c","t3-a02","t3-a03","t3-a04a","t3-a04b"] },
     { titel: "Polarkoordinaten", intro: `Sobald Kreise, Ringe oder Sektoren auftauchen (oder $x^2+y^2$ im Integranden steht), wechselt man zu $x=r\\cos\\varphi$, $y=r\\sin\\varphi$ – **mit Flächenelement $db=r\\,dr\\,d\\varphi$** (das $r$ ist der häufigste Klausurfehler!). Die Grenzen werden dann konstant und das Integral zerfällt in Faktoren.`, aufgaben: ["t3-a05","t3-a06","t3-a09a","t3-a09b","t3-a09c"] },
     { titel: "Räumliche Integrale: Zylinder- & Kugelkoordinaten", intro: `Dasselbe Spiel in 3D: rotationssymmetrische Körper (Kegel, Bohrungen, Tori) in **Zylinderkoordinaten** ($db=r\\,dz\\,dr\\,d\\varphi$), Kugeln und Schalen in **Kugelkoordinaten** ($db=r^2\\sin\\vartheta\\,...$). Erster Schritt ist immer die **Beschreibung des Körpers** in den neuen Koordinaten – das allein gibt in der Klausur schon Punkte.`, aufgaben: ["t3-a07","t3-a08","t3-a10","t3-a15","t3-a11a","t3-a11b","t3-a12"] },
-    { titel: "Kurvenintegrale", intro: `Integriert wird entlang einer Kurve $\\vec r(t)$. **1. Art** (skalar: Länge, Masse eines Drahtes): mit $|\\vec r\\,'(t)|\\,dt$. **2. Art** (vektoriell: Arbeit im Kraftfeld): mit dem Skalarprodukt $\\vec F\\cdot\\vec r\\,'(t)\\,dt$. Beide laufen auf ein gewöhnliches Integral über $t$ hinaus.`, aufgaben: ["t3-a13a","t3-a13b","t3-a14a","t3-a14b"] },
+    { titel: "Kurvenintegrale", intro: `Integriert wird entlang einer Kurve $\\vec r(t)$. **1. Art** (skalar: Länge, Masse eines Drahtes): mit $|\\vec r\\,{}'(t)|\\,dt$. **2. Art** (vektoriell: Arbeit im Kraftfeld): mit dem Skalarprodukt $\\vec F\\cdot\\vec r\\,{}'(t)\\,dt$. Beide laufen auf ein gewöhnliches Integral über $t$ hinaus.`, aufgaben: ["t3-a13a","t3-a13b","t3-a14a","t3-a14b"] },
   ],
   aufgaben: [
     {
@@ -337,9 +337,9 @@ $$m=2\\pi\\cdot15\\cdot\\frac12=15\\pi$$` },
       video: "Bsp50–Bsp52 (Kurvenintegrale)",
       aufgabe: `Kurve $K$: $\\vec r(t)=\\begin{pmatrix}\\sin t+2\\\\\\cos t\\\\\\frac23(t-1)^{3/2}\\end{pmatrix}$, $t\\in[1,4]$.
 Berechnen Sie die Länge $\\ell(K)$.`,
-      hinweis: `$\\ell=\\int|\\vec r\\,'(t)|\\,dt$ – Tangentenvektor bilden, Betrag vereinfachen.`,
+      hinweis: `$\\ell=\\int|\\vec r\\,{}'(t)|\\,dt$ – Tangentenvektor bilden, Betrag vereinfachen.`,
       schritte: [
-        { titel: "Tangentenvektor", text: `$$\\vec r\\,'(t)=\\begin{pmatrix}\\cos t\\\\-\\sin t\\\\(t-1)^{1/2}\\end{pmatrix},\\qquad |\\vec r\\,'(t)|=\\sqrt{\\cos^2t+\\sin^2t+(t-1)}=\\sqrt t$$` },
+        { titel: "Tangentenvektor", text: `$$\\vec r\\,{}'(t)=\\begin{pmatrix}\\cos t\\\\-\\sin t\\\\(t-1)^{1/2}\\end{pmatrix},\\qquad |\\vec r\\,{}'(t)|=\\sqrt{\\cos^2t+\\sin^2t+(t-1)}=\\sqrt t$$` },
         { titel: "Lösung", text: `$$\\ell(K)=\\int_1^4\\sqrt t\\,dt=\\Big[\\frac23t^{3/2}\\Big]_1^4=\\frac23(8-1)=\\frac{14}3$$` },
       ],
       ergebnis: `$\\ell(K)=\\frac{14}3$`,
@@ -353,10 +353,10 @@ Berechnen Sie die Länge $\\ell(K)$.`,
       video: "Bsp50–Bsp52 (Kurvenintegrale)",
       aufgabe: `Kurve $K$: $\\vec r(t)=\\begin{pmatrix}\\sin t+2\\\\\\cos t\\\\\\frac23(t-1)^{3/2}\\end{pmatrix}$, $t\\in[1,4]$.
 Berechnen Sie die Arbeit $W$ im Kraftfeld $\\vec F(x,y,z)=(x-2,\\ y,\\ 3z)^T$ entlang $K$.`,
-      hinweis: `$W=\\int_K\\vec F\\cdot d\\vec r=\\int \\vec F(\\vec r(t))\\cdot\\vec r\\,'(t)\\,dt$ mit $\\vec r\\,'(t)=(\\cos t,-\\sin t,(t-1)^{1/2})^T$.`,
+      hinweis: `$W=\\int_K\\vec F\\cdot d\\vec r=\\int \\vec F(\\vec r(t))\\cdot\\vec r\\,{}'(t)\\,dt$ mit $\\vec r\\,{}'(t)=(\\cos t,-\\sin t,(t-1)^{1/2})^T$.`,
       schritte: [
         { titel: "Skalarprodukt", text: `$\\vec F(\\vec r(t))=\\big(\\sin t,\\ \\cos t,\\ 2(t-1)^{3/2}\\big)^T$:
-$$\\vec F\\cdot\\vec r\\,'=\\sin t\\cos t-\\cos t\\sin t+2(t-1)^{3/2}(t-1)^{1/2}=2(t-1)^2$$` },
+$$\\vec F\\cdot\\vec r\\,{}'=\\sin t\\cos t-\\cos t\\sin t+2(t-1)^{3/2}(t-1)^{1/2}=2(t-1)^2$$` },
         { titel: "Lösung", text: `$$W=\\int_1^4 2(t-1)^2dt=\\Big[\\frac23(t-1)^3\\Big]_1^4=\\frac23\\cdot27=18$$` },
       ],
       ergebnis: `$W=18$`,
@@ -370,11 +370,11 @@ $$\\vec F\\cdot\\vec r\\,'=\\sin t\\cos t-\\cos t\\sin t+2(t-1)^{3/2}(t-1)^{1/2}
       aufgabe: `Kurve $K$: $\\vec r(t)=(1+t,\\ \\sin t-1,\\ \\cos t)^T$, $t\\in[0,\\pi]$.
 **(a)** In welchem Punkt schneidet $K$ die $x,y$-Ebene?
 **(b)** Masse $m(K)$ bei Liniendichte $\\varrho=x^2\\big[(y+1)^2+z^2\\big]$.`,
-      hinweis: `(b) ist ein KI 1. Art: $m=\\int\\varrho(\\vec r(t))\\,|\\vec r\\,'(t)|\\,dt$. Auf der Kurve gilt $(y+1)^2+z^2=\\sin^2t+\\cos^2t=1$!`,
+      hinweis: `(b) ist ein KI 1. Art: $m=\\int\\varrho(\\vec r(t))\\,|\\vec r\\,{}'(t)|\\,dt$. Auf der Kurve gilt $(y+1)^2+z^2=\\sin^2t+\\cos^2t=1$!`,
       schritte: [
         { titel: "(a) Schnittpunkt", text: `$z=\\cos t=0\\Rightarrow t=\\frac\\pi2$:
 $$P\\Big(1+\\frac\\pi2,\\ 0,\\ 0\\Big)$$` },
-        { titel: "(b) Masse", text: `$\\vec r\\,'=(1,\\cos t,-\\sin t)$, $|\\vec r\\,'|=\\sqrt{1+\\cos^2t+\\sin^2t}=\\sqrt2$ (konstant!)
+        { titel: "(b) Masse", text: `$\\vec r\\,{}'=(1,\\cos t,-\\sin t)$, $|\\vec r\\,{}'|=\\sqrt{1+\\cos^2t+\\sin^2t}=\\sqrt2$ (konstant!)
 $\\varrho(\\vec r(t))=(1+t)^2\\cdot[\\sin^2t+\\cos^2t]=(1+t)^2$
 $$m=\\int_0^\\pi(1+t)^2\\sqrt2\\,dt=\\sqrt2\\Big[\\frac{(1+t)^3}3\\Big]_0^\\pi=\\frac{\\sqrt2}3\\big((1+\\pi)^3-1\\big)\\approx33{,}0$$` },
       ],
@@ -388,10 +388,10 @@ $$m=\\int_0^\\pi(1+t)^2\\sqrt2\\,dt=\\sqrt2\\Big[\\frac{(1+t)^3}3\\Big]_0^\\pi=\
       schwierigkeit: 3,
       aufgabe: `Kurve $K$: $\\vec r(t)=(1+t,\\ \\sin t-1,\\ \\cos t)^T$, $t\\in[0,\\pi]$.
 Berechnen Sie die Arbeit $W$ im Kraftfeld $\\vec F=(xz,\\ y+1,\\ z)^T$.`,
-      hinweis: `$W=\\int \\vec F(\\vec r(t))\\cdot\\vec r\\,'(t)\\,dt$ mit $\\vec r\\,'=(1,\\cos t,-\\sin t)^T$. Auf der Kurve heben sich zwei Terme weg; partielle Integration.`,
+      hinweis: `$W=\\int \\vec F(\\vec r(t))\\cdot\\vec r\\,{}'(t)\\,dt$ mit $\\vec r\\,{}'=(1,\\cos t,-\\sin t)^T$. Auf der Kurve heben sich zwei Terme weg; partielle Integration.`,
       schritte: [
         { titel: "Skalarprodukt", text: `$\\vec F(\\vec r(t))=\\big((1+t)\\cos t,\\ \\sin t,\\ \\cos t\\big)^T$
-$$\\vec F\\cdot\\vec r\\,'=(1+t)\\cos t+\\sin t\\cos t-\\cos t\\sin t=(1+t)\\cos t$$` },
+$$\\vec F\\cdot\\vec r\\,{}'=(1+t)\\cos t+\\sin t\\cos t-\\cos t\\sin t=(1+t)\\cos t$$` },
         { titel: "Lösung", text: `$$W=\\int_0^\\pi(1+t)\\cos t\\,dt=\\big[(1+t)\\sin t+\\cos t\\big]_0^\\pi=(-1)-(1)=-2$$
 (partielle Integration; negative Arbeit: Bewegung gegen das Feld)` },
       ],
@@ -426,9 +426,9 @@ $$0\\le r\\le2,\\quad 0\\le\\varphi\\le2\\pi,\\quad \\frac\\pi2\\le\\vartheta\\l
     { id: "t3-k06", vorne: `**Kugelkoordinaten**: Transformation + Volumenelement?`, hinten: `$$x=r\\cos\\varphi\\sin\\vartheta,\\quad y=r\\sin\\varphi\\sin\\vartheta,\\quad z=r\\cos\\vartheta$$ $$db=r^2\\sin\\vartheta\\,d\\vartheta\\,dr\\,d\\varphi$$ ($\\vartheta$ von der positiven $z$-Achse gemessen, $\\vartheta\\in[0,\\pi]$)` },
     { id: "t3-k07", vorne: `Obere **Halbkugel** vom Radius $R$ in Kugelkoordinaten?`, hinten: `$$0\\le r\\le R,\\quad 0\\le\\varphi\\le2\\pi,\\quad 0\\le\\vartheta\\le\\frac\\pi2$$ (untere Hälfte: $\\frac\\pi2\\le\\vartheta\\le\\pi$)` },
     { id: "t3-k08", vorne: `**Volumen** eines Körpers $B$ als Bereichsintegral?`, hinten: `$$V(B)=\\iiint_B1\\,db$$ z.B. in Zylinderkoordinaten: $\\int\\!\\int\\!\\int r\\,dz\\,dr\\,d\\varphi$` },
-    { id: "t3-k09", vorne: `**Kurvenintegral 1. Art** (z.B. Masse einer Kurve): Formel?`, hinten: `$$\\int_K\\varrho\\,ds=\\int_{t_1}^{t_2}\\varrho(\\vec r(t))\\cdot|\\vec r\\,'(t)|\\,dt$$ Skalares Integral – Orientierung egal.` },
-    { id: "t3-k10", vorne: `**Länge einer Raumkurve** $\\vec r(t)$, $t\\in[t_1,t_2]$?`, hinten: `$$\\ell(K)=\\int_{t_1}^{t_2}|\\vec r\\,'(t)|\\,dt=\\int_{t_1}^{t_2}\\sqrt{x'^2+y'^2+z'^2}\\,dt$$` },
-    { id: "t3-k11", vorne: `**Kurvenintegral 2. Art** (Arbeit im Kraftfeld): Formel?`, hinten: `$$W=\\int_K\\vec F\\cdot d\\vec r=\\int_{t_1}^{t_2}\\vec F(\\vec r(t))\\cdot\\vec r\\,'(t)\\,dt$$ Skalarprodukt! Orientierung der Kurve ändert das Vorzeichen.` },
+    { id: "t3-k09", vorne: `**Kurvenintegral 1. Art** (z.B. Masse einer Kurve): Formel?`, hinten: `$$\\int_K\\varrho\\,ds=\\int_{t_1}^{t_2}\\varrho(\\vec r(t))\\cdot|\\vec r\\,{}'(t)|\\,dt$$ Skalares Integral – Orientierung egal.` },
+    { id: "t3-k10", vorne: `**Länge einer Raumkurve** $\\vec r(t)$, $t\\in[t_1,t_2]$?`, hinten: `$$\\ell(K)=\\int_{t_1}^{t_2}|\\vec r\\,{}'(t)|\\,dt=\\int_{t_1}^{t_2}\\sqrt{x'^2+y'^2+z'^2}\\,dt$$` },
+    { id: "t3-k11", vorne: `**Kurvenintegral 2. Art** (Arbeit im Kraftfeld): Formel?`, hinten: `$$W=\\int_K\\vec F\\cdot d\\vec r=\\int_{t_1}^{t_2}\\vec F(\\vec r(t))\\cdot\\vec r\\,{}'(t)\\,dt$$ Skalarprodukt! Orientierung der Kurve ändert das Vorzeichen.` },
     { id: "t3-k12", vorne: `Typische **Winkelbereiche**: $y\\ge x$ und $y\\ge-x$? $\\quad y\\ge\\sqrt3 x,\\ x\\ge0$?`, hinten: `$y\\ge|x|$: $\\varphi\\in[\\frac\\pi4,\\frac{3\\pi}4]$
 $y\\ge\\sqrt3x,\\ x\\ge0$: $\\varphi\\in[\\frac\\pi3,\\frac\\pi2]$ ($\\tan\\varphi=\\sqrt3$ bei $\\frac\\pi3$)` },
     { id: "t3-k13", vorne: `Häufige Stammfunktion: $\\int r\\sqrt{a^2-r^2}\\,dr=?$`, hinten: `$$-\\frac13(a^2-r^2)^{3/2}+c$$ (Substitution $t=a^2-r^2$) – Standard bei Kugel-Aufgaben in Zylinderkoordinaten.` },

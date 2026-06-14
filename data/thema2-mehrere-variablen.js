@@ -208,7 +208,7 @@ $$f(x,y)=x^2y^3+xy^4-x^2+2\\sqrt y$$`,
         { titel: "Lösung", text: `$f_x=2xy^3+y^4-2x$, $\\quad f_y=3x^2y^2+4xy^3+\\frac1{\\sqrt y}$
 $f_{xx}=2y^3-2$, $\\quad f_{xy}=f_{yx}=6xy^2+4y^3$, $\\quad f_{yy}=6x^2y+12xy^2-\\frac1{2\\sqrt{y^3}}$` },
       ],
-      ergebnis: `$f_x=2xy^3+y^4-2x$, $f_y=3x^2y^2+4xy^3+\\frac1{\\sqrt y}$; 2. Ordn. siehe Schritt ($f_{xy}=f_{yx}=6xy^2+4y^3$).`,
+      ergebnis: `$f_x=2xy^3+y^4-2x$, $f_y=3x^2y^2+4xy^3+\\frac1{\\sqrt y}$; 2. Ordn. siehe Schritt.`,
     },
     {
       id: "t2-a0c-b",
@@ -810,10 +810,10 @@ $$f(x,y)=x^2+3y^2+4,\\qquad \\text{NB: } x^2-y-2=0$$`,
       hinweis: `$\\nabla f=\\mu\\nabla g$ mit $g=x^2-y-2$, plus NB. Aus der $x$-Gleichung folgt $x=0$ oder $\\mu=1$.`,
       schritte: [
         { titel: "Gleichungssystem", text: `$g=x^2-y-2$:
-$$2x=\\lambda2x,\\qquad 6y=-\\lambda,\\qquad x^2=y+2$$
-1. Gleichung: $x=0$ **oder** $\\lambda=1$.
+$$2x=\\mu2x,\\qquad 6y=-\\mu,\\qquad x^2=y+2$$
+1. Gleichung: $x=0$ **oder** $\\mu=1$.
 $x=0$: $y=-2$ ⟹ Punkt $(0,-2)$, $f=0+12+4=16$
-$\\lambda=1$: $y=-\\frac16$, $x^2=2-\\frac16=\\frac{11}6$ ⟹ $x=\\pm\\sqrt{\\tfrac{11}6}$, $f=\\frac{11}6+\\frac1{12}+4=\\frac{71}{12}$` },
+$\\mu=1$: $y=-\\frac16$, $x^2=2-\\frac16=\\frac{11}6$ ⟹ $x=\\pm\\sqrt{\\tfrac{11}6}$, $f=\\frac{11}6+\\frac1{12}+4=\\frac{71}{12}$` },
         { titel: "Auswerten", text: `Niveaulinien von $f$ sind Ellipsen um den Ursprung; entlang der Parabel $y=x^2-2$:
 $(0,-2,16)$ **lok. Hochpunkt**, $\\big(\\pm\\sqrt{\\tfrac{11}6},-\\tfrac16,\\tfrac{71}{12}\\big)$ **lok. Tiefpunkte**` },
       ],
@@ -878,9 +878,9 @@ $\\varphi''=24x+6$: $\\varphi''(0)=6>0$ **Min** bei $(0,-1,5)$; $\\varphi''(-\\f
       schwierigkeit: 2,
       aufgabe: `Bestimmen Sie mit der Lagrange-Methode die möglichen Extremstellen von $f$ unter $g=0$:
 $$f=x^2+y,\\qquad g=x-y+2$$`,
-      hinweis: `$\\nabla f=\\lambda\\nabla g$ plus NB. Art über Einsetzen: auf der Geraden wird $f$ eine Parabel in $x$.`,
+      hinweis: `$\\nabla f=\\mu\\nabla g$ plus NB. Art über Einsetzen: auf der Geraden wird $f$ eine Parabel in $x$.`,
       schritte: [
-        { titel: "Lösung", text: `$2x=\\lambda$, $1=-\\lambda$ ⟹ $\\lambda=-1$, $x=-\\frac12$; NB: $y=x+2=\\frac32$
+        { titel: "Lösung", text: `$2x=\\mu$, $1=-\\mu$ ⟹ $\\mu=-1$, $x=-\\frac12$; NB: $y=x+2=\\frac32$
 Stelle $\\big(-\\frac12,\\frac32\\big)$ (Minimum: auf der Geraden ist $f=x^2+x+2$ eine nach oben geöffnete Parabel).` },
       ],
       ergebnis: `$(-\\frac12,\\frac32)$ (Minimum)`,
@@ -893,9 +893,9 @@ Stelle $\\big(-\\frac12,\\frac32\\big)$ (Minimum: auf der Geraden ist $f=x^2+x+2
       schwierigkeit: 2,
       aufgabe: `Bestimmen Sie mit der Lagrange-Methode die möglichen Extremstellen von $f$ unter $g=0$:
 $$f=x+2y,\\qquad g=x^2+y^2-1$$`,
-      hinweis: `$\\nabla f=\\lambda\\nabla g$ plus NB. Aus den ersten beiden Gleichungen folgt $y=2x$.`,
+      hinweis: `$\\nabla f=\\mu\\nabla g$ plus NB. Aus den ersten beiden Gleichungen folgt $y=2x$.`,
       schritte: [
-        { titel: "Lösung", text: `$1=2\\lambda x$, $2=2\\lambda y$ ⟹ $y=2x$. NB: $x^2+4x^2=1\\Rightarrow x=\\pm\\frac1{\\sqrt5}$
+        { titel: "Lösung", text: `$1=2\\mu x$, $2=2\\mu y$ ⟹ $y=2x$. NB: $x^2+4x^2=1\\Rightarrow x=\\pm\\frac1{\\sqrt5}$
 $\\big(\\frac1{\\sqrt5},\\frac2{\\sqrt5}\\big)$: Max ($f=\\sqrt5$) · $\\big(-\\frac1{\\sqrt5},-\\frac2{\\sqrt5}\\big)$: Min ($f=-\\sqrt5$)` },
       ],
       ergebnis: `$(\\frac1{\\sqrt5},\\frac2{\\sqrt5})$ Max, $(-\\frac1{\\sqrt5},-\\frac2{\\sqrt5})$ Min`,
@@ -908,11 +908,11 @@ $\\big(\\frac1{\\sqrt5},\\frac2{\\sqrt5}\\big)$: Max ($f=\\sqrt5$) · $\\big(-\\
       schwierigkeit: 2,
       aufgabe: `Bestimmen Sie mit der Lagrange-Methode die möglichen Extremstellen von $f$ unter $g=0$:
 $$f=xy,\\qquad g=\\frac{x^2}8+\\frac{y^2}2-1$$`,
-      hinweis: `$\\nabla f=\\lambda\\nabla g$ plus NB. Die beiden Gleichungen liefern $\\lambda=\\pm2$.`,
+      hinweis: `$\\nabla f=\\mu\\nabla g$ plus NB. Die beiden Gleichungen liefern $\\mu=\\pm2$.`,
       schritte: [
-        { titel: "Lösung", text: `$y=\\lambda\\frac x4$, $x=\\lambda y$ ⟹ $y=\\frac{\\lambda^2}4 y\\Rightarrow\\lambda=\\pm2$
-$\\lambda=2$: $y=\\frac x2$, NB: $\\frac{x^2}8+\\frac{x^2}8=1\\Rightarrow x=\\pm2$ ⟹ $(2,1),(-2,-1)$ mit $f=2$ (Maxima)
-$\\lambda=-2$: $(2,-1),(-2,1)$ mit $f=-2$ (Minima)` },
+        { titel: "Lösung", text: `$y=\\mu\\frac x4$, $x=\\mu y$ ⟹ $y=\\frac{\\mu^2}4 y\\Rightarrow\\mu=\\pm2$
+$\\mu=2$: $y=\\frac x2$, NB: $\\frac{x^2}8+\\frac{x^2}8=1\\Rightarrow x=\\pm2$ ⟹ $(2,1),(-2,-1)$ mit $f=2$ (Maxima)
+$\\mu=-2$: $(2,-1),(-2,1)$ mit $f=-2$ (Minima)` },
       ],
       ergebnis: `$(\\pm2,\\pm1)$: Max bei gleichen, Min bei gemischten Vorzeichen`,
     },
@@ -925,8 +925,8 @@ $\\lambda=-2$: $(2,-1),(-2,1)$ mit $f=-2$ (Minima)` },
       aufgabe: `Welcher Punkt des Kreises $(x-2)^2+y^2=9$ hat minimalen Abstand zum Ursprung?`,
       hinweis: `$f=x^2+y^2$ minimieren. Geometrische Kontrolle: Kreis um $(2,0)$ mit Radius 3 – der Ursprung liegt innen.`,
       schritte: [
-        { titel: "Lösung", text: `$f=x^2+y^2$, $g=(x-2)^2+y^2-9$: $2x=\\lambda2(x-2)$, $2y=\\lambda2y$
-$y$-Gleichung: $y=0$ oder $\\lambda=1$ (unmöglich, da dann $x=x-2$).
+        { titel: "Lösung", text: `$f=x^2+y^2$, $g=(x-2)^2+y^2-9$: $2x=\\mu2(x-2)$, $2y=\\mu2y$
+$y$-Gleichung: $y=0$ oder $\\mu=1$ (unmöglich, da dann $x=x-2$).
 $y=0$: $(x-2)^2=9\\Rightarrow x=5$ oder $x=-1$.
 $f(-1,0)=1$ ⟹ **Minimum** bei $(-1,0)$, Abstand $d=1$ · ($(5,0)$: Maximum, $d=5$)` },
       ],
