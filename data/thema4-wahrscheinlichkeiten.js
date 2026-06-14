@@ -7,9 +7,9 @@ window.MATHE2_DATA.themen.push({
   untertitel: "Ereignisalgebra, Schaltungen, bedingte Wahrscheinlichkeit, totale Wahrscheinlichkeit, Bayes",
   einfuehrung: `**Worum geht es?** Zufällige Ereignisse sauber beschreiben und ihre Wahrscheinlichkeiten berechnen. Erst die Sprache (Mengenoperationen $\\cup,\\cap,\\bar A$ – z.B. für Ausfälle in Schaltungen), dann die Rechenregeln (Additionssatz, Unabhängigkeit), zuletzt die mächtigsten Werkzeuge: **totale Wahrscheinlichkeit** und **Bayes** für "Information fließt rückwärts"-Fragen.`,
   bloecke: [
-    { titel: "Ereignisalgebra & Abzählen", intro: `Bevor gerechnet wird, wird übersetzt: "genau zwei", "höchstens eine", "System fällt aus" werden zu Formeln aus $\\cup$, $\\cap$ und $\\bar A$ (De Morgan!). Mit der **Siebformel** zählt man überlappende Mengen ab – und entlarvt sogar widersprüchliche Daten.`, aufgaben: ["t4-a01","t4-a02","t4-a03","t4-a04","t4-a07"] },
-    { titel: "Rechnen mit Wahrscheinlichkeiten & Unabhängigkeit", intro: `Der Additionssatz verbindet $P(A\\cup B)$ mit $P(A\\cap B)$; bei **Unabhängigkeit** darf multipliziert werden. Standardtricks: "mindestens einer" über das Gegenereignis, Zuverlässigkeit von Reihen- ($p^n$) und Parallelschaltungen ($1-(1-p)^n$).`, aufgaben: ["t4-a05","t4-a06","t4-a08"] },
-    { titel: "Bedingte Wahrscheinlichkeit, totale W. & Bayes", intro: `$P(A\\mid B)$: Wahrscheinlichkeit von $A$, wenn $B$ schon bekannt ist. Die **totale Wahrscheinlichkeit** setzt $P(A)$ aus Fallunterscheidungen zusammen; **Bayes** dreht die Richtung um ("Test positiv – wie wahrscheinlich wirklich krank?"). Der Krebstest zeigt, wie kontraintuitiv das sein kann – beliebter Klausurstoff.`, aufgaben: ["t4-a09","t4-a10","t4-a11","t4-a12","t4-a13"] },
+    { titel: "Ereignisalgebra & Abzählen", intro: `Bevor gerechnet wird, wird übersetzt: "genau zwei", "höchstens eine", "System fällt aus" werden zu Formeln aus $\\cup$, $\\cap$ und $\\bar A$ (De Morgan!). Mit der **Siebformel** zählt man überlappende Mengen ab – und entlarvt sogar widersprüchliche Daten.`, aufgaben: ["t4-a01","t4-a02","t4-a03","t4-a04","t4-a07a","t4-a07b"] },
+    { titel: "Rechnen mit Wahrscheinlichkeiten & Unabhängigkeit", intro: `Der Additionssatz verbindet $P(A\\cup B)$ mit $P(A\\cap B)$; bei **Unabhängigkeit** darf multipliziert werden. Standardtricks: "mindestens einer" über das Gegenereignis, Zuverlässigkeit von Reihen- ($p^n$) und Parallelschaltungen ($1-(1-p)^n$).`, aufgaben: ["t4-a05","t4-a06a","t4-a06b","t4-a08a","t4-a08b"] },
+    { titel: "Bedingte Wahrscheinlichkeit, totale W. & Bayes", intro: `$P(A\\mid B)$: Wahrscheinlichkeit von $A$, wenn $B$ schon bekannt ist. Die **totale Wahrscheinlichkeit** setzt $P(A)$ aus Fallunterscheidungen zusammen; **Bayes** dreht die Richtung um ("Test positiv – wie wahrscheinlich wirklich krank?"). Der Krebstest zeigt, wie kontraintuitiv das sein kann – beliebter Klausurstoff.`, aufgaben: ["t4-a09","t4-a10","t4-a11","t4-a12a","t4-a12b","t4-a13"] },
   ],
   aufgaben: [
     {
@@ -111,59 +111,94 @@ $$P(\\bar B)=1-0{,}35=0{,}65$$` },
       ergebnis: `(a) $\\bar B=\\bar A_1\\cap(\\bar A_2\\cup\\bar A_3)$ · (b)(i) $P(\\bar B)=0{,}65$ · (ii) nicht unabhängig`,
     },
     {
-      id: "t4-a06",
+      id: "t4-a06a",
       typ: "Rechentechnik",
-      titel: "PC-Komponenten: Unabhängigkeit nutzen",
-      quelle: "Übungsblatt 12, Aufgabe 6",
+      titel: "PC-Komponenten: keine fällt aus",
+      quelle: "Übungsblatt 12, Aufgabe 6a",
       schwierigkeit: 2,
       aufgabe: `Ausfallwahrscheinlichkeiten im 1. Jahr (unabhängig): Mainboard 0,05 · Netzteil 0,01 · Grafikkarte 0,03 · 4 RAM-Module je 0,08 · 2 Festplatten je 0,04.
-**(a)** $P($keine Komponente fällt aus$)$?
-**(b)** $P($mindestens ein RAM **und** mindestens eine Festplatte fallen aus$)$?`,
-      hinweis: `Unabhängigkeit ⟹ multiplizieren. "Mindestens einer" über das Gegenereignis: $1-P(\\text{keiner})$.`,
+$P($keine Komponente fällt aus$)$?`,
+      hinweis: `Unabhängigkeit ⟹ multiplizieren. Pro Bauteil die Gegenwahrscheinlichkeit (intakt) verwenden.`,
       schritte: [
-        { titel: "(a) Produkt", text: `$$P=0{,}95\\cdot0{,}99\\cdot0{,}97\\cdot0{,}92^4\\cdot0{,}96^2\\approx0{,}6023$$` },
-        { titel: "(b) Gegenereignisse", text: `$P(\\text{min. 1 RAM})=1-0{,}92^4\\approx0{,}28361$
+        { titel: "Lösung", text: `$$P=0{,}95\\cdot0{,}99\\cdot0{,}97\\cdot0{,}92^4\\cdot0{,}96^2\\approx0{,}6023$$` },
+      ],
+      ergebnis: `$\\approx0{,}6023$`,
+    },
+    {
+      id: "t4-a06b",
+      typ: "Rechentechnik",
+      titel: "PC-Komponenten: mindestens ein RAM & eine Platte",
+      quelle: "Übungsblatt 12, Aufgabe 6b",
+      schwierigkeit: 2,
+      aufgabe: `Ausfallwahrscheinlichkeiten im 1. Jahr (unabhängig): Mainboard 0,05 · Netzteil 0,01 · Grafikkarte 0,03 · 4 RAM-Module je 0,08 · 2 Festplatten je 0,04.
+$P($mindestens ein RAM **und** mindestens eine Festplatte fallen aus$)$?`,
+      hinweis: `"Mindestens einer" über das Gegenereignis: $1-P(\\text{keiner})$. RAM- und Platten-Block sind unabhängig ⟹ multiplizieren.`,
+      schritte: [
+        { titel: "Lösung", text: `$P(\\text{min. 1 RAM})=1-0{,}92^4\\approx0{,}28361$
 $P(\\text{min. 1 Platte})=1-0{,}96^2=0{,}0784$
 Unabhängig ⟹ $P=0{,}28361\\cdot0{,}0784\\approx0{,}02223$` },
       ],
-      ergebnis: `(a) $\\approx0{,}6023$ · (b) $\\approx0{,}0222$`,
+      ergebnis: `$\\approx0{,}0222$`,
     },
     {
-      id: "t4-a07",
+      id: "t4-a07a",
       typ: "Rechentechnik",
       titel: "Siebformel: Kongress-Sprachen (selbständig)",
-      quelle: "Übungsblatt 12, Aufgaben 7 & 8",
+      quelle: "Übungsblatt 12, Aufgabe 7",
       schwierigkeit: 2,
-      aufgabe: `**(A)** Von 500 Gästen sprechen 126 Spanisch, 380 Englisch, 206 Französisch; 6 nur Spanisch; 140 Englisch∩Französisch; 60 Französisch∩Spanisch; 18 alle drei.
-(a) Wie viele sprechen keine der Sprachen? (b) Wie viele nur Englisch und Spanisch?
-**(B)** Anlage mit Maschine ($A$ intakt) und zwei Kesseln ($B_k$ intakt); arbeitsfähig = Maschine und mindestens ein Kessel. Beschreiben Sie $C$ und $\\bar C$.`,
-      hinweis: `(A) Erst $|S\\cap E|$ aus "nur Spanisch = 6" bestimmen, dann Siebformel für $|S\\cup E\\cup F|$.`,
+      aufgabe: `Von 500 Gästen sprechen 126 Spanisch, 380 Englisch, 206 Französisch; 6 nur Spanisch; 140 Englisch∩Französisch; 60 Französisch∩Spanisch; 18 alle drei.
+**(a)** Wie viele sprechen keine der Sprachen? **(b)** Wie viele nur Englisch und Spanisch?`,
+      hinweis: `Erst $|S\\cap E|$ aus "nur Spanisch = 6" bestimmen, dann Siebformel für $|S\\cup E\\cup F|$.`,
       schritte: [
-        { titel: "(A) |S∩E| bestimmen", text: `nur Spanisch: $|S|-|S\\cap E|-|S\\cap F|+|S\\cap E\\cap F|=6$
+        { titel: "|S∩E| bestimmen", text: `nur Spanisch: $|S|-|S\\cap E|-|S\\cap F|+|S\\cap E\\cap F|=6$
 $$126-|S\\cap E|-60+18=6\\Rightarrow|S\\cap E|=78$$` },
-        { titel: "(A)(a) Siebformel", text: `$$|S\\cup E\\cup F|=126+380+206-78-140-60+18=452$$
+        { titel: "(a) Siebformel", text: `$$|S\\cup E\\cup F|=126+380+206-78-140-60+18=452$$
 Keine der drei Sprachen: $500-452=48$ Personen` },
-        { titel: "(A)(b)", text: `Nur Englisch **und** Spanisch (ohne Französisch): $|S\\cap E|-|S\\cap E\\cap F|=78-18=60$` },
-        { titel: "(B) Anlage", text: `$$C=A\\cap(B_1\\cup B_2)\\qquad \\bar C=\\bar A\\cup(\\bar B_1\\cap\\bar B_2)$$` },
+        { titel: "(b)", text: `Nur Englisch **und** Spanisch (ohne Französisch): $|S\\cap E|-|S\\cap E\\cap F|=78-18=60$` },
       ],
-      ergebnis: `(A)(a) 48 · (A)(b) 60 · (B) $C=A\\cap(B_1\\cup B_2)$, $\\bar C=\\bar A\\cup(\\bar B_1\\cap\\bar B_2)$`,
+      ergebnis: `(a) 48 · (b) 60`,
     },
     {
-      id: "t4-a08",
-      typ: "Anwendung",
-      titel: "Zuverlässigkeit: Reihe vs. parallel",
-      quelle: "Übungsblatt 13, Aufgabe 1",
+      id: "t4-a07b",
+      typ: "Verständnis",
+      titel: "Ereignisalgebra: Anlage mit zwei Kesseln (selbständig)",
+      quelle: "Übungsblatt 12, Aufgabe 8",
       schwierigkeit: 2,
-      aufgabe: `Ein System besteht aus 20 unabhängigen Elementen gleicher Zuverlässigkeit $p$. Die Systemzuverlässigkeit soll mindestens 0,9 betragen. Wie groß muss $p$ mindestens sein bei
-**(a)** Reihenschaltung? **(b)** Parallelschaltung?`,
-      hinweis: `Reihe intakt = ALLE intakt ($p^{20}$). Parallel intakt = nicht alle ausgefallen ($1-(1-p)^{20}$).`,
+      aufgabe: `Eine Anlage besteht aus einer Maschine ($A=\\{$Maschine intakt$\\}$) und zwei Kesseln ($B_k=\\{$Kessel $k$ intakt$\\}$). Arbeitsfähig ist sie, wenn die Maschine **und** mindestens ein Kessel intakt sind. Beschreiben Sie $C=\\{$Anlage arbeitsfähig$\\}$ und $\\bar C$.`,
+      hinweis: `"Mindestens ein Kessel" $=B_1\\cup B_2$. Für $\\bar C$ De Morgan anwenden.`,
       schritte: [
-        { titel: "(a) Reihe", text: `$$p^{20}\\ge0{,}9\\iff p\\ge\\sqrt[20]{0{,}9}\\approx0{,}9947$$
+        { titel: "Lösung", text: `$$C=A\\cap(B_1\\cup B_2)\\qquad \\bar C=\\bar A\\cup(\\bar B_1\\cap\\bar B_2)$$
+(De Morgan: nicht arbeitsfähig = Maschine defekt **oder** beide Kessel defekt)` },
+      ],
+      ergebnis: `$C=A\\cap(B_1\\cup B_2)$, $\\bar C=\\bar A\\cup(\\bar B_1\\cap\\bar B_2)$`,
+    },
+    {
+      id: "t4-a08a",
+      typ: "Anwendung",
+      titel: "Zuverlässigkeit: Reihenschaltung",
+      quelle: "Übungsblatt 13, Aufgabe 1a",
+      schwierigkeit: 2,
+      aufgabe: `Ein System besteht aus 20 unabhängigen Elementen gleicher Zuverlässigkeit $p$. Die Systemzuverlässigkeit soll mindestens 0,9 betragen. Wie groß muss $p$ mindestens sein bei **Reihenschaltung**?`,
+      hinweis: `Reihe intakt = ALLE intakt ($p^{20}$).`,
+      schritte: [
+        { titel: "Lösung", text: `$$p^{20}\\ge0{,}9\\iff p\\ge\\sqrt[20]{0{,}9}\\approx0{,}9947$$
 (jedes einzelne Element muss extrem zuverlässig sein!)` },
-        { titel: "(b) Parallel", text: `$$1-(1-p)^{20}\\ge0{,}9\\iff(1-p)^{20}\\le0{,}1\\iff p\\ge1-\\sqrt[20]{0{,}1}\\approx0{,}1087$$
+      ],
+      ergebnis: `$p\\ge\\sqrt[20]{0{,}9}\\approx0{,}995$`,
+    },
+    {
+      id: "t4-a08b",
+      typ: "Anwendung",
+      titel: "Zuverlässigkeit: Parallelschaltung",
+      quelle: "Übungsblatt 13, Aufgabe 1b",
+      schwierigkeit: 2,
+      aufgabe: `Ein System besteht aus 20 unabhängigen Elementen gleicher Zuverlässigkeit $p$. Die Systemzuverlässigkeit soll mindestens 0,9 betragen. Wie groß muss $p$ mindestens sein bei **Parallelschaltung**?`,
+      hinweis: `Parallel intakt = nicht alle ausgefallen ($1-(1-p)^{20}$).`,
+      schritte: [
+        { titel: "Lösung", text: `$$1-(1-p)^{20}\\ge0{,}9\\iff(1-p)^{20}\\le0{,}1\\iff p\\ge1-\\sqrt[20]{0{,}1}\\approx0{,}1087$$
 (Redundanz: schon schwache Elemente reichen)` },
       ],
-      ergebnis: `(a) $p\\ge\\sqrt[20]{0{,}9}\\approx0{,}995$ · (b) $p\\ge1-\\sqrt[20]{0{,}1}\\approx0{,}109$`,
+      ergebnis: `$p\\ge1-\\sqrt[20]{0{,}1}\\approx0{,}109$`,
     },
     {
       id: "t4-a09",
@@ -221,21 +256,32 @@ $$P(E_1\\text{ defekt}\\mid\\text{System defekt})=\\frac{P(E_1\\text{ defekt})}{
       ergebnis: `(a) $0{,}03291$ · (b) $0{,}94$ · (c) $0{,}9118$ · (d) $\\approx0{,}9116$`,
     },
     {
-      id: "t4-a12",
+      id: "t4-a12a",
       typ: "Rechentechnik",
-      titel: "Bedingte Wahrscheinlichkeiten (selbständig)",
-      quelle: "Übungsblatt 13, Aufgaben 8 & 9",
+      titel: "Bedingte Wahrscheinlichkeit: Erzeugnisse (selbständig)",
+      quelle: "Übungsblatt 13, Aufgabe 8",
       schwierigkeit: 2,
-      aufgabe: `**(A)** 96 % der Erzeugnisse sind brauchbar ($A$); von den brauchbaren eignen sich 75 % für Präzisionsgeräte ($B$). (a) Relation zwischen $A$ und $B$? (b) $P(B\\mid A)$? (c) $P(A\\mid B)$? (d) $P(B\\mid\\bar A)$? (e) $P(B)$?
-**(B)** Drei Maschinen produzieren im Verhältnis 1:1:2 mit Ausschussquoten 2 %, 1 %, 5 %. (a) $P($Ausschuss$)$? (b) $P($Maschine 3 $\\mid$ kein Ausschuss$)$?`,
-      hinweis: `(A) Präzisionsteile müssen brauchbar sein ⟹ $B\\subset A$. (B) Anteile: $\\frac14,\\frac14,\\frac12$.`,
+      aufgabe: `96 % der Erzeugnisse sind brauchbar ($A$); von den brauchbaren eignen sich 75 % für Präzisionsgeräte ($B$). (a) Relation zwischen $A$ und $B$? (b) $P(B\\mid A)$? (c) $P(A\\mid B)$? (d) $P(B\\mid\\bar A)$? (e) $P(B)$?`,
+      hinweis: `Präzisionsteile müssen brauchbar sein ⟹ $B\\subset A$.`,
       schritte: [
-        { titel: "(A)", text: `(a) $B\\subset A$ · (b) $P(B\\mid A)=0{,}75$ · (c) $P(A\\mid B)=1$ (wegen $B\\subset A$) · (d) $P(B\\mid\\bar A)=0$
+        { titel: "Lösung", text: `(a) $B\\subset A$ · (b) $P(B\\mid A)=0{,}75$ · (c) $P(A\\mid B)=1$ (wegen $B\\subset A$) · (d) $P(B\\mid\\bar A)=0$
 (e) $P(B)=P(B\\mid A)\\,P(A)=0{,}75\\cdot0{,}96=0{,}72$` },
-        { titel: "(B)(a) Totale W.", text: `$$P(\\text{Ausschuss})=\\frac14\\cdot0{,}02+\\frac14\\cdot0{,}01+\\frac12\\cdot0{,}05=0{,}005+0{,}0025+0{,}025=0{,}0325$$` },
-        { titel: "(B)(b) Bayes", text: `$$P(M_3\\mid\\text{ok})=\\frac{\\frac12\\cdot0{,}95}{1-0{,}0325}=\\frac{0{,}475}{0{,}9675}\\approx0{,}491$$` },
       ],
-      ergebnis: `(A) $B\\subset A$; 0,75 / 1 / 0 / 0,72 · (B) (a) 0,0325 · (b) $\\approx0{,}491$`,
+      ergebnis: `$B\\subset A$; 0,75 / 1 / 0 / 0,72`,
+    },
+    {
+      id: "t4-a12b",
+      typ: "Rechentechnik",
+      titel: "Totale W. & Bayes: drei Maschinen (selbständig)",
+      quelle: "Übungsblatt 13, Aufgabe 9",
+      schwierigkeit: 2,
+      aufgabe: `Drei Maschinen produzieren im Verhältnis 1:1:2 mit Ausschussquoten 2 %, 1 %, 5 %. (a) $P($Ausschuss$)$? (b) $P($Maschine 3 $\\mid$ kein Ausschuss$)$?`,
+      hinweis: `Anteile: $\\frac14,\\frac14,\\frac12$. (a) Satz der totalen Wahrscheinlichkeit, (b) Bayes mit Gut-Quote $0{,}95$ von Maschine 3.`,
+      schritte: [
+        { titel: "(a) Totale W.", text: `$$P(\\text{Ausschuss})=\\frac14\\cdot0{,}02+\\frac14\\cdot0{,}01+\\frac12\\cdot0{,}05=0{,}005+0{,}0025+0{,}025=0{,}0325$$` },
+        { titel: "(b) Bayes", text: `$$P(M_3\\mid\\text{ok})=\\frac{\\frac12\\cdot0{,}95}{1-0{,}0325}=\\frac{0{,}475}{0{,}9675}\\approx0{,}491$$` },
+      ],
+      ergebnis: `(a) 0,0325 · (b) $\\approx0{,}491$`,
     },
     {
       id: "t4-a13",

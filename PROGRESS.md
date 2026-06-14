@@ -35,11 +35,18 @@ Arrays neu verdrahten (alte ID durch neue Teil-IDs ersetzen, keine ID verlieren)
 | 1 Integralrechnung | `thema1-integralrechnung.js` | Referenz (gold standard) | 69 |
 | 2 Funktionen mehrerer Variablen | `thema2-mehrere-variablen.js` | **fertig** | 22 → 54 |
 | 3 Bereichs- & Kurvenintegrale | `thema3-bereichs-kurvenintegrale.js` | **fertig** | 15 → 23 |
-| 4 Wahrscheinlichkeiten | `thema4-wahrscheinlichkeiten.js` | offen — SPLIT a06/a07/a08/a12, Rest KEEP | 13 → ~17 |
-| 5 Zufallsgrößen | `thema5-zufallsgroessen.js` | offen — Feinprüfung, vermutl. alles KEEP | 6 |
+| 4 Wahrscheinlichkeiten | `thema4-wahrscheinlichkeiten.js` | **fertig** | 13 → 17 |
+| 5 Zufallsgrößen | `thema5-zufallsgroessen.js` | **fertig** (feinprüft, alles KEEP) | 6 |
 
 Thema 3 gesplittet: a01→3, a04→2, a09→3, a11→2 (Torus/Bohrung), a13→2
 (Länge/Arbeit), a14→2 (Schnittpunkt+Masse / Arbeit). Rest KEEP.
+
+Thema 4 gesplittet: a06→2 (keine fällt aus / min. RAM+Platte), a07→2 (Sprachen-
+Siebformel / Anlage-Ereignisalgebra), a08→2 (Reihe / Parallel), a12→2 (Erzeugnisse /
+drei Maschinen). Rest KEEP. Thema 5: alle 6 sind zusammenhängende Ein-Setup-
+Herleitungen (bzw. Trivial-Checkliste a01) → KEEP, keine Änderung.
+
+**Atomisierung abgeschlossen.** Gesamt 169 Übungsaufgaben, 58 Formelkarten.
 
 ## Verifikation nach jeder Datei
 
@@ -73,8 +80,9 @@ keine fehlenden/orphan/doppelten IDs. Danach optional Browser-Smoketest:
 
 ## Offene Punkte
 
-- Thema 4 umbauen + verifizieren
-- Thema 5 feinprüfen
-- README-Aufgabenzahl ggf. aktualisieren (steigt mit jedem Thema)
-- Browser-Smoketest über alle Themen + Zufallsmix
+- ~~Thema 4 umbauen + verifizieren~~ ✓ (17 Karten, Verifikation sauber)
+- ~~Thema 5 feinprüfen~~ ✓ (alles KEEP)
+- ~~README-Aufgabenzahl aktualisieren~~ ✓ (69 → 169 Übungsaufgaben, 82 → 58 Formelkarten)
+- ~~Browser-Smoketest über alle Themen~~ ✓ (Dashboard zeigt 69/54/23/17/6; Split-Karten
+  t4-a06a/a07b/a12b rendern mit KaTeX korrekt)
 - **Commit/Push:** auf Zuruf (der Nutzer pusht bewusst, nicht automatisch).
