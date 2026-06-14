@@ -294,6 +294,9 @@
       '<div class="aufgabe-quelle">' + aufgabe.quelle + " · " + sterne(aufgabe.schwierigkeit) + " " + typChip(aufgabe) + "</div>" +
       '<div class="card aufgabe-text">' + md(aufgabe.aufgabe) + "</div>";
 
+    // Handschrift-Notizfeld (Stylus auf Tablets) direkt unter der Aufgabe.
+    html += Scratch.html();
+
     if (aufgabe.hinweis) {
       html += hinweisAn
         ? '<div class="hinweis-box">💡 ' + md(aufgabe.hinweis) + "</div>"
@@ -360,6 +363,10 @@
     }
 
     app.innerHTML = html;
+
+    // Canvas neu aufbauen und gespeicherte Zeichnung wiederherstellen
+    // (renderAufgabe läuft bei jedem Toggle erneut).
+    Scratch.init(aufgabe.id);
 
     const hb = document.getElementById("hinweis-btn");
     if (hb) hb.addEventListener("click", () => {

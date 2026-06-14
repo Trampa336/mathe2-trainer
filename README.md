@@ -28,6 +28,9 @@ python3 -m http.server 8742
 - Selbsteinschätzung pro Aufgabe (Sicher / Mit Hilfe / Nicht gekonnt) steuert
   die Schwache-Themen-Hinweise auf dem Dashboard
 - Themen lassen sich ausblenden (falls etwas nicht klausurrelevant ist)
+- **Handschrift-Notizfeld** unter jeder Aufgabe: mit dem Stylus rechnen wie auf einem
+  Schmierzettel (Stift/Radierer/Leeren). Auf Android-Tablets zeichnet der Stift, ein
+  Finger scrollt. Die Notiz wird pro Aufgabe gespeichert.
 - Fortschritt liegt im localStorage des Browsers (pro Gerät/Browser getrennt)
 
 ## Themen
@@ -46,3 +49,10 @@ Ordner `Mathematik 2/Repetitorien/`.
 Aufgaben/Karten liegen in `data/thema*.js` als einfache JS-Objekte mit
 LaTeX-Strings (`$…$` inline, `$$…$$` abgesetzt, `**fett**`, Zeilenumbrüche).
 Neue Aufgabe = Objekt in das `aufgaben`-Array kopieren und anpassen.
+
+## Mitarbeit / Branching
+
+- Jede neue Funktion auf einem eigenen Branch entwickeln: `feature/<kurz-beschreibung>`
+  (z. B. `feature/handwriting-scratchpad`). **Nicht direkt auf `main` arbeiten.**
+- Pro Feature ein Pull Request; `main` bleibt jederzeit lauffähig/deploybar
+  (GitHub Pages deployt von `main`).

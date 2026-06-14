@@ -4,6 +4,7 @@
   "use strict";
 
   const KEY = "mathe2.v1";
+  const SKETCH_KEY = "mathe2.sketch.v1"; // Handschrift-Notizen, eigener Schlüssel
 
   function load() {
     try {
@@ -23,6 +24,26 @@
       localStorage.setItem(KEY, JSON.stringify(state));
     } catch (e) {
       /* z.B. Speicher voll – App funktioniert trotzdem, nur ohne Persistenz */
+    }
+  }
+
+  // Skizzen liegen bewusst unter einem eigenen Schlüssel: läuft der Speicher
+  // durch große PNGs voll, bleiben Bewertungen und Leitner-Boxen unberührt.
+  function loadSketches() {
+    try {
+      return JSON.parse(localStorage.getItem(SKETCH_KEY)) || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  let sketches = loadSketches(); // aufgabeId -> dataURL (PNG)
+
+  function saveSketches() {
+    try {
+      localStorage.setItem(SKETCH_KEY, JSON.stringify(sketches));
+    } catch (e) {
+      /* Speicher voll – Zeichnung bleibt für die Sitzung erhalten, nur nicht persistent */
     }
   }
 
@@ -50,9 +71,22 @@
       else state.hidden.push(themaId);
       save();
     },
+    getSketch(aufgabeId) {
+      return sketches[aufgabeId] || null;
+    },
+    setSketch(aufgabeId, dataUrl) {
+      sketches[aufgabeId] = dataUrl;
+      saveSketches();
+    },
+    clearSketch(aufgabeId) {
+      delete sketches[aufgabeId];
+      saveSketches();
+    },
     resetAll() {
       state = { aufgaben: {}, karten: {}, hidden: [] };
       save();
+      sketches = {};
+      saveSketches();
     },
   };
 })();
