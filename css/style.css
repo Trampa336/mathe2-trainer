@@ -317,6 +317,33 @@ h2 { font-size: 1.1rem; margin: 1.2rem 0 0.6rem; }
 
 .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.2rem 0; }
 
+/* ---------- Handschrift-Notizfeld ---------- */
+.scratch { display: flex; flex-direction: column; gap: 0.6rem; }
+.scratch-bar { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.scratch-titel { font-weight: 700; font-size: 0.9rem; color: var(--grau); margin-right: auto; }
+.scratch-tool, .scratch-leeren {
+  border: 1px solid var(--rand);
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.scratch-tool.aktiv { background: var(--akzent); color: #17130c; border-color: var(--akzent); }
+.scratch-leeren { color: var(--grau); }
+.scratch-tool:active, .scratch-leeren:active { opacity: 0.85; }
+.scratch-canvas {
+  display: block;
+  width: 100%;
+  height: 320px;
+  background: var(--surface-2);
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  touch-action: pan-y; /* Finger scrollt vertikal, Stift zeichnet */
+  cursor: crosshair;
+}
+
 @media (max-width: 480px) {
   .container { padding: 0.7rem; }
   .card { padding: 0.8rem; }
