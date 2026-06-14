@@ -9,41 +9,67 @@ window.MATHE2_DATA.themen.push({
   untertitel: "Ebene & räumliche Bereichsintegrale, Polar-/Zylinder-/Kugelkoordinaten, Kurvenintegrale 1. und 2. Art",
   einfuehrung: `**Worum geht es?** Integrieren über Flächen, Körper und Kurven statt nur über Intervalle. Das Prinzip ist immer gleich: Bereich beschreiben (Grenzen!), Integral von innen nach außen abarbeiten. Die Kunst ist die **Wahl der Koordinaten** – kartesisch, polar, zylindrisch oder kugelig – sie entscheidet, ob die Rechnung 3 Zeilen oder 3 Seiten lang wird. Laut Repetitorien ein Klausurschwerpunkt!`,
   bloecke: [
-    { titel: "Ebene Bereichsintegrale (kartesisch)", intro: `Doppelintegrale $\\iint_B f\\,db$ über Normalbereiche: Randkurven schneiden, Grenzen aufstellen, von innen nach außen integrieren. Mit $f=1$ entsteht die **Fläche**, mit $f=\\varrho$ die **Masse**, mit $f=x$ bzw. $f=y$ der **Schwerpunkt** – und mit Dreifachintegralen das **Volumen**.`, aufgaben: ["t3-a01","t3-a02","t3-a03","t3-a04"] },
-    { titel: "Polarkoordinaten", intro: `Sobald Kreise, Ringe oder Sektoren auftauchen (oder $x^2+y^2$ im Integranden steht), wechselt man zu $x=r\\cos\\varphi$, $y=r\\sin\\varphi$ – **mit Flächenelement $db=r\\,dr\\,d\\varphi$** (das $r$ ist der häufigste Klausurfehler!). Die Grenzen werden dann konstant und das Integral zerfällt in Faktoren.`, aufgaben: ["t3-a05","t3-a06","t3-a09"] },
-    { titel: "Räumliche Integrale: Zylinder- & Kugelkoordinaten", intro: `Dasselbe Spiel in 3D: rotationssymmetrische Körper (Kegel, Bohrungen, Tori) in **Zylinderkoordinaten** ($db=r\\,dz\\,dr\\,d\\varphi$), Kugeln und Schalen in **Kugelkoordinaten** ($db=r^2\\sin\\vartheta\\,...$). Erster Schritt ist immer die **Beschreibung des Körpers** in den neuen Koordinaten – das allein gibt in der Klausur schon Punkte.`, aufgaben: ["t3-a07","t3-a08","t3-a10","t3-a15","t3-a11","t3-a12"] },
-    { titel: "Kurvenintegrale", intro: `Integriert wird entlang einer Kurve $\\vec r(t)$. **1. Art** (skalar: Länge, Masse eines Drahtes): mit $|\\vec r\\,'(t)|\\,dt$. **2. Art** (vektoriell: Arbeit im Kraftfeld): mit dem Skalarprodukt $\\vec F\\cdot\\vec r\\,'(t)\\,dt$. Beide laufen auf ein gewöhnliches Integral über $t$ hinaus.`, aufgaben: ["t3-a13","t3-a14"] },
+    { titel: "Ebene Bereichsintegrale (kartesisch)", intro: `Doppelintegrale $\\iint_B f\\,db$ über Normalbereiche: Randkurven schneiden, Grenzen aufstellen, von innen nach außen integrieren. Mit $f=1$ entsteht die **Fläche**, mit $f=\\varrho$ die **Masse**, mit $f=x$ bzw. $f=y$ der **Schwerpunkt** – und mit Dreifachintegralen das **Volumen**.`, aufgaben: ["t3-a01a","t3-a01b","t3-a01c","t3-a02","t3-a03","t3-a04a","t3-a04b"] },
+    { titel: "Polarkoordinaten", intro: `Sobald Kreise, Ringe oder Sektoren auftauchen (oder $x^2+y^2$ im Integranden steht), wechselt man zu $x=r\\cos\\varphi$, $y=r\\sin\\varphi$ – **mit Flächenelement $db=r\\,dr\\,d\\varphi$** (das $r$ ist der häufigste Klausurfehler!). Die Grenzen werden dann konstant und das Integral zerfällt in Faktoren.`, aufgaben: ["t3-a05","t3-a06","t3-a09a","t3-a09b","t3-a09c"] },
+    { titel: "Räumliche Integrale: Zylinder- & Kugelkoordinaten", intro: `Dasselbe Spiel in 3D: rotationssymmetrische Körper (Kegel, Bohrungen, Tori) in **Zylinderkoordinaten** ($db=r\\,dz\\,dr\\,d\\varphi$), Kugeln und Schalen in **Kugelkoordinaten** ($db=r^2\\sin\\vartheta\\,...$). Erster Schritt ist immer die **Beschreibung des Körpers** in den neuen Koordinaten – das allein gibt in der Klausur schon Punkte.`, aufgaben: ["t3-a07","t3-a08","t3-a10","t3-a15","t3-a11a","t3-a11b","t3-a12"] },
+    { titel: "Kurvenintegrale", intro: `Integriert wird entlang einer Kurve $\\vec r(t)$. **1. Art** (skalar: Länge, Masse eines Drahtes): mit $|\\vec r\\,'(t)|\\,dt$. **2. Art** (vektoriell: Arbeit im Kraftfeld): mit dem Skalarprodukt $\\vec F\\cdot\\vec r\\,'(t)\\,dt$. Beide laufen auf ein gewöhnliches Integral über $t$ hinaus.`, aufgaben: ["t3-a13a","t3-a13b","t3-a14a","t3-a14b"] },
   ],
   aufgaben: [
     {
-      id: "t3-a01",
+      id: "t3-a01a",
       typ: "Rechentechnik",
-      titel: "Ebene Bereichsintegrale (kartesisch)",
-      quelle: "Übungsblatt 9, Aufgabe 1",
+      titel: "Ebenes Bereichsintegral (a)",
+      quelle: "Übungsblatt 9, Aufgabe 1a",
       schwierigkeit: 2,
       video: "Bsp41–Bsp46 (Ebene Bereichsintegrale)",
-      aufgabe: `Skizzieren Sie jeweils $B$ und berechnen Sie $I=\\iint_B f(x,y)\\,db$:
-**(a)** $f=x^2+4y$, $\\;B=\\{y\\ge\\frac{x^2}4,\\ x\\ge2y-12\\}$
-**(b)** $f=xy$, $\\;B=\\{0\\le x\\le2,\\ y\\ge0,\\ y\\le x^2,\\ y\\le2-x\\}$
-**(c)** $f=2xy+1$, $\\;B=\\{y\\ge x^2,\\ y\\le x+2,\\ y\\ge2x\\}$`,
-      hinweis: `Normalbereich bzgl. $x$ aufstellen: Schnittpunkte der Randkurven bestimmen, dann $\\int_{x_1}^{x_2}\\int_{y_u(x)}^{y_o(x)}f\\,dy\\,dx$. Bei (b) und (c) muss der Bereich in zwei Teile zerlegt werden!`,
+      aufgabe: `Skizzieren Sie $B$ und berechnen Sie $I=\\iint_B f(x,y)\\,db$:
+$f=x^2+4y$, $\\;B=\\{y\\ge\\frac{x^2}4,\\ x\\ge2y-12\\}$`,
+      hinweis: `Normalbereich bzgl. $x$ aufstellen: Schnittpunkte der Randkurven bestimmen, dann $\\int_{x_1}^{x_2}\\int_{y_u(x)}^{y_o(x)}f\\,dy\\,dx$.`,
       schritte: [
-        { titel: "(a) Grenzen", text: `Parabel $y=\\frac{x^2}4$ unten, Gerade $x=2y-12\\Leftrightarrow y=\\frac{x+12}2$ oben.
+        { titel: "Grenzen", text: `Parabel $y=\\frac{x^2}4$ unten, Gerade $x=2y-12\\Leftrightarrow y=\\frac{x+12}2$ oben.
 Schnitt: $\\frac{x^2}4=\\frac{x+12}2\\Rightarrow x^2-2x-24=0\\Rightarrow x=-4,\\ x=6$` },
-        { titel: "(a) Integrieren", text: `$$I=\\int_{-4}^{6}\\int_{x^2/4}^{(x+12)/2}(x^2+4y)\\,dy\\,dx=\\int_{-4}^6\\Big(-\\tfrac38x^4+\\tfrac{x^3}2+\\tfrac{13}2x^2+12x+72\\Big)dx$$
+        { titel: "Lösung", text: `$$I=\\int_{-4}^{6}\\int_{x^2/4}^{(x+12)/2}(x^2+4y)\\,dy\\,dx=\\int_{-4}^6\\Big(-\\tfrac38x^4+\\tfrac{x^3}2+\\tfrac{13}2x^2+12x+72\\Big)dx$$
 $$=-660+130+\\tfrac{1820}3+120+720=\\frac{2750}{3}\\approx916{,}7$$` },
-        { titel: "(b) Bereich teilen", text: `Obergrenze ist $\\min(x^2,\\,2-x)$; Schnitt $x^2=2-x$ bei $x=1$:
+      ],
+      ergebnis: `$I=\\frac{2750}3\\approx916{,}7$`,
+    },
+    {
+      id: "t3-a01b",
+      typ: "Rechentechnik",
+      titel: "Ebenes Bereichsintegral (b)",
+      quelle: "Übungsblatt 9, Aufgabe 1b",
+      schwierigkeit: 2,
+      video: "Bsp41–Bsp46 (Ebene Bereichsintegrale)",
+      aufgabe: `Skizzieren Sie $B$ und berechnen Sie $I=\\iint_B f(x,y)\\,db$:
+$f=xy$, $\\;B=\\{0\\le x\\le2,\\ y\\ge0,\\ y\\le x^2,\\ y\\le2-x\\}$`,
+      hinweis: `Normalbereich bzgl. $x$. Die Obergrenze ist $\\min(x^2,2-x)$ – der Bereich muss in zwei Teile zerlegt werden!`,
+      schritte: [
+        { titel: "Bereich teilen", text: `Obergrenze ist $\\min(x^2,\\,2-x)$; Schnitt $x^2=2-x$ bei $x=1$:
 $x\\in[0,1]$: $y\\in[0,x^2]$, $\\quad x\\in[1,2]$: $y\\in[0,2-x]$` },
-        { titel: "(b) Integrieren", text: `$$I=\\int_0^1 x\\cdot\\frac{x^4}2dx+\\int_1^2 x\\cdot\\frac{(2-x)^2}2dx=\\Big[\\frac{x^6}{12}\\Big]_0^1+\\frac12\\Big[2x^2-\\frac43x^3+\\frac{x^4}4\\Big]_1^2$$
+        { titel: "Lösung", text: `$$I=\\int_0^1 x\\cdot\\frac{x^4}2dx+\\int_1^2 x\\cdot\\frac{(2-x)^2}2dx=\\Big[\\frac{x^6}{12}\\Big]_0^1+\\frac12\\Big[2x^2-\\frac43x^3+\\frac{x^4}4\\Big]_1^2$$
 $$=\\frac1{12}+\\frac12\\Big(\\frac43-\\frac{11}{12}\\Big)=\\frac1{12}+\\frac5{24}=\\frac{7}{24}$$` },
-        { titel: "(c) Bereich teilen", text: `Untere Grenze $\\max(x^2,2x)$, obere $x+2$.
+      ],
+      ergebnis: `$I=\\frac7{24}$`,
+    },
+    {
+      id: "t3-a01c",
+      typ: "Rechentechnik",
+      titel: "Ebenes Bereichsintegral (c)",
+      quelle: "Übungsblatt 9, Aufgabe 1c",
+      schwierigkeit: 2,
+      video: "Bsp41–Bsp46 (Ebene Bereichsintegrale)",
+      aufgabe: `Skizzieren Sie $B$ und berechnen Sie $I=\\iint_B f(x,y)\\,db$:
+$f=2xy+1$, $\\;B=\\{y\\ge x^2,\\ y\\le x+2,\\ y\\ge2x\\}$`,
+      hinweis: `Normalbereich bzgl. $x$. Untere Grenze $\\max(x^2,2x)$ – der Bereich muss in zwei Teile zerlegt werden!`,
+      schritte: [
+        { titel: "Bereich teilen", text: `Untere Grenze $\\max(x^2,2x)$, obere $x+2$.
 $x\\in[-1,0]$: $y\\in[x^2,x+2]$ · $x\\in[0,2]$: $y\\in[2x,x+2]$
 (Schnittpunkte: $x^2=x+2$ bei $x=-1$; $2x=x+2$ bei $x=2$; $x^2=2x$ bei $x=0$)` },
-        { titel: "(c) Integrieren", text: `Inneres Integral: $\\big[xy^2+y\\big]_{y_u}^{y_o}$.
+        { titel: "Lösung", text: `Inneres Integral: $\\big[xy^2+y\\big]_{y_u}^{y_o}$.
 $$\\int_{-1}^0\\big(-x^5+x^3+3x^2+5x+2\\big)dx=\\frac5{12},\\qquad \\int_0^2\\big(-3x^3+4x^2+3x+2\\big)dx=\\frac{26}3$$
 $$I=\\frac5{12}+\\frac{26}3=\\frac{109}{12}\\approx9{,}08$$` },
       ],
-      ergebnis: `(a) $\\frac{2750}3$ · (b) $\\frac7{24}$ · (c) $\\frac{109}{12}$`,
+      ergebnis: `$I=\\frac{109}{12}\\approx9{,}08$`,
     },
     {
       id: "t3-a02",
@@ -84,26 +110,39 @@ $$y_0=\\frac{664/15}{44/3}=\\frac{166}{55}\\approx3{,}02$$` },
       ergebnis: `$Fl(B)=\\frac{44}3$, Schwerpunkt $(x_0,y_0)=\\big(0,\\frac{166}{55}\\big)\\approx(0;\\,3{,}02)$`,
     },
     {
-      id: "t3-a04",
+      id: "t3-a04a",
       typ: "Anwendung",
-      titel: "Tetraeder-Volumina",
-      quelle: "Übungsblatt 9, Aufgabe 4",
+      titel: "Tetraeder-Volumen (a)",
+      quelle: "Übungsblatt 9, Aufgabe 4a",
       schwierigkeit: 2,
-      aufgabe: `Berechnen Sie $V(T)=\\iiint_T1\\,db$ der Tetraeder:
-**(a)** $T$ begrenzt von $x=0$, $y=1$, $z=0$ und $x+2y+z=4$
-**(b)** $T$ begrenzt von $x=2$, $y=1$, $z=0$ und $x+y+z=8$`,
+      aufgabe: `Berechnen Sie $V(T)=\\iiint_T1\\,db$ des Tetraeders $T$, begrenzt von
+$x=0$, $y=1$, $z=0$ und $x+2y+z=4$.`,
       hinweis: `$z$ läuft von 0 bis zur schrägen Ebene; danach Normalbereich in der $x,y$-Ebene. Kontrolle: Spat-Formel $V=\\frac16|\\det(\\vec a,\\vec b,\\vec c)|$ mit den Kantenvektoren.`,
       schritte: [
-        { titel: "(a) Grenzen", text: `$z$ von $0$ bis $4-x-2y$; in der Ebene: $x\\ge0$, $y\\ge1$, $x\\le4-2y$ ⟹ $y\\in[1,2]$:
+        { titel: "Grenzen", text: `$z$ von $0$ bis $4-x-2y$; in der Ebene: $x\\ge0$, $y\\ge1$, $x\\le4-2y$ ⟹ $y\\in[1,2]$:
 $$V=\\int_1^2\\int_0^{4-2y}(4-x-2y)\\,dx\\,dy$$` },
-        { titel: "(a) Auswerten", text: `Inneres Integral $=\\frac{(4-2y)^2}{2}$:
+        { titel: "Lösung", text: `Inneres Integral $=\\frac{(4-2y)^2}{2}$:
 $$V=\\frac12\\int_1^2(4-2y)^2dy=\\frac12\\Big[-\\frac{(4-2y)^3}{6}\\Big]_1^2=\\frac12\\cdot\\frac{8}{6}=\\frac{2}{3}$$
 Kontrolle: Ecken $(0,1,0),(2,1,0),(0,2,0),(0,1,2)$ ⟹ $V=\\frac16|{\\det}|=\\frac16\\cdot4=\\frac23$ ✓` },
-        { titel: "(b) Analog", text: `$z$ von $0$ bis $8-x-y$; $x\\ge2$, $y\\ge1$, $x\\le8-y$ ⟹ $y\\in[1,6]$:
-$$V=\\int_1^6\\int_2^{8-y}(8-x-y)\\,dx\\,dy=\\frac12\\int_1^6(6-y)^2dy=\\frac12\\cdot\\frac{125}{3}=\\frac{125}{6}$$
+      ],
+      ergebnis: `$V=\\frac23$`,
+    },
+    {
+      id: "t3-a04b",
+      typ: "Anwendung",
+      titel: "Tetraeder-Volumen (b)",
+      quelle: "Übungsblatt 9, Aufgabe 4b",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie $V(T)=\\iiint_T1\\,db$ des Tetraeders $T$, begrenzt von
+$x=2$, $y=1$, $z=0$ und $x+y+z=8$.`,
+      hinweis: `$z$ läuft von 0 bis zur schrägen Ebene; danach Normalbereich in der $x,y$-Ebene. Kontrolle: Spat-Formel $V=\\frac16|\\det(\\vec a,\\vec b,\\vec c)|$ mit den Kantenvektoren.`,
+      schritte: [
+        { titel: "Grenzen", text: `$z$ von $0$ bis $8-x-y$; $x\\ge2$, $y\\ge1$, $x\\le8-y$ ⟹ $y\\in[1,6]$:
+$$V=\\int_1^6\\int_2^{8-y}(8-x-y)\\,dx\\,dy$$` },
+        { titel: "Lösung", text: `$$V=\\frac12\\int_1^6(6-y)^2dy=\\frac12\\cdot\\frac{125}{3}=\\frac{125}{6}$$
 Kontrolle: Kanten von $(2,1,0)$: $(5,0,0),(0,5,0),(0,0,5)$ ⟹ $V=\\frac{125}6$ ✓` },
       ],
-      ergebnis: `(a) $V=\\frac23$ · (b) $V=\\frac{125}6\\approx20{,}83$`,
+      ergebnis: `$V=\\frac{125}6\\approx20{,}83$`,
     },
     {
       id: "t3-a05",
@@ -180,24 +219,48 @@ Kontrolle: halber Kegel $=\\frac12\\cdot\\frac13\\pi R^2h=\\frac12\\cdot\\frac13
       ergebnis: `(b) halber Kreiskegel · (d) $V=\\frac{64\\pi}3\\approx67{,}0$`,
     },
     {
-      id: "t3-a09",
+      id: "t3-a09a",
       typ: "Rechentechnik",
-      titel: "Polarkoordinaten-Training (selbständig)",
-      quelle: "Übungsblatt 10, Aufgabe 5",
+      titel: "Polarkoordinaten-Training (a)",
+      quelle: "Übungsblatt 10, Aufgabe 5a",
       schwierigkeit: 2,
       aufgabe: `Berechnen Sie mit Polarkoordinaten $I=\\iint_Bf\\,db$:
-**(a)** $f=xy$, $B$: Halbkreis $x^2+y^2\\le a^2$, $x\\ge0$
-**(b)** $f=x^2+y^2$, $B$: $1\\le x^2+y^2\\le4$, $y\\ge0$
-**(c)** $f=4x^2+4y^2$, $B$: $x^2+y^2\\le16$, $y\\ge-x$`,
-      hinweis: `(a) $\\varphi\\in[-\\frac\\pi2,\\frac\\pi2]$ – was passiert mit $\\int\\sin\\varphi\\cos\\varphi$ über das symmetrische Intervall? (c) $y\\ge-x$ ⟹ $\\varphi\\in[-\\frac\\pi4,\\frac{3\\pi}4]$.`,
+$f=xy$, $B$: Halbkreis $x^2+y^2\\le a^2$, $x\\ge0$`,
+      hinweis: `$\\varphi\\in[-\\frac\\pi2,\\frac\\pi2]$ – was passiert mit $\\int\\sin\\varphi\\cos\\varphi$ über das symmetrische Intervall?`,
       schritte: [
-        { titel: "Teil (a)", text: `$$I=\\int_{-\\pi/2}^{\\pi/2}\\int_0^a r^2\\cos\\varphi\\sin\\varphi\\cdot r\\,dr\\,d\\varphi=\\frac{a^4}4\\cdot\\Big[\\frac{\\sin^2\\varphi}2\\Big]_{-\\pi/2}^{\\pi/2}=\\frac{a^4}4\\cdot0=0$$
+        { titel: "Lösung", text: `$$I=\\int_{-\\pi/2}^{\\pi/2}\\int_0^a r^2\\cos\\varphi\\sin\\varphi\\cdot r\\,dr\\,d\\varphi=\\frac{a^4}4\\cdot\\Big[\\frac{\\sin^2\\varphi}2\\Big]_{-\\pi/2}^{\\pi/2}=\\frac{a^4}4\\cdot0=0$$
 (Symmetrie: $B$ symmetrisch zu $y=0$, $f$ dort ungerade ⟹ 0)` },
-        { titel: "Teil (b)", text: `$$I=\\int_0^\\pi\\int_1^2 r^2\\cdot r\\,dr\\,d\\varphi=\\pi\\Big[\\frac{r^4}4\\Big]_1^2=\\pi\\cdot\\frac{15}4=\\frac{15\\pi}4$$` },
-        { titel: "Teil (c)", text: `Halbkreisscheibe oberhalb von $y=-x$: $\\varphi\\in[-\\frac\\pi4,\\frac{3\\pi}4]$ (Länge $\\pi$):
+      ],
+      ergebnis: `$I=0$`,
+    },
+    {
+      id: "t3-a09b",
+      typ: "Rechentechnik",
+      titel: "Polarkoordinaten-Training (b)",
+      quelle: "Übungsblatt 10, Aufgabe 5b",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie mit Polarkoordinaten $I=\\iint_Bf\\,db$:
+$f=x^2+y^2$, $B$: $1\\le x^2+y^2\\le4$, $y\\ge0$`,
+      hinweis: `$y\\ge0$ ⟹ $\\varphi\\in[0,\\pi]$; im Integranden $x^2+y^2=r^2$, Flächenelement $r\\,dr\\,d\\varphi$.`,
+      schritte: [
+        { titel: "Lösung", text: `$$I=\\int_0^\\pi\\int_1^2 r^2\\cdot r\\,dr\\,d\\varphi=\\pi\\Big[\\frac{r^4}4\\Big]_1^2=\\pi\\cdot\\frac{15}4=\\frac{15\\pi}4$$` },
+      ],
+      ergebnis: `$I=\\frac{15\\pi}4$`,
+    },
+    {
+      id: "t3-a09c",
+      typ: "Rechentechnik",
+      titel: "Polarkoordinaten-Training (c)",
+      quelle: "Übungsblatt 10, Aufgabe 5c",
+      schwierigkeit: 2,
+      aufgabe: `Berechnen Sie mit Polarkoordinaten $I=\\iint_Bf\\,db$:
+$f=4x^2+4y^2$, $B$: $x^2+y^2\\le16$, $y\\ge-x$`,
+      hinweis: `$y\\ge-x$ ⟹ $\\varphi\\in[-\\frac\\pi4,\\frac{3\\pi}4]$ (Länge $\\pi$).`,
+      schritte: [
+        { titel: "Lösung", text: `Halbkreisscheibe oberhalb von $y=-x$: $\\varphi\\in[-\\frac\\pi4,\\frac{3\\pi}4]$ (Länge $\\pi$):
 $$I=\\int_{-\\pi/4}^{3\\pi/4}\\int_0^4 4r^2\\cdot r\\,dr\\,d\\varphi=\\pi\\cdot\\big[r^4\\big]_0^4=256\\pi$$` },
       ],
-      ergebnis: `(a) $0$ · (b) $\\frac{15\\pi}4$ · (c) $256\\pi$`,
+      ergebnis: `$I=256\\pi$`,
     },
     {
       id: "t3-a10",
@@ -217,24 +280,35 @@ $$z_0=\\frac{364\\pi/27}{40\\pi/3}=\\frac{91}{90}\\approx1{,}01$$` },
       ergebnis: `(c) $V=\\frac{40\\pi}3$ · (d) $z_0=\\frac{91}{90}\\approx1{,}01$`,
     },
     {
-      id: "t3-a11",
+      id: "t3-a11a",
       typ: "Klausurtyp",
-      titel: "Torus & durchbohrte Halbkugel",
-      quelle: "Übungsblatt 11, Aufgaben 1 & 2",
+      titel: "Elliptischer Torus (Zylinderkoordinaten)",
+      quelle: "Übungsblatt 11, Aufgabe 1",
       schwierigkeit: 3,
-      aufgabe: `**(A)** Die Ellipse $\\frac{(x-7)^2}{3^2}+\\frac{z^2}{2^2}=1$ rotiert um die $z$-Achse (elliptischer Torus $T$). Geben Sie $V(T)$ als Dreifach-Integral in Zylinderkoordinaten an – mit Reihenfolge (a) $dz\\,dr\\,d\\varphi$ und (b) $dr\\,dz\\,d\\varphi$. (Zusatz: $V=?$)
-**(B)** Eine obere Halbkugel (Radius 3) ist zentrisch zylindrisch durchbohrt (Radius 1). Volumen des Restkörpers?`,
-      hinweis: `(A) Ellipse nach $z$ bzw. $r$ auflösen: $z=\\pm\\frac23\\sqrt{9-(r-7)^2}$ bzw. $r=7\\pm\\frac32\\sqrt{4-z^2}$. (B) $r$ von 1 bis 3, $z$ bis $\\sqrt{9-r^2}$.`,
+      aufgabe: `Die Ellipse $\\frac{(x-7)^2}{3^2}+\\frac{z^2}{2^2}=1$ rotiert um die $z$-Achse (elliptischer Torus $T$). Geben Sie $V(T)$ als Dreifach-Integral in Zylinderkoordinaten an – mit Reihenfolge (a) $dz\\,dr\\,d\\varphi$ und (b) $dr\\,dz\\,d\\varphi$. Berechnen Sie $V$.`,
+      hinweis: `Ellipse nach $z$ bzw. $r$ auflösen: $z=\\pm\\frac23\\sqrt{9-(r-7)^2}$ bzw. $r=7\\pm\\frac32\\sqrt{4-z^2}$.`,
       schritte: [
-        { titel: "(A) Reihenfolge (a)", text: `$$V=\\int_0^{2\\pi}\\int_4^{10}\\int_{-\\frac23\\sqrt{9-(r-7)^2}}^{\\frac23\\sqrt{9-(r-7)^2}}r\\,dz\\,dr\\,d\\varphi$$` },
-        { titel: "(A) Reihenfolge (b)", text: `$$V=\\int_0^{2\\pi}\\int_{-2}^{2}\\int_{7-\\frac32\\sqrt{4-z^2}}^{7+\\frac32\\sqrt{4-z^2}}r\\,dr\\,dz\\,d\\varphi$$
-Zusatz: inneres Integral $\\frac12(r_o^2-r_u^2)=\\frac12\\cdot 7\\cdot 2\\cdot3\\sqrt{4-z^2}=21\\sqrt{4-z^2}$,
+        { titel: "Reihenfolge (a)", text: `$$V=\\int_0^{2\\pi}\\int_4^{10}\\int_{-\\frac23\\sqrt{9-(r-7)^2}}^{\\frac23\\sqrt{9-(r-7)^2}}r\\,dz\\,dr\\,d\\varphi$$` },
+        { titel: "Reihenfolge (b) + Wert", text: `$$V=\\int_0^{2\\pi}\\int_{-2}^{2}\\int_{7-\\frac32\\sqrt{4-z^2}}^{7+\\frac32\\sqrt{4-z^2}}r\\,dr\\,dz\\,d\\varphi$$
+Inneres Integral $\\frac12(r_o^2-r_u^2)=\\frac12\\cdot 7\\cdot 2\\cdot3\\sqrt{4-z^2}=21\\sqrt{4-z^2}$,
 $\\int_{-2}^221\\sqrt{4-z^2}dz=21\\cdot\\frac{\\pi\\cdot4}2=42\\pi$ ⟹ $V=2\\pi\\cdot42\\pi=84\\pi^2$
 (Guldin: $V=2\\pi\\cdot7\\cdot(\\pi\\cdot3\\cdot2)=84\\pi^2$ ✓)` },
-        { titel: "(B) Bohrung", text: `$$V=\\int_0^{2\\pi}\\int_1^3\\int_0^{\\sqrt{9-r^2}}r\\,dz\\,dr\\,d\\varphi=2\\pi\\int_1^3r\\sqrt{9-r^2}\\,dr=2\\pi\\Big[-\\frac13(9-r^2)^{3/2}\\Big]_1^3$$
+      ],
+      ergebnis: `$V=84\\pi^2\\approx829$`,
+    },
+    {
+      id: "t3-a11b",
+      typ: "Klausurtyp",
+      titel: "Durchbohrte Halbkugel",
+      quelle: "Übungsblatt 11, Aufgabe 2",
+      schwierigkeit: 3,
+      aufgabe: `Eine obere Halbkugel (Radius 3) ist zentrisch zylindrisch durchbohrt (Radius 1). Berechnen Sie das Volumen des Restkörpers.`,
+      hinweis: `Zylinderkoordinaten: $r$ von 1 bis 3, $z$ bis $\\sqrt{9-r^2}$. Standard-Stammfunktion $\\int r\\sqrt{9-r^2}\\,dr=-\\frac13(9-r^2)^{3/2}$.`,
+      schritte: [
+        { titel: "Lösung", text: `$$V=\\int_0^{2\\pi}\\int_1^3\\int_0^{\\sqrt{9-r^2}}r\\,dz\\,dr\\,d\\varphi=2\\pi\\int_1^3r\\sqrt{9-r^2}\\,dr=2\\pi\\Big[-\\frac13(9-r^2)^{3/2}\\Big]_1^3$$
 $$=2\\pi\\cdot\\frac{8^{3/2}}3=\\frac{32\\sqrt2\\,\\pi}{3}\\approx47{,}4$$` },
       ],
-      ergebnis: `(A) $V=84\\pi^2$ · (B) $V=\\frac{32\\sqrt2\\pi}3$`,
+      ergebnis: `$V=\\frac{32\\sqrt2\\pi}3\\approx47{,}4$`,
     },
     {
       id: "t3-a12",
@@ -255,35 +329,47 @@ $$m=2\\pi\\cdot15\\cdot\\frac12=15\\pi$$` },
       ergebnis: `$m=15\\pi$`,
     },
     {
-      id: "t3-a13",
+      id: "t3-a13a",
       typ: "Klausurtyp",
-      titel: "Kurvenintegrale 1. und 2. Art",
-      quelle: "Übungsblatt 11, Aufgabe 4",
+      titel: "Kurvenintegral 1. Art: Länge (a)",
+      quelle: "Übungsblatt 11, Aufgabe 4a",
       schwierigkeit: 2,
       video: "Bsp50–Bsp52 (Kurvenintegrale)",
       aufgabe: `Kurve $K$: $\\vec r(t)=\\begin{pmatrix}\\sin t+2\\\\\\cos t\\\\\\frac23(t-1)^{3/2}\\end{pmatrix}$, $t\\in[1,4]$.
-**(a)** Länge $\\ell(K)$.
-**(b)** Arbeit $W$ im Kraftfeld $\\vec F(x,y,z)=(x-2,\\ y,\\ 3z)^T$ entlang $K$.`,
-      hinweis: `(a) $\\ell=\\int|\\vec r\\,'(t)|\\,dt$. (b) $W=\\int_K\\vec F\\cdot d\\vec r=\\int \\vec F(\\vec r(t))\\cdot\\vec r\\,'(t)\\,dt$.`,
+Berechnen Sie die Länge $\\ell(K)$.`,
+      hinweis: `$\\ell=\\int|\\vec r\\,'(t)|\\,dt$ – Tangentenvektor bilden, Betrag vereinfachen.`,
       schritte: [
-        { titel: "(a) Tangentenvektor", text: `$$\\vec r\\,'(t)=\\begin{pmatrix}\\cos t\\\\-\\sin t\\\\(t-1)^{1/2}\\end{pmatrix},\\qquad |\\vec r\\,'(t)|=\\sqrt{\\cos^2t+\\sin^2t+(t-1)}=\\sqrt t$$` },
-        { titel: "(a) Länge", text: `$$\\ell(K)=\\int_1^4\\sqrt t\\,dt=\\Big[\\frac23t^{3/2}\\Big]_1^4=\\frac23(8-1)=\\frac{14}3$$` },
-        { titel: "(b) Skalarprodukt", text: `$\\vec F(\\vec r(t))=\\big(\\sin t,\\ \\cos t,\\ 2(t-1)^{3/2}\\big)^T$:
-$$\\vec F\\cdot\\vec r\\,'=\\sin t\\cos t-\\cos t\\sin t+2(t-1)^{3/2}(t-1)^{1/2}=2(t-1)^2$$` },
-        { titel: "(b) Arbeit", text: `$$W=\\int_1^4 2(t-1)^2dt=\\Big[\\frac23(t-1)^3\\Big]_1^4=\\frac23\\cdot27=18$$` },
+        { titel: "Tangentenvektor", text: `$$\\vec r\\,'(t)=\\begin{pmatrix}\\cos t\\\\-\\sin t\\\\(t-1)^{1/2}\\end{pmatrix},\\qquad |\\vec r\\,'(t)|=\\sqrt{\\cos^2t+\\sin^2t+(t-1)}=\\sqrt t$$` },
+        { titel: "Lösung", text: `$$\\ell(K)=\\int_1^4\\sqrt t\\,dt=\\Big[\\frac23t^{3/2}\\Big]_1^4=\\frac23(8-1)=\\frac{14}3$$` },
       ],
-      ergebnis: `(a) $\\ell(K)=\\frac{14}3$ · (b) $W=18$`,
+      ergebnis: `$\\ell(K)=\\frac{14}3$`,
     },
     {
-      id: "t3-a14",
+      id: "t3-a13b",
       typ: "Klausurtyp",
-      titel: "Kurvenintegrale (selbständig)",
-      quelle: "Übungsblatt 11, Aufgabe 6",
+      titel: "Kurvenintegral 2. Art: Arbeit (b)",
+      quelle: "Übungsblatt 11, Aufgabe 4b",
+      schwierigkeit: 2,
+      video: "Bsp50–Bsp52 (Kurvenintegrale)",
+      aufgabe: `Kurve $K$: $\\vec r(t)=\\begin{pmatrix}\\sin t+2\\\\\\cos t\\\\\\frac23(t-1)^{3/2}\\end{pmatrix}$, $t\\in[1,4]$.
+Berechnen Sie die Arbeit $W$ im Kraftfeld $\\vec F(x,y,z)=(x-2,\\ y,\\ 3z)^T$ entlang $K$.`,
+      hinweis: `$W=\\int_K\\vec F\\cdot d\\vec r=\\int \\vec F(\\vec r(t))\\cdot\\vec r\\,'(t)\\,dt$ mit $\\vec r\\,'(t)=(\\cos t,-\\sin t,(t-1)^{1/2})^T$.`,
+      schritte: [
+        { titel: "Skalarprodukt", text: `$\\vec F(\\vec r(t))=\\big(\\sin t,\\ \\cos t,\\ 2(t-1)^{3/2}\\big)^T$:
+$$\\vec F\\cdot\\vec r\\,'=\\sin t\\cos t-\\cos t\\sin t+2(t-1)^{3/2}(t-1)^{1/2}=2(t-1)^2$$` },
+        { titel: "Lösung", text: `$$W=\\int_1^4 2(t-1)^2dt=\\Big[\\frac23(t-1)^3\\Big]_1^4=\\frac23\\cdot27=18$$` },
+      ],
+      ergebnis: `$W=18$`,
+    },
+    {
+      id: "t3-a14a",
+      typ: "Klausurtyp",
+      titel: "Kurvenintegral 1. Art: Schnittpunkt & Masse (selbständig)",
+      quelle: "Übungsblatt 11, Aufgabe 6a/b",
       schwierigkeit: 3,
       aufgabe: `Kurve $K$: $\\vec r(t)=(1+t,\\ \\sin t-1,\\ \\cos t)^T$, $t\\in[0,\\pi]$.
 **(a)** In welchem Punkt schneidet $K$ die $x,y$-Ebene?
-**(b)** Masse $m(K)$ bei Liniendichte $\\varrho=x^2\\big[(y+1)^2+z^2\\big]$.
-**(c)** Arbeit $W$ im Kraftfeld $\\vec F=(xz,\\ y+1,\\ z)^T$.`,
+**(b)** Masse $m(K)$ bei Liniendichte $\\varrho=x^2\\big[(y+1)^2+z^2\\big]$.`,
       hinweis: `(b) ist ein KI 1. Art: $m=\\int\\varrho(\\vec r(t))\\,|\\vec r\\,'(t)|\\,dt$. Auf der Kurve gilt $(y+1)^2+z^2=\\sin^2t+\\cos^2t=1$!`,
       schritte: [
         { titel: "(a) Schnittpunkt", text: `$z=\\cos t=0\\Rightarrow t=\\frac\\pi2$:
@@ -291,12 +377,25 @@ $$P\\Big(1+\\frac\\pi2,\\ 0,\\ 0\\Big)$$` },
         { titel: "(b) Masse", text: `$\\vec r\\,'=(1,\\cos t,-\\sin t)$, $|\\vec r\\,'|=\\sqrt{1+\\cos^2t+\\sin^2t}=\\sqrt2$ (konstant!)
 $\\varrho(\\vec r(t))=(1+t)^2\\cdot[\\sin^2t+\\cos^2t]=(1+t)^2$
 $$m=\\int_0^\\pi(1+t)^2\\sqrt2\\,dt=\\sqrt2\\Big[\\frac{(1+t)^3}3\\Big]_0^\\pi=\\frac{\\sqrt2}3\\big((1+\\pi)^3-1\\big)\\approx33{,}0$$` },
-        { titel: "(c) Arbeit", text: `$\\vec F(\\vec r(t))=\\big((1+t)\\cos t,\\ \\sin t,\\ \\cos t\\big)^T$
-$$\\vec F\\cdot\\vec r\\,'=(1+t)\\cos t+\\sin t\\cos t-\\cos t\\sin t=(1+t)\\cos t$$
-$$W=\\int_0^\\pi(1+t)\\cos t\\,dt=\\big[(1+t)\\sin t+\\cos t\\big]_0^\\pi=(-1)-(1)=-2$$
+      ],
+      ergebnis: `(a) $P(1+\\frac\\pi2,0,0)$ · (b) $m=\\frac{\\sqrt2}3\\big((1+\\pi)^3-1\\big)\\approx33{,}0$`,
+    },
+    {
+      id: "t3-a14b",
+      typ: "Klausurtyp",
+      titel: "Kurvenintegral 2. Art: Arbeit (selbständig)",
+      quelle: "Übungsblatt 11, Aufgabe 6c",
+      schwierigkeit: 3,
+      aufgabe: `Kurve $K$: $\\vec r(t)=(1+t,\\ \\sin t-1,\\ \\cos t)^T$, $t\\in[0,\\pi]$.
+Berechnen Sie die Arbeit $W$ im Kraftfeld $\\vec F=(xz,\\ y+1,\\ z)^T$.`,
+      hinweis: `$W=\\int \\vec F(\\vec r(t))\\cdot\\vec r\\,'(t)\\,dt$ mit $\\vec r\\,'=(1,\\cos t,-\\sin t)^T$. Auf der Kurve heben sich zwei Terme weg; partielle Integration.`,
+      schritte: [
+        { titel: "Skalarprodukt", text: `$\\vec F(\\vec r(t))=\\big((1+t)\\cos t,\\ \\sin t,\\ \\cos t\\big)^T$
+$$\\vec F\\cdot\\vec r\\,'=(1+t)\\cos t+\\sin t\\cos t-\\cos t\\sin t=(1+t)\\cos t$$` },
+        { titel: "Lösung", text: `$$W=\\int_0^\\pi(1+t)\\cos t\\,dt=\\big[(1+t)\\sin t+\\cos t\\big]_0^\\pi=(-1)-(1)=-2$$
 (partielle Integration; negative Arbeit: Bewegung gegen das Feld)` },
       ],
-      ergebnis: `(a) $P(1+\\frac\\pi2,0,0)$ · (b) $m=\\frac{\\sqrt2}3\\big((1+\\pi)^3-1\\big)\\approx33{,}0$ · (c) $W=-2$`,
+      ergebnis: `$W=-2$`,
     },
     {
       id: "t3-a15",

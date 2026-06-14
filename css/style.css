@@ -194,6 +194,12 @@ h2 { font-size: 1.1rem; margin: 1.2rem 0 0.6rem; }
   margin: 0.8rem 0;
   overflow-x: auto;
 }
+.ergebnis-teil {
+  margin-top: 0.35rem;
+}
+.ergebnis-teil:first-child {
+  margin-top: 0.2rem;
+}
 .video-hinweis {
   color: var(--grau);
   font-size: 0.85rem;

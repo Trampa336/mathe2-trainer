@@ -304,7 +304,12 @@
     if (!loesungAn) {
       html += '<button class="btn" id="loesung-btn">✓ Lösung anzeigen</button>';
     } else {
-      html += '<div class="ergebnis-box"><strong>Ergebnis:</strong><br>' + md(aufgabe.ergebnis) + "</div>";
+      // Mehrteilige Ergebnisse (Teilaufgaben mit " · " getrennt) untereinander statt nebeneinander.
+      const teile = aufgabe.ergebnis.split(" · ");
+      const ergebnisHtml = teile.length > 1
+        ? teile.map((t) => '<div class="ergebnis-teil">' + md(t) + "</div>").join("")
+        : md(aufgabe.ergebnis);
+      html += '<div class="ergebnis-box"><strong>Ergebnis:</strong><br>' + ergebnisHtml + "</div>";
     }
 
     // Schritt-für-Schritt: ein einziger Toggle für alle Schritte
